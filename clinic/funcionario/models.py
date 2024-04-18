@@ -8,7 +8,7 @@ class Funcionario(models.Model):
         ('Feminino','Feminino'),
         ('Masculino','Masculino')
     )
-    genero_func = models.CharField(max_length=2, choices=GENEROS_FUNCIONARIO)
+    genero_func = models.CharField(max_length=9, choices=GENEROS_FUNCIONARIO)
     cpf_func = models.PositiveBigIntegerField()
     nasc_func = models.DateField(auto_now=False, auto_now_add=False)
     tel_func_1 = models.IntegerField()
@@ -27,7 +27,7 @@ class Cargo(models.Model):
         ('Assistente','Assistente'),
         ('Médico(a)','Médico(a)')
     )
-    tipos_cargo = models.CharField(max_length=3, choices=TIPOS_CARGO)
+    tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
     nome_cargo = models.CharField(max_length=100)
     descricao = models.TextField(max_length=500, null=True)
     entrada = models.TimeField(null=True)
