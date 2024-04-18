@@ -1,8 +1,9 @@
-# Clínica Vision 
+# Clínica Vision 👁️‍🗨️
+## 📍 Projeto em desenvolvimento 🚧
 
-### Olá!
+### Olá! 👋
 
-Somos a DEV TEAM! 
+Somos a DEV TEAM! 👩‍💻
 <br> [Caroline Santos](https://github.com/Caroline-Stos)
 <br> [Yutty Takeyama](https://github.com/YuttyAkiko) 
 
