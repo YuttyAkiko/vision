@@ -2,11 +2,10 @@ import re
 from django.db import models
 from django.core import validators
 from django.contrib.auth.models import (
-    AbstractBaseUser, PermissionsMixin, UserManager, User
+    AbstractBaseUser, PermissionsMixin, UserManager 
 )
 
-class User(AbstractBaseUser, PermissionsMixin): 
-    user_id     =   models.AutoField(primary_key=True)
+class Usuario(AbstractBaseUser, PermissionsMixin): 
     username = models.CharField('Usuário', max_length=30, unique=True, validators=[
             validators.RegexValidator(
                 re.compile('^[\w.@+-]+$'),
@@ -18,13 +17,28 @@ class User(AbstractBaseUser, PermissionsMixin):
         ], help_text='Um nome curto que será usado'+
                     ' para identificá-lo de forma única..'
     )
+    first_name = models.CharField(max_length=150)
     email = models.EmailField(max_length=100)
-    senha = models.CharField(max_length=16, unique=True)
     is_staff = models.BooleanField('Equipe', default=False)
     is_active = models.BooleanField('Ativo', default=True)
 
-# Criando um gerenciador de usuario para cada user criado
-User = UserManager()
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
+    # Criando um gerenciador de usuario para cada user criado
+    Usuario = UserManager()
+
+    class Meta:
+            verbose_name = 'Usuário'
+            verbose_name_plural = 'Usuários'
+
+    def __str__(self):
+        return self.name or self.username
+    
+    def get_full_name(self):
+        return str(self)
+
+    def get_short_name(self):
+        return str(self).split(' ')[0]
 
 
