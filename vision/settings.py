@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'funcionario'
+    'funcionario',
+    'paciente'
 ]
 
 MIDDLEWARE = [
@@ -122,8 +123,12 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
+<<<<<<< HEAD:clinic/vision/settings.py
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Definindo redirecionamento das urls quando o usuario fizer login e logout
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'login'
+=======
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+>>>>>>> 4fbc3eeb772e7f2073e9eaafdb4b29ad0661288c:vision/settings.py
