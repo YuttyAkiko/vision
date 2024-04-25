@@ -1,13 +1,30 @@
 
 from django.db import models
+from django.http import HttpResponse
 from django.contrib.auth.models import User
+
+class Cargo(models.Model):
+    TIPOS_CARGO = (
+        ('ADM','Administrador(a)'),
+        ('ASS','Assistente'),
+        ('MDC','Médico(a)')
+    )
+    tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
+    nome_cargo = models.CharField(max_length=100)
+    descricao = models.TextField(max_length=500, null=True)
+    entrada = models.TimeField(null=True)
+    saida = models.TimeField(null=True)
+
+    def nome_cargo(self, request):
+        nome_cargo = Cargo.tipos_cargo()
+        return (request, nome_cargo)
 
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
     sobrenome_func = models.CharField(max_length=50)
     GENEROS_FUNCIONARIO = (
-        ('Feminino','Feminino'),
-        ('Masculino','Masculino')
+        ('F','Feminino'),
+        ('M','Masculino')
     )
     genero_func = models.CharField(max_length=9, choices=GENEROS_FUNCIONARIO)
     cpf_func = models.PositiveBigIntegerField()
@@ -22,17 +39,9 @@ class Funcionario(models.Model):
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE)
     status_cad_func = models.BooleanField()
 
-class Cargo(models.Model):
-    TIPOS_CARGO = (
-        ('Administrador(a)','Administrador(a)'),
-        ('Assistente','Assistente'),
-        ('Médico(a)','Médico(a)')
-    )
-    tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
-    nome_cargo = models.CharField(max_length=100)
-    descricao = models.TextField(max_length=500, null=True)
-    entrada = models.TimeField(null=True)
-    saida = models.TimeField(null=True)
+class Especialidade(models.Model):
+    tipo_especialidade = models.CharField(max_length=30)
+    valor_consulta = models.DecimalField(max_digits=5, decimal_places=2)
 
 class Medico(models.Model):
     cnpj_med = models.CharField(max_length=12, unique=True, null=True)
@@ -40,8 +49,6 @@ class Medico(models.Model):
     id_especialidade = models.ManyToManyField('Especialidade', related_name='Medicos') # Relacionamento Muitos p/ Muitos
     id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE) # Relacionamento Um p/ Um
 
-class Especialidade(models.Model):
-    tipo_especialidade = models.CharField(max_length=30)
-    valor_consulta = models.DecimalField(max_digits=5, decimal_places=2)
+
 
 
