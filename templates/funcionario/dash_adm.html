@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+     
+    <div class="subtitle">
+        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+    </div>
+
+    <div class="btn_main">
+        <a href="">
+            <img src="/assets/img/dashboard/icone_clinica.png" alt="ícone ilustrativo clínica">
+            <h1>DADOS DA<br>CLÍNICA</h1>
+        </a>
+    </div>
+
+    <div class="btn_main">
+        <a href="">
+            <img id="centralize" src="/assets/img/dashboard/icone_agend.png" alt="ícone ilustrativo agendamento">
+            <h1>CONSULTAR<br>AGENDAMENTOS</h1>
+        </a>
+    </div>
+
+    <div class="btn_main">
+        <a href="">
+            <img src="/assets/img/dashboard/icone_paciente.png" alt="ícone perfil paciente">
+            <h1>PACIENTES</h1>
+        </a>
+    </div>
+
+    <div class="btn_main">
+        <a href="">
+            <img src="/assets/img/dashboard/icone_funcionario.png" alt="ícone perfil funcionário">
+            <h1>FUNCIONÁRIOS</h1>
+        </a>
+    </div>
+
+{% endblock%}
+
