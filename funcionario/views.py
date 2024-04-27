@@ -9,21 +9,23 @@ from .models import Funcionario, Cargo, Medico, Especialidade
 
 class DashCreateView(View):
     
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         if request.user.is_authenticated:
             current_user = request.user
             try:
-                usuario = Funcionario.objects.get(user=current_user)
-                cargo = Cargo.nome_cargo(usuario)
+                user = Funcionario.objects.get(user=current_user)
+                username = user.nome_func
+                id_cargo = user.id_cargo
+                nome_cargo = Cargo.objects.get(user=id_cargo)
                 template = loader.get_template('templates/base.html')
                 context = {
-                    'username': usuario,
-                    'cargo': cargo,
+                    'username': username,
+                    'cargo': nome_cargo,
                 }
                 return HttpResponse(template.render(context, request))
-            except usuario.DoesNotExist:
+            except user.DoesNotExist:
                 pass
-        return render(request, 'login.html')
+        return HttpResponse(request, 'login.html')
 
 
 

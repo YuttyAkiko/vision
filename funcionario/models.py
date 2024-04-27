@@ -15,10 +15,6 @@ class Cargo(models.Model):
     entrada = models.TimeField(null=True)
     saida = models.TimeField(null=True)
 
-    def nome_cargo(self, request):
-        nome_cargo = Cargo.tipos_cargo()
-        return (request, nome_cargo)
-
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
     sobrenome_func = models.CharField(max_length=50)

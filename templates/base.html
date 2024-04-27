@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/assets/css/background/base.css">
-    <link rel="stylesheet" href="/assets/css/background/reset.css">
-    <link rel="stylesheet" href="/assets/css/background/header.css">
+    <link rel="stylesheet" href="{% static 'background/base.css' %}">
+    <link rel="stylesheet" href="{% static 'background/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'background/header.css' %}">
 
-    <link rel="stylesheet" href="/assets/css/dashboards/dash_base.css">
+    <link rel="stylesheet" href="{% static 'dashboards/dash_base.css' %}">
     <title>{% block page-title %} Clinica Vision - {{ username }} {% endblock %}</title>
 </head>
 
@@ -21,7 +21,7 @@
     </div>
 
     <div>
-        <img class="header_logo" src="/assets/img/logo/logo-vision-dark.svg" alt="Logo Clínica Vision">
+        <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
 
         {% block username %}
             <p> Olá! {{ username }} </p>
@@ -48,7 +48,7 @@
 
 <body>
 
-    <img src="/assets/img/dashboard/faixa_listrada.svg" alt="listras">
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
 
     <main>
 
@@ -56,18 +56,12 @@
 
             <div class="left_menu">
                 <div>
-                    <img src="/assets/img/dashboard/perfil_icon/icone_adm.png" alt="ícone perfil">
+                    <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
 
                     {% block cargo %}
 
-                        {% if cargo == 'ADM' %}
-                            <h1>ADMINISTRADOR(A)</h1>
-                        {% elif cargo == 'ASS' %}
-                            <h1>ASSISTENTE</h1>
-                        {% else %}
-                            <h1>DOUTOR(A)</h1>
-                        {% endif %}
-
+                            <h1> {{ cargo }} </h1>
+                        
                     {% endblock %}
 
                     {% if cargo == 'ADM' %}
@@ -85,6 +79,10 @@
                 </div>
             </div>
 
+                <div class="subtitle">
+                    <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+                </div>
+
             {% block content %}
             {% endblock %}
 
@@ -92,7 +90,7 @@
 
     </main>
 
-    <script src="js/sidebar.js"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
 
 </body>
 </html>

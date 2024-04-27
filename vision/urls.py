@@ -17,6 +17,6 @@ urlpatterns = [
     # path('recuperar-senha/', views.reset_password, name='reset_password'),
 
     # URLS´S do app Funcionario
-    path('dashboard', views.DashCreateView.as_view(), name='dashboard')
+    path('dashboard/', views.DashCreateView.as_view(), name='dashboard')
 ]
 

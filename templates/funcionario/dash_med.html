@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <div class="btn_main">
+        <a href="{% url '#' %}">
+            <img src="{% static 'assets/img/dashboard/icone_paciente.png' %}" alt="ícone ilustrativo paciente">
+            <h1>PACIENTES</h1>  
+        </a>
+    </div>
+
+    <div class="btn_main">
+        <a href="{% url '#' %}">
+            <img id="centralize" src="{% static 'img/dashboard/img-calendario-med.png' %}" alt="ícone ilustrativo img-calendario-med">
+            <h1>MINHA AGENDA</h1>
+        </a>
+    </div>
+
+    <div class="btn_main">
+        <a href="{% url '#' %}">
+            <img src="{% static 'img/dashboard/perfil_icon/icone-med.png' %}" alt="ícone perfil medico">
+            <h1>MEUS DADOS</h1>
+        </a>
+    </div>
+
+{% endblock%}
