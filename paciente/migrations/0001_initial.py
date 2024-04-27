@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ('sintomas', models.TextField(max_length=500, null=True)),
                 ('observacoes', models.TextField(max_length=500, null=True)),
                 ('laudo', models.TextField(max_length=500, null=True)),
+                ('id_medico', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='funcionario.medico')),
             ],
         ),
         migrations.CreateModel(
