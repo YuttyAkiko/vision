@@ -1,6 +1,5 @@
 
 from django.db import models
-from django.http import HttpResponse
 from django.contrib.auth.models import User
 
 class Cargo(models.Model):
@@ -12,11 +11,14 @@ class Cargo(models.Model):
     tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
     nome_cargo = models.CharField(max_length=100)
     descricao = models.TextField(max_length=500, null=True)
-    entrada = models.TimeField(null=True)
-    saida = models.TimeField(null=True)
+    entrada = models.TimeField(auto_now=False, auto_now_add=False, null=True)
+    saida = models.TimeField(auto_now=False, auto_now_add=False, null=True)
 
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
+    # criado campo de usuario na tabela que esta associado a criação de usuario automatica do django
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     sobrenome_func = models.CharField(max_length=50)
     GENEROS_FUNCIONARIO = (
         ('F','Feminino'),
@@ -33,7 +35,7 @@ class Funcionario(models.Model):
     cidade_func = models.CharField(max_length=100)
     email_func = models.EmailField(max_length=300)
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE)
-    status_cad_func = models.BooleanField()
+    status_cad_func = models.BooleanField(verbose_name="Status de Cadastro")
 
 class Especialidade(models.Model):
     tipo_especialidade = models.CharField(max_length=30)
