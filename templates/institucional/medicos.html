@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--folhas de estilo - background-->
+    <link rel="stylesheet" href="assets/css/background/base.css">
+    <link rel="stylesheet" href="assets/css/background/footer.css">
+    <link rel="stylesheet" href="/assets/css/background/header.css">
+    <link rel="stylesheet" href="assets/css/background/reset.css">
+    <!--folhas de estilo - main-->
+    <link rel="stylesheet" href="assets/css/pg_medicos/cards.css">
+    <link rel="stylesheet" href="assets/css/pg_medicos/main.css">
+    <link rel="stylesheet" href="assets/css/pg_medicos/esp.css">
+
+    <title>Clinica Vision - Equipe Médica</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <span>(11) 3275-3530</span>
+            <a href="#" target="_blank">Agende sua consulta</a>
+        </div>
+
+        <div>
+            <img class="header_logo" src="assets/img/logo/logo-vision-dark.svg" alt="Logotipo da Clínica Vision">
+            <nav class="nav_menu" id="show_menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">A Clínica</a></li>
+                    <li><a href="#">Especialidades</a></li>
+                    <li><a href="#">Exames</a></li>
+                    <li><a href="#">Convênios</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+            <a href="#">LOGIN</a>
+
+            <!--verificar função-->
+            <div onclick="show_Menu()" class="mobile-menu-hamburguer">
+                <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cards_section"> <!--Cards - section-->
+
+            <div>
+                <div>
+                    <h1 class="title">Equipe Médica</h1>
+                </div>
+            </div>
+            
+            <div class="hover_cards" id="align_cards">
+                <section class="card_medico">
+
+                    <h3>Dra. Andreia</h3>
+
+                    <div>
+                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_mulher.png" alt="perfil_medico">
+
+                        <strong>Oftalmologia</strong>
+                        <p>CRM 1120220</p>
+                        <p>RQE Nº 59782</p>
+
+                        <strong>Especialidades</strong>
+                        <p>Oftalmo-Pediatria</p>
+                        <p>Neuro Ocular</p>
+                    </div>
+
+                    <a href="#"><button>Saiba mais</button></a>
+
+                </section>
+
+                <section class="card_medico">
+
+                    <h3>Dr. Fabricio</h3>
+
+                    <div>
+                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_homem.png" alt="perfil_medico">
+
+                        <strong>Oftalmologia</strong>
+                        <p>CRM 146288</p>
+                        <p>RQE Nº 64825</p>
+
+                        <strong>Especialidades</strong>
+                        <p>Cirurgia do Segmento anterior</p>
+                    </div>
+
+                    <a href="#"><button>Saiba mais</button></a>
+
+                </section>
+
+                <section class="card_medico">
+
+                    <h3>Dra. Ana Cláudia</h3>
+
+                    <div>
+                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_mulher.png" alt="perfil_medico">
+
+                        <strong>Oftalmologia</strong>
+                        <p>CRM 152257</p>
+                        <p>RQE Nº 69358</p>
+
+                        <strong>Especialidades</strong>
+                        <p>Retina</p>
+                        <p>Neuro-oftalmologia</p>
+                    </div>
+
+                    <a href="#"><button>Saiba mais</button></a>
+
+                </section>
+
+            </div>
+
+        </section>
+
+        <section class="specialities_section"> <!--Saiba mais - section-->
+
+            <div style='position:relative; top:0px; left:0px;'>
+
+                <div style='position: absolute; top:0px; right:0px;'>
+                    <img class="img_bg_esp" src="/assets/img/background/bg_esp_1.svg">
+                </div>
+
+                <div class="horizon_align">
+                    <div>
+                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_mulher.png" alt="imagem perfil médico">
+                    </div>
+                    <div class="crm_dtl">
+
+                        <h3>DRA. ANDREIA</h3>
+        
+                        <p><scan>Oftalmologista</scan> CRM 112022   RQE Nº 59782</p>
+                        <p><scan>Especialidades</scan> Oftalmo-Pediatra / Neuro Ocular</p>
+                        <p><a href="#"><button type="button">Dúvidas</button></a></p>
+
+                    </div>
+                </div>
+                <div class="especialities">
+
+                    <h4>Tratamentos</h4>
+            
+                    <ul>
+                        <li>Desenvolvimento visual das crianças</li>
+                        <li>Tampão</li>
+                        <li>Diagnóstico de miopia</li> 
+                        <li>Estrasbismo</li> 
+                        <li>Astigmatismo </li>
+                        <li>Glaucoma</li>
+                    </ul>
+            
+                    <h4>Especialidades</h4>
+            
+                    <p>Graduação em Medicina pela Faculdade de Medicina do ABC. Residência Médica em oftalmologia pelo Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo (HC FMUSP).</p>
+                    <p>Título de Especialista pelo CBO. Especialização em Estrabismo pelo pelo Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo. </p>
+            
+                </div>
+
+        </section>
+
+        <section class="specialities_section"> <!--Saiba mais - section-->
+
+            <div style='position:relative; top:0px; left:0px;'>
+                <div style='position:absolute; top:0px; left:0px;'>
+                    <img class="img_bg_esp" src="/assets/img/background/bg_esp_2.svg" style="float: left;">
+                </div>
+
+                <div class="horizon_align" id="right_align">
+                    <div>
+                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_homem.png" alt="imagem perfil médico">
+                    </div>
+                    <div class="crm_dtl" id="right_side">
+
+                        <h3>DR. FABRÍCIO</h3>
+        
+                        <p><scan>Oftalmologista</scan> CRM 146288 RQE Nº 64825 </p>
+                        <p><scan>Especialidades</scan> Cirurgia do Segmento Anterior </p> 
+                        <p><a href="#"><button type="button">Dúvidas</button></a></p>
+        
+                    </div>
+                </div>
+                <div class="especialities" id="right_side">
+
+                    <h4>Tratamentos</h4>
+    
+                    <ul>
+                        <li>Desenvolvimento visual das crianças</li>
+                        <li>Tampão</li>
+                        <li>Diagnóstico de miopia</li> 
+                        <li>Estrasbismo</li> 
+                        <li>Astigmatismo </li>
+                        <li>Glaucoma</li>
+                     </ul>
+    
+                    <h4>Especialidades</h4>
+    
+                    <p>Fellowship, Cleveland Clinic Foundation, 2006 </p>
+                    <p>Universidade de São Paulo, 2000</p>
+                    <p>Doutorado, Faculdade de Medicina da USP, 2011. </p>
+            
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="specialities_section"> <!--Saiba mais - section-->
+
+            <div style='position:relative; top:0px; left:0px;'>
+
+                <div style='position: absolute; top:0px; right:0px;'>
+                    <img class="img_bg_esp" src="/assets/img/background/bg_esp_1.svg">
+                </div>
+
+                <div class="horizon_align">
+                    <div>
+                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_mulher.png" alt="imagem perfil médico">
+                    </div>
+                    <div class="crm_dtl">
+
+                        <h3>DRA. ANA CLÁUDIA</h3>
+        
+                        <p><scan>Oftalmologista</scan> CRM 152257 RQE Nº 69358 </p>
+                        <p><scan>Especialidades</scan> Retina / Neuro-oftalmologia </p>
+                        <p><a href="#"><button type="button">Dúvidas</button></a></p>
+
+                    </div>
+                </div>
+                <div class="especialities">
+
+                    <h4>Tratamentos</h4>
+            
+                    <ul>
+                        <li>Oclusão da veia Retiniana</li>
+                        <li>Papiledema</li>
+                        <li>Descolamento de Retina</li>
+                        <li>Decolamento do Vitreo</li>
+                        <li>Neurite</li>
+                        <li>Miopia</li>
+                    </ul>
+            
+                    <h4>Especialidades</h4>
+            
+                    <p>Graduação em Medicina - Universidade de São Paulo. Residência Médica em Oftalmologia - Universidade de São Paulo.</p>
+                    <p>Título de especialista em Oftalmologia - Conselho Brasileiro de OftalmologiaEspecialização em Retina Cirúrgica e Neuroftalmologia, USPDoutora pela USP.</p>
+            
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        
+        <div>
+
+            <div>
+                <img src="/assets/img/logo/logo-vision-light.svg" alt="logo clínica vision">
+
+                <p>
+                    Horário de Atendimento
+                    <br>
+                    Seg a Sex das 8h às 18h
+                    <br>
+                    Sáb das 8h às 12h
+                </p>
+            </div>
+
+            <div>
+                <ul>
+                    <li>
+                        <img src="/assets/img/redes/telefone.png" alt="icone telefone">
+                        <span>(11) 96731-8829</span>
+                    </li>
+                    <li>
+                        <img src="/assets/img/redes/whatsapp.png" alt="icone whatsapp">
+                        <span>(11) 96731-8829</span>
+                    </li>
+                    <li>
+                        <a href="https://goo.gl/maps/iw4931p3dmeGrhv8A" target="_blank">
+                            <img src="/assets/img/redes/localizacao.png" alt="icone gps">
+                            <span>
+                                R. Padre Adelino, 333 - Belenzinho
+                                <br>
+                                São Paulo - SP, CEP: 03303-000
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h1 class="titulo" id="titulo__redes">Siga-nos!</h1>
+
+                <div>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/redes/instagram.png" alt="icone instagram"></a>
+                    <a href="https://pt-br.facebook.com/" target="_blank"><img src="/assets/img/redes/facebook.png" alt="icone facebook"></a>
+                </div>
+            </div>
+
+            <div>
+                <p>Desenvolvido por</p>
+                <a href="#" target="_blank"><img src="/assets/img/logo/dev-team.svg" alt="Logotipo do grupo de desenvolveres DEV TEAM"></a>
+            </div>
+
+        </div>   
+
+    </footer>
+
+    <script src="assets/js/side_bar.js"></script>
+
+</body>
+</html>

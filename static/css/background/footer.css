@@ -1,0 +1,73 @@
+footer {
+    background-color: var(--azul-escuro);
+    height: 250px;
+    width: 100%;
+    color: var(--branco);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+footer> div {
+    align-items: center;
+    display: flex;
+    height: 250px;
+    justify-content: space-evenly;
+    width: 100%;
+
+    font-family: var(--texto);
+}
+/* logo img */
+footer> div:first-child> div> img{
+    width: 230px;
+    margin-bottom: 20px;
+    height: 80px;
+}
+/* tamanho dos icones menores - tel, whatsapp, localização */
+footer> div> div:nth-child(2) img {
+    height: 30px;
+    margin: 16px;
+    width: 30px;
+}
+
+footer> div> div:nth-child(2) li, a {
+    align-items: center;
+    display: flex;
+    color: var(--branco);
+    text-decoration: none;
+} 
+/* alinhamento dos icones de insta e facebook */
+footer> div> div:nth-child(3)> div {
+    display: flex;
+    justify-content: space-around;
+}
+/* tamanho dos icones de instagram e facebook */
+footer> div> div:nth-child(3) a img{
+    height: 40px;
+    margin: 10px;
+    width: 40px;
+}
+  
+footer> div> div:nth-child(3)> h1 {
+    color: var(--branco);
+    font-size: 30px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+  
+footer> div> div:nth-child(4) {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+  
+footer> div> div:nth-child(4)> p {
+    padding: 0 0 20px 0;
+  }
+  
+footer> div> div:nth-child(4) img {
+    border-radius: 20px;
+    height: 80px;
+    width: 200px;
+}
