@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django_input_mask.widgets import InputMask
 
 class Cargo(models.Model):
     TIPOS_CARGO = (
@@ -9,7 +10,7 @@ class Cargo(models.Model):
         ('MDC','Médico(a)')
     )
     tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
-    nome_cargo = models.CharField(max_length=100)
+    nome_cargo = models.CharField(max_length=100, blank=True)
     descricao = models.TextField(max_length=500, null=True)
     entrada = models.TimeField(auto_now=False, auto_now_add=False, null=True)
     saida = models.TimeField(auto_now=False, auto_now_add=False, null=True)
@@ -25,10 +26,10 @@ class Funcionario(models.Model):
         ('M','Masculino')
     )
     genero_func = models.CharField(max_length=9, choices=GENEROS_FUNCIONARIO)
-    cpf_func = models.PositiveBigIntegerField()
+    cpf_func = models.CharField(label='CPF', widget=InputMask(mask='999.999.999-99'))
     nasc_func = models.DateField(auto_now=False, auto_now_add=False)
     tel_func_1 = models.IntegerField()
-    tel_func_2 = models.IntegerField(null=True)
+    tel_func_2 = models.IntegerField(blank=True)
     cep_func = models.IntegerField()
     end_func = models.CharField(max_length=300)
     bairro_func = models.CharField(max_length=100)
