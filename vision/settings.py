@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_input_mask', # bilbioteca de mascaras para entradas numericas como cpf-rg
-    # 'accounts',
+    'accounts',
     'funcionario',
     # 'paciente'
 ]
