@@ -63,6 +63,8 @@ target/
 .python-version
 
 # Environments
+.env
+env/
 .venv
 venv/
 ENV/
@@ -324,6 +326,6 @@ learningmanager/media/
 .pytest_cache/
 
 # ignore sqlite databases
-# *.db
-# *.sqlite
-# *.sqlite3
+*.db
+*.sqlite
+*.sqlite3
