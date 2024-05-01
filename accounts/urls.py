@@ -4,4 +4,5 @@ from . import views
 app_name = 'accounts'
 
 urlpatterns = [
+    path('', views.home, name='index.html')
 ]
