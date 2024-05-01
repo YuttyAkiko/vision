@@ -1,3 +1,5 @@
+{% load static  %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--folhas de estilo - background-->
-    <link rel="stylesheet" href="assets/css/background/base.css">
-    <link rel="stylesheet" href="assets/css/background/footer.css">
-    <link rel="stylesheet" href="/assets/css/background/header.css">
-    <link rel="stylesheet" href="assets/css/background/reset.css">
+    <link rel="stylesheet" href="{% static "css/background/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/background/footer.css" %}">
+    <link rel="stylesheet" href="{% static "css/background/header.css" %}">
+    <link rel="stylesheet" href="{% static "css/background/reset.css" %}">
     <!--folhas de estilo - main-->
-    <link rel="stylesheet" href="assets/css/pg_medicos/cards.css">
-    <link rel="stylesheet" href="assets/css/pg_medicos/main.css">
-    <link rel="stylesheet" href="assets/css/pg_medicos/esp.css">
+    <link rel="stylesheet" href="{% static "css/pg_medicos/cards.css" %}">
+    <link rel="stylesheet" href="{% static "css/pg_medicos/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/pg_medicos/esp.css" %}">
 
     <title>Clinica Vision - Equipe Médica</title>
 </head>
@@ -26,7 +28,7 @@
         </div>
 
         <div>
-            <img class="header_logo" src="assets/img/logo/logo-vision-dark.svg" alt="Logotipo da Clínica Vision">
+            <img class="header_logo" src="{% static "img/logo/logo-vision-dark.svg" %}" alt="Logotipo da Clínica Vision">
             <nav class="nav_menu" id="show_menu">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -64,7 +66,7 @@
                     <h3>Dra. Andreia</h3>
 
                     <div>
-                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_mulher.png" alt="perfil_medico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_mulher.png" %} %}" alt="perfil_medico">
 
                         <strong>Oftalmologia</strong>
                         <p>CRM 1120220</p>
@@ -84,7 +86,7 @@
                     <h3>Dr. Fabricio</h3>
 
                     <div>
-                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_homem.png" alt="perfil_medico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_homem.png" %}" alt="perfil_medico">
 
                         <strong>Oftalmologia</strong>
                         <p>CRM 146288</p>
@@ -103,7 +105,7 @@
                     <h3>Dra. Ana Cláudia</h3>
 
                     <div>
-                        <img class="img_perfil" src="assets/img/perfil_medico/img_perfil_med_mulher.png" alt="perfil_medico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_mulher.png" %}" alt="perfil_medico">
 
                         <strong>Oftalmologia</strong>
                         <p>CRM 152257</p>
@@ -127,12 +129,12 @@
             <div style='position:relative; top:0px; left:0px;'>
 
                 <div style='position: absolute; top:0px; right:0px;'>
-                    <img class="img_bg_esp" src="/assets/img/background/bg_esp_1.svg">
+                    <img class="img_bg_esp" src="{% static "img/background/bg_esp_1.svg" %}">
                 </div>
 
                 <div class="horizon_align">
                     <div>
-                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_mulher.png" alt="imagem perfil médico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_mulher.png" %}" alt="imagem perfil médico">
                     </div>
                     <div class="crm_dtl">
 
@@ -170,12 +172,12 @@
 
             <div style='position:relative; top:0px; left:0px;'>
                 <div style='position:absolute; top:0px; left:0px;'>
-                    <img class="img_bg_esp" src="/assets/img/background/bg_esp_2.svg" style="float: left;">
+                    <img class="img_bg_esp" src="{% static "img/background/bg_esp_2.svg" %}" style="float: left;">
                 </div>
 
                 <div class="horizon_align" id="right_align">
                     <div>
-                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_homem.png" alt="imagem perfil médico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_homem.png" %}" alt="imagem perfil médico">
                     </div>
                     <div class="crm_dtl" id="right_side">
 
@@ -222,7 +224,7 @@
 
                 <div class="horizon_align">
                     <div>
-                        <img class="img_perfil" src="/assets/img/perfil_medico/img_perfil_med_mulher.png" alt="imagem perfil médico">
+                        <img class="img_perfil" src="{% static "img/perfil_medico/img_perfil_med_mulher.png" %}" alt="imagem perfil médico">
                     </div>
                     <div class="crm_dtl">
 
@@ -265,7 +267,7 @@
         <div>
 
             <div>
-                <img src="/assets/img/logo/logo-vision-light.svg" alt="logo clínica vision">
+                <img src="{% static "img/logo/logo-vision-light.svg" %}" alt="logo clínica vision">
 
                 <p>
                     Horário de Atendimento
@@ -279,16 +281,16 @@
             <div>
                 <ul>
                     <li>
-                        <img src="/assets/img/redes/telefone.png" alt="icone telefone">
+                        <img src="{% static "img/redes/telefone.png" %}" alt="icone telefone">
                         <span>(11) 96731-8829</span>
                     </li>
                     <li>
-                        <img src="/assets/img/redes/whatsapp.png" alt="icone whatsapp">
+                        <img src="{% static "img/redes/whatsapp.png" %}" alt="icone whatsapp">
                         <span>(11) 96731-8829</span>
                     </li>
                     <li>
                         <a href="https://goo.gl/maps/iw4931p3dmeGrhv8A" target="_blank">
-                            <img src="/assets/img/redes/localizacao.png" alt="icone gps">
+                            <img src="{% static "img/redes/localizacao.png" %}" alt="icone gps">
                             <span>
                                 R. Padre Adelino, 333 - Belenzinho
                                 <br>
@@ -303,14 +305,14 @@
                 <h1 class="titulo" id="titulo__redes">Siga-nos!</h1>
 
                 <div>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="/assets/img/redes/instagram.png" alt="icone instagram"></a>
-                    <a href="https://pt-br.facebook.com/" target="_blank"><img src="/assets/img/redes/facebook.png" alt="icone facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="{% static "img/redes/instagram.png" %}" alt="icone instagram"></a>
+                    <a href="https://pt-br.facebook.com/" target="_blank"><img src="{% static "img/redes/facebook.png" %}" alt="icone facebook"></a>
                 </div>
             </div>
 
             <div>
                 <p>Desenvolvido por</p>
-                <a href="#" target="_blank"><img src="/assets/img/logo/dev-team.svg" alt="Logotipo do grupo de desenvolveres DEV TEAM"></a>
+                <a href="#" target="_blank"><img src="{% static "img/logo/dev-team.svg" %}" alt="Logotipo do grupo de desenvolveres DEV TEAM"></a>
             </div>
 
         </div>   
