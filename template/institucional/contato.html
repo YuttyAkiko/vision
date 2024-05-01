@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Aqui estão os links das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Estes são os links dos arquivos css com os estilos -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/cabecalho.css">
+    <link rel="stylesheet" href="assets/css/rodape.css">
+    <link rel="stylesheet" href="assets/css/contato/contato.css">
+
+    <title>Contato</title>
+</head>
+
+<!-- DESENVOLVIDO POR YUTTY -->
+
+<body>
+    <header> <!-- Aqui é o cabeçalho -->
+        <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
+            <p>(11) 3275-3530</p>
+            <a href="tipo-de-acesso.html">Agende sua consulta </a> <!-- Este link está em formato de botão -->
+        </div>
+
+        <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
+            <img class="logo__cabecalho" src="/clinica-vision/assets/img/logo/logo-vision-escuro.svg"
+                alt="Logotipo da Clínica Vision.">
+            <nav id="mostrarMenu" class="cabecalho__menu">
+                <ul class="cabecalho__menu__lista">
+                    <li><a href="index.html">Home</a></li>
+                    <li id="clinica"><a onclick="menuClinica()" href="#">A Clínica</a>
+                        <div id="menuClinica">
+                            <!-- A div "menuClinica" só vai aparecer quando o usuário clicar no link "A Clínica" -->
+                            <div id="triangulo-para-cima"></div>
+                            <nav class="menu__clinica">
+                                <ul class="menu__clinica__lista">
+                                    <li><a href="#sobre">Sobre nós</a></li>
+                                    <li><a href="#historia">Nossa história</a></li>
+                                    <li><a href="#">Equipe médica</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </li>
+                    <!-- A função "menuClinica()" está no arquivo /aClinica.js -->
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#">Exames</a></li>
+                    <li><a href="#">Convênios</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+
+            <a class="cabecalho__btn__login" href="tipo-de-acesso.html">LOGIN</a>
+            <!-- link do login também vai ficar em formato de botão -->
+            <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
+                <!-- A função "mostrarMenu()" está no arquivo /sideBar.js -->
+                <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo da página -->
+    <main>
+        <div>
+            <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.6562970262853!2d-46.590731!3d-23.544861299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ecc554295c5%3A0xa48d009e6992a270!2sR.%20Padre%20Adelino%2C%20333%20-%20Quarta%20Parada%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003303-000!5e0!3m2!1spt-BR!2sbr!4v1683124190128!5m2!1spt-BR!2sbr"
+            width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="form__container texto">
+            <h2 class="titulo titulo__padrao">Entre em contato conosco</h2>
+            <form class="grid" action="submit">
+                <div class="name texto">
+                    <label for="name">Nome</label>
+                    <input type="text" id="input-contact-name" class="texto">
+                </div>
+
+                <div class="tel texto">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" name="tel" id="input-contact-tel" class="texto">
+                </div>
+
+                <div class="full-width-column texto">
+                    <label for="email">Email</label>
+                    <input type="email" id="input-contact-email" class="texto">
+                </div>
+
+                <div class="full-width-column texto">
+                    <label for="message">Mensagem</label>
+                    <textarea name="message" id="textarea-contact" class="texto" cols="30" rows="10"></textarea>
+                </div>
+
+                <button class="full-width-column texto" id="btn-submit-contact-message">Enviar mensagem</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Aqui começa o rodapé -->
+    <footer class="rodape__container">
+        <div class="rodape"> <!-- Esta div é onde está todos os elementos -->
+            <div id="horario"> <!-- Nesta div fica o logo e a informação com os horários -->
+                <img class="logo__rodape" src="/clinica-vision/assets/img/logo/logo-vision-claro.svg"
+                    alt="Logotipo da Clínica Vision.">
+                <p class="texto texto__rodape">
+                    Horário de Atendimento
+                    <br>
+                    Seg a Sex das 8h às 18h
+                    <br>
+                    Sáb das 8h às 12h
+                </p>
+            </div>
+            <div id="contato"> <!-- Nesta div fica os ícones de telefone, whasapp e endereço -->
+                <ul>
+                    <li>
+                        <img src="/clinica-vision/assets/img/logo/logo-telefone.png" alt="Ícone de telefone">
+                        <!-- imagem seguida da mensagem do lado -->
+                        <span class="texto texto__rodape">(11) 3276-3530</span>
+                    </li>
+                    <li>
+                        <img src="assets/img/logo/logo-whatsapp.png" alt="Ícone do Whatsapp"><span
+                            class="texto texto__rodape">(11) 96731-8829</span>
+                    </li>
+                    <li>
+                        <a href="https://goo.gl/maps/iw4931p3dmeGrhv8A" target="_blank">
+                            <img src="assets/img/logo/logo-localizacao.png" alt="Ícone de localização"><span
+                                class="texto texto__rodape">R. Padre Adelino, 333 - Belenzinho
+                                <br>
+                                São Paulo - SP, CEP: 03303-000</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="redes-sociais"> <!-- Aqui fica as imagens das redes sociais, elas são links -->
+                <h1 class="titulo" id="titulo__redes">Siga-nos!</h1>
+                <nav id="redes__links">
+                    <a href="https://www.instagram.com/" target="_blank"><img src="assets/img/logo/logo-instagram.png"
+                            alt="Ícone do Instagram"></a>
+                    <a href="https://pt-br.facebook.com/" target="_blank"><img src="assets/img/logo/logo-facebook.png"
+                            alt="Ícone do Facebook"></a>
+                </nav>
+            </div>
+            <div id="info-dev">
+                <!-- Aqui fica o parágrafo dizendo "Desenvolvido por" com a imagem que é um link para a nossa página -->
+                <p class="texto texto__rodape" id="info-dev__texto">Desenvolvido por</p>
+                <a id="endereco" href="#" target="_blank"><img id="logo-time" src="assets/img/logo/logo-dev-team.svg"
+                        alt="Logotipo do grupo de desenvolveres DEV TEAM"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/sideBar.js"></script>
+</body>
+
+</html>

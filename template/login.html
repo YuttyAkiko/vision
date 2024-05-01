@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Aqui estão os links das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Estes são os links dos arquivos css com os estilos -->
+    <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/base.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/cabecalho-login.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/login/login.css" type="text/css">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <header> <!-- Aqui é o cabeçalho -->
+        <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
+            <p>(11) 3275-3530</p>
+        </div>
+
+        <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
+            <img class="logo__cabecalho" src="assets/img/logo/logo-vision-escuro.svg" alt="Logotipo da Clínica Vision.">
+            <nav>
+                <a href="index.html">Home</a>
+                <a class="cabecalho__btn__voltar" href="tipo-de-acesso.html">VOLTAR</a>
+                <!-- link do login também vai ficar em formato de botão -->
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="bem-vindo__container">
+            <div class="bg-bem-vindo"></div> <!-- Esta div é o fundo branco emcima do bg -->
+            <div class="bem-vindo__conteudo">
+                <h1>Seja<br>bem-vindo(a)</h1>
+                <a id="btn-criar-conta" href="#">+ Criar conta</a>
+            </div>
+        </section>
+
+        <section class="login__container"> <!-- Essa section é toda a parte da direita -->
+            <div class="login__links">
+                <h1>LOGIN</h1>
+                <nav>
+                    <div class="login__facebook texto__padrao">
+                        <a href="https://www.facebook.com/"><img src="assets/img/logo/logo-facebook-branco.png"
+                                alt="Logotipo do Facebook.">Continuar com Facebook</a>
+                    </div>
+                    <div class="login__apple texto__padrao">
+                        <a href="https://appleid.apple.com/sign-in"><img src="assets/img/logo/logo-apple.png"
+                                alt="Logotipo da Apple">Continuar com Apple</a>
+                    </div>
+                    <div class="login__google texto__padrao">
+                        <a
+                            href="https://accounts.google.com/v3/signin/identifier?dsh=S369551555%3A1680555202420996&continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dpt-BR%26sa%3DX%26ved%3D0ahUKEwi8s7r5y47-AhXqqpUCHUajDsYQPAgI&ec=GAZAmgQ&hl=pt-BR&ifkv=AQMjQ7TU-DOt3uE3wFoV8-ly8ILr-uFQHe48MVS_fzNT0HA7AWKWhz1PDDWhbT13eMorudbtEThjbw&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
+                                src="assets/img/logo/logo-google.png" alt="">Continuar com Google</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="login">
+                <span class="titulo__padrao">Ou</span>
+                <label for="E-mail">E-mail</label>
+                <input id="input-email" name="email" type="email" placeholder="seuemail@email.com">
+                <br>
+                <label for="senha">Senha</label>
+                <input id="input-senha" name="senha" type="password" placeholder="Senha">
+                <a href="#">Esqueceu a senha?</a>
+                <p>Não tem conta?</p><a href="#">Criar agora</a>
+            </div>
+            <button class="btn-login">LOGIN</button>
+        </section>
+    </main>
+</body>
+
+</html>

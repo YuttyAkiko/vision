@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Aqui estão os links das fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Estes são os links dos arquivos css com os estilos -->
+  <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/base.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/cabecalho.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/titulo.css">
+  <link rel="stylesheet" href="assets/css/exames.css">
+  <link rel="stylesheet" href="assets/css/rodape.css" type="text/css">
+
+  <title>Clínica Vision | Exames</title>
+</head>
+
+<body>
+  <header> <!-- Aqui é o cabeçalho -->
+    <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
+      <p>(11) 3275-3530</p>
+      <a href="tipo-de-acesso.html">Agende sua consulta </a> <!-- Este link está em formato de botão -->
+    </div>
+
+    <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
+      <img class="logo__cabecalho" src="assets/img/logo/logo-vision-escuro.svg" alt="Logotipo da Clínica Vision.">
+      <nav id="mostrarMenu" class="cabecalho__menu">
+        <ul class="cabecalho__menu__lista">
+          <li><a href="index.html">Home</a></li>
+          <li id="clinica"><a onclick="menuClinica()" href="#">A Clínica</a>
+            <div id="menuClinica">
+              <!-- A div "menuClinica" só vai aparecer quando o usuário clicar no link "A Clínica" -->
+              <div id="triangulo-para-cima"></div>
+              <nav class="menu__clinica">
+                <ul class="menu__clinica__lista">
+                  <li><a href="#sobre">Sobre nós</a></li>
+                  <li><a href="#historia">Nossa história</a></li>
+                  <li><a href="#">Equipe médica</a></li>
+                </ul>
+              </nav>
+            </div>
+          </li>
+          <!-- A função "menuClinica()" está no arquivo /aClinica.js -->
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#">Exames</a></li>
+          <li><a href="#">Convênios</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a class="cabecalho__btn__login" href="tipo-de-acesso.html">LOGIN</a>
+      <!-- link do login também vai ficar em formato de botão -->
+      <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
+        <!-- A função "mostrarMenu()" está no arquivo /sideBar.js -->
+        <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
+  </header>
+
+  <main> <!-- Conteúdo da página -->
+    <div class="titulo-content titulo__padrao">
+      <h1>Exames disponíveis</h1>
+    </div>
+    <div class="content">
+      <div class="box">
+        <h2>Biomicroscopia</h2>
+        <p>O exame de Biomicroscopia pode detectar muitas doenças do olho, incluindo: Catarata, conjuntivite, lesão na córnea distrofia de fuchs, ceratocone, degeneração macular etc.</p>
+      </div>
+      <div class="box">
+        <h2>Exame de Refração</h2>
+        <p>Utilizado para avaliar a acuidade visual e o grau ocular do paciente. Além de indicar a necessidade do uso de óculos, também pode apontar uma alteração no grau já existente ou apontar a necessidade de cirurgia.</p>
+      </div>
+      <div class="box">
+        <h2>Fundoscopia</h2>
+        <p>É uma técnica de observação do fundo do olho (retina e outras estruturas internas). Seu uso permite não só a avaliação de alterações oculares mas também a detecção de doenças sistémicas.</p>
+      </div>
+      <div class="box">
+        <h2>Mapeamento
+          da Retina</h2>
+        <p>Exame ocular que analisa a região central e periférica da retina, o nervo óptico, o vítreo e os vasos sanguíneos. Assim, é possível checar o estado geral dessa parte do olho que é responsável pela formação das
+          imagens que visualizamos.</p>
+      </div>
+      <div class="box">
+        <h2>Motricidade Ocular</h2>
+        <p>Exame de Motilidade Ocular é realizado pelo oftalmologista durante a sua consulta oftalmológica, para avaliar questões como: alinhamento dos olhos, movimentação e musculatura.</p>
+      </div>
+      <div class="box">
+        <h2>Senso Cromático</h2>
+        <p>Utilizado para detecção do daltonismo e também na avaliação de doenças que acometem o nervo óptico, pesquisando a deficiência na visão de cores e nas doenças maculares.</p>
+      </div>
+      <div class="box">
+        <h2>OTC</h2>
+        <p>Tomografia de Coerência Óptica, é um exame de imagem que permite avaliar diversas estruturas oculares. Através delas é feito o diagnóstico de alterações da retina e entender a causa da baixa visual.</p>
+      </div>
+      <div class="box">
+        <h2>Ultrassom Ocular</h2>
+        <p>Exame de imagem para diagnosticar doenças como descolamento de retina, hemorragias, luxação de cristalino, lesões inflamatórias, sendo indispensável na definição de tumores intraoculares.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape__container"> <!-- Aqui começa o rodapé -->
+    <div class="rodape"> <!-- Esta div é onde está todos os elementos -->
+      <div id="horario"> <!-- Nesta div fica o logo e a informação com os horários -->
+        <img class="logo__rodape" src="assets/img/logo/logo-vision-claro.svg" alt="Logotipo da Clínica Vision.">
+        <p class="texto texto__rodape">
+          Horário de Atendimento
+          <br>
+          Seg a Sex das 8h às 18h
+          <br>
+          Sáb das 8h às 12h
+        </p>
+      </div>
+      <div id="contato"> <!-- Nesta div fica os ícones de telefone, whasapp e endereço -->
+        <ul>
+          <li>
+            <img src="assets/img/logo/logo-telefone.png" alt="Ícone de telefone">
+            <!-- imagem seguida da mensagem do lado -->
+            <span class="texto texto__rodape">(11) 3276-3530</span>
+          </li>
+          <li>
+            <img src="assets/img/logo/logo-whatsapp.png" alt="Ícone do Whatsapp"><span class="texto texto__rodape">(11)
+              96731-8829</span>
+          </li>
+          <li>
+            <a href="https://goo.gl/maps/iw4931p3dmeGrhv8A" target="_blank">
+              <img src="assets/img/logo/logo-localizacao.png" alt="Ícone de localização"><span
+                class="texto texto__rodape">R. Padre Adelino, 333 - Belenzinho
+                <br>
+                São Paulo - SP, CEP: 03303-000</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="redes-sociais"> <!-- Aqui fica as imagens das redes sociais, elas são links -->
+        <h1 class="titulo" id="titulo__redes">Siga-nos!</h1>
+        <nav id="redes__links">
+          <a href="https://www.instagram.com/" target="_blank"><img src="assets/img/logo/logo-instagram.png"
+              alt="Ícone do Instagram"></a>
+          <a href="https://pt-br.facebook.com/" target="_blank"><img src="assets/img/logo/logo-facebook.png"
+              alt="Ícone do Facebook"></a>
+        </nav>
+      </div>
+      <div id="info-dev">
+        <!-- Aqui fica o parágrafo dizendo "Desenvolvido por" com a imagem que é um link para a nossa página -->
+        <p class="texto texto__rodape" id="info-dev__texto">Desenvolvido por</p>
+        <a id="endereco" href="#" target="_blank"><img id="logo-time" src="assets/img/logo/logo-dev-team.svg"
+            alt="Logotipo do grupo de desenvolveres DEV TEAM"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
