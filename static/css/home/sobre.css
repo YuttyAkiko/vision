@@ -1,0 +1,46 @@
+.sobre__container {
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.sobre__img {
+  background-image: url(/clinica-vision/assets/img/fundos/bg-img-sobre.svg);
+  background-repeat: no-repeat;
+  height: 350px;
+  margin: 50px;
+  width: 360px;
+}
+
+.sobre__img img {
+  border-radius: 70px;
+  height: 295px;
+  padding: 25px 35px;
+  width: 295px;
+}
+
+.sobre__conteudo {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  text-align: justify;
+  width: 500px;
+}
+
+.sobre__conteudo h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .sobre__img {
+    display: none;
+  }
+
+  .sobre__conteudo {
+    margin: 5%;
+    width: auto;
+  }
+}
