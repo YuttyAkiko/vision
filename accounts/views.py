@@ -13,3 +13,6 @@ from .models import User
 #     novo_user = User.objects.create_user(username=username, email=email, password=senha)
 #     novo_user.save()
 
+def home(request):
+    return render(request, 'index.html')
+

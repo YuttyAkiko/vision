@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 class Cargo(models.Model):
     TIPOS_CARGO = (
-<<<<<<< HEAD
         ('ADM','Administrador(a)'),
         ('ASS','Assistente'),
         ('MDC','Médico(a)')
@@ -15,18 +14,6 @@ class Cargo(models.Model):
     entrada = models.TimeField(auto_now=False, auto_now_add=False, null=True)
     saida = models.TimeField(auto_now=False, auto_now_add=False, null=True)
 
-=======
-        ('Administrador(a)','Administrador(a)'),
-        ('Assistente','Assistente'),
-        ('Médico(a)','Médico(a)')
-    )
-    tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
-    nome_cargo = models.CharField(max_length=100)
-    descricao = models.TextField(max_length=500, null=True)
-    entrada = models.TimeField(null=True)
-    saida = models.TimeField(null=True)
-    
->>>>>>> b954d86c9356e9bf8db20f544c8df8a22d9f1e85
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
     # criado campo de usuario na tabela que esta associado a criação de usuario automatica do django
@@ -59,10 +46,7 @@ class Medico(models.Model):
     crm = models.CharField(max_length=10, unique=True)
     id_especialidade = models.ManyToManyField('Especialidade', related_name='Medicos') # Relacionamento Muitos p/ Muitos
     id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE) # Relacionamento Um p/ Um
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> b954d86c9356e9bf8db20f544c8df8a22d9f1e85
