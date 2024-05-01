@@ -1,0 +1,217 @@
+.faixa {
+    /* Essa faixa fica acima do cabeçalho */
+    /* É aquela faixa azul com telefone e link(botão) "Agende sua consulta" */
+    align-items: center;
+    background-color: var(--azul-escuro);
+    display: flex;
+    font-family: var(--texto);
+    font-weight: 600;
+    font-size: 20px;
+    height: 50px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.faixa p {
+    color: var(--branco);
+}
+
+.faixa a {
+    align-items: center;
+    background-color: var(--branco);
+    border-radius: 5px;
+    color: var(--azul-roxo);
+    display: flex;
+    font-size: 16px;
+    height: 30px;
+    justify-content: center;
+    margin: 0 5.5%;
+    min-width: 185px;
+    max-width: 208px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.faixa a:hover {
+    transform: scale(1.1);
+}
+
+.cabecalho__container {
+    align-items: center;
+    background-color: var(--branco);
+    color: var(--azul-roxo);
+    display: flex;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: var(--titulo);
+    height: 100px;
+    justify-content: space-around;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.logo__cabecalho {
+    height: 85px;
+    margin: 0 3%;
+    max-width: 235px;
+    min-width: 150px;
+}
+
+.cabecalho__menu__lista {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.cabecalho__menu__lista li {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 16px;
+    white-space: nowrap;
+}
+
+.cabecalho__menu__lista a {
+    align-items: center;
+    display: flex;
+    color: var(--azul-roxo);
+    text-decoration: none;
+}
+
+.cabecalho__menu__lista a:hover {
+    transform: scale(1.1);
+}
+
+.cabecalho__btn__login {
+    align-items: center;
+    background: var(--azul-roxo);
+    border-radius: 10px;
+    color: var(--branco);
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 0 3% 0 0;
+    text-decoration: none;
+    width: 100px;
+}
+
+.cabecalho__btn__login:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu-amburguer {
+    display: none;
+    margin-right: 1em;
+}
+
+.mobile-menu-amburguer div {
+    height: 2px;
+    background: var(--azul-roxo);
+    margin: 8px;
+    width: 32px;
+}
+
+.mobile-menu-amburguer:hover {
+    cursor: pointer;
+}
+
+.mostrarMenu {
+    display: block !important;
+    animation: fadein 1s alternate;
+    -webkit-animation: fadein 1s alternate;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#clinica {
+    z-index: 999;
+}
+
+#triangulo-para-cima {
+    /* Este triângulo fica em cima do sidebar do link a clínica */
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid var(--azul-roxo);
+    height: 0;
+    margin-left: 4.5rem;
+    padding-top: 1rem;
+    width: 0;
+}
+
+.menu__clinica {
+    background: var(--branco);
+    border: solid 2px var(--azul-roxo);
+    height: auto;
+    margin-left: 0.6rem;
+    position: absolute;
+    width: auto;
+    margin-left: 10%;   
+}
+
+.menu__clinica__lista {
+    padding: 10px 0 16px 0;
+    white-space: nowrap;
+}
+
+.menu__clinica__lista a {
+    display: flex;
+    color: var(--azul-roxo);
+    justify-content: center;
+    text-decoration: underline;
+}
+
+#menuClinica {
+    display: none;
+    position: absolute;
+    margin: 50px 70px 0 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .cabecalho__menu {
+        background: var(--branco);
+        display: none;
+        height: auto;
+        top: 150px;
+        right: 0;
+        border: 2px var(--branco);
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+    }
+
+    .cabecalho__menu__lista {
+        flex-direction: column;
+    }
+
+    .mobile-menu-amburguer {
+        display: block;
+    }
+
+    .menu__clinica {
+        margin: 0 0 0 140px;
+    }
+
+    #triangulo-para-cima {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 432px) {
+    .faixa {
+        font-size: 16px;
+        justify-content: space-evenly;
+    }
+
+    .faixa a {
+        margin: 0;
+    }
+}
