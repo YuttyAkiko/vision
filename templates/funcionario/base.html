@@ -23,9 +23,9 @@
     <div>
         <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
 
-        {% block username %}
-            <p> Olá! {{ username }} </p>
-        {% endblock %}
+        
+        <p> Olá! {{ username }} </p>
+        
 
         <div id="btn_header_dash">
             <nav>
@@ -56,13 +56,28 @@
 
             <div class="left_menu">
                 <div>
-                    <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
 
-                    {% block cargo %}
+                    {% block side menu %}
+
+                    {% if cargo == 'ADM' %}
+
+                        <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
+                    
+                    {% elif cargo == 'MDC' %}
+
+                        <img src="{% static 'img/dashboard/perfil_icon/icone_med.png' %}" alt="ícone perfil">
+
+                    {% else %} 
+
+                        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
+
+                    {% endif %}
+
+                    {% if cargo is True %}
 
                             <h1> {{ cargo }} </h1>
-                        
-                    {% endblock %}
+
+                    {% endif %}
 
                     {% if cargo == 'ADM' %}
 
@@ -76,12 +91,27 @@
                 
                     {% endif %}
 
+                    {% block botoes-laterais-pac %}
+                    {% endblock %}
+
+                    {% endblock %}
+
                 </div>
             </div>
 
-                <div class="subtitle">
-                    <p>O QUE VOCÊ DESEJA ACESSAR?</p>
-                </div>
+                {% if cargo is True %}
+
+                    <div class="subtitle">
+                        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+                    </div>
+
+                {% else %}
+                    
+                    <div class="subtitulo">
+                        <p>AGENDAMENTOS</p>
+                    </div>
+
+                {% endif %}
 
             {% block content %}
             {% endblock %}

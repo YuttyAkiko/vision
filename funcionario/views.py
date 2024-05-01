@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import CreateView, View
 
-from .models import Funcionario, Cargo, Medico, Especialidade
+from .models import (
+    Funcionario, Cargo, Medico, Especialidade, #app funcionario
+    Paciente # app paciente
+)
 
 # funcão que exibirá o nome do usuário/funcionário no header
 
@@ -25,7 +28,8 @@ class DashCreateView(View):
                 return HttpResponse(template.render(context, request))
             except user.DoesNotExist:
                 pass
-        return HttpResponse(request, 'login.html')
+        else:
+            return HttpResponse(request, 'login.html')
 
 
 
