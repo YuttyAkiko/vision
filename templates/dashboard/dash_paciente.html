@@ -2,21 +2,39 @@
 
 {% load static %}
 
-{% block botoes-laterais-pac %}
+{% load widget_tweaks %}
 
-            <div class="btn_quadrado_pac"> <!--botao agendamento-->
-                <a href="#">
-                    <img id="centralize" src="img/img-painel_atend/img-calendario.png" alt="ícone-agendamento">
-                    <h1>NOVO<br>AGENDAMENTO</h1>
-                </a>
-            </div>
+{% block page-title %} Clinica Vision - {{ username }} {% endblock %}
 
-            <div class="btn_quadrado_pac"> <!--botao meus dados-->
-                <a href="#">
-                    <img id="centralize" src="img/img-painel_paciente/img_paciente.png" alt="ícone-agendamento">
-                    <h1>MEUS DADOS</h1>
-                </a>
-            </div>
+{% block side menu %}
+
+        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
+
+    {% block botoes-laterais-pac %}
+
+                <div class="btn_quadrado_pac"> <!--botao agendamento-->
+                    <a href="#">
+                        <img id="centralize" src="img/img-painel_atend/img-calendario.png" alt="ícone-agendamento">
+                        <h1>NOVO<br>AGENDAMENTO</h1>
+                    </a>
+                </div>
+
+                <div class="btn_quadrado_pac"> <!--botao meus dados-->
+                    <a href="#">
+                        <img id="centralize" src="img/img-painel_paciente/img_paciente.png" alt="ícone-agendamento">
+                        <h1>MEUS DADOS</h1>
+                    </a>
+                </div>
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block title %}
+
+    <div class="subtitulo">
+        <p>AGENDAMENTOS</p>
+    </div>
 
 {% endblock %}
 

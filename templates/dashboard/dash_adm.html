@@ -4,6 +4,32 @@
 
 {% load widget_tweaks %}
 
+{% block page-title %} Clinica Vision - {{ username }} {% endblock %}
+
+{% block side menu %}
+
+        <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
+
+        <h1> {{ cargo }} </h1>
+
+        <div>
+            <label>+ Criar novo usuário</label>
+            <select>
+                <option value="Paciente">Paciente</option>
+                <option value="Funcionário">Funcionário</option>
+            </select>
+        </div>
+
+{% endblock %}
+
+{% block title %}
+
+    <div class="subtitle">
+        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+    </div>
+    
+{% endblock %}
+
 {% block content %}
 
     <div class="btn_main">

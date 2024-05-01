@@ -2,8 +2,24 @@
 
 {% load static %}
 
-{% block page-title %}
-    Clinica Vision - Dr(a) {{ username }}
+{% load widget_tweaks %}
+
+{% block page-title %} Clinica Vision - Dr(a) {{ username }} {% endblock %}
+
+{% block side menu %}
+
+        <img src="{% static 'img/dashboard/perfil_icon/icone_med.png' %}" alt="ícone perfil">
+
+        <h1> {{ cargo }} </h1>
+
+{% endblock %}
+
+{% block title %}
+
+    <div class="subtitle">
+        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+    </div>
+    
 {% endblock %}
 
 {% block content %}

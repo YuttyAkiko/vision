@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_base.css' %}">
-    <title>{% block page-title %} Clinica Vision - {{ username }} {% endblock %}</title>
+    <title>{% block page-title %} <!--Titulo da pagina--> {% endblock %}</title>
 </head>
 
 <header class="header_dash">
@@ -23,18 +23,20 @@
     <div>
         <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
 
-        
-        <p> Olá! {{ username }} </p>
-        
+        {% block login-header %}
 
-        <div id="btn_header_dash">
-            <nav>
-                <ul>
-                    <li><a href="">VOLTAR</a></li>
-                    <li><a href="">LOGOUT</a></li>
-                </ul>
-            </nav>
-        </div>
+            <p> Olá! {{ username }} </p>
+
+            <div id="btn_header_dash">
+                <nav>
+                    <ul>
+                        <li><a href="">VOLTAR</a></li>
+                        <li><a href="">LOGOUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        {% endblock %}
         
         <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
             <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
@@ -54,66 +56,32 @@
 
         <section>
 
-            <div class="left_menu">
-                <div>
+            {% if username is True %}
 
-                    {% block side menu %}
+                <div class="left_menu">
+                    <div>
 
-                    {% if cargo == 'ADM' %}
+                        {% block side menu %} <!--Conteudo do menu lateral azul do dashboard -->
+                        
+                            {% block botoes-laterais-pac %}
+                                <!-- Botoes pagina do paciente -->
+                            {% endblock %}
 
-                        <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
-                    
-                    {% elif cargo == 'MDC' %}
+                        {% endblock %}
 
-                        <img src="{% static 'img/dashboard/perfil_icon/icone_med.png' %}" alt="ícone perfil">
-
-                    {% else %} 
-
-                        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
-
-                    {% endif %}
-
-                    {% if cargo is True %}
-
-                            <h1> {{ cargo }} </h1>
-
-                    {% endif %}
-
-                    {% if cargo == 'ADM' %}
-
-                        <div>
-                            <label>+ Criar novo usuário</label>
-                            <select>
-                                <option value="Paciente">Paciente</option>
-                                <option value="Funcionário">Funcionário</option>
-                            </select>
-                        </div>
-                
-                    {% endif %}
-
-                    {% block botoes-laterais-pac %}
-                    {% endblock %}
-
-                    {% endblock %}
-
+                    </div>
                 </div>
-            </div>
+                
+            {% endif %}
 
-                {% if cargo is True %}
+            {% block title %}
+                
+                <!--Titulo Principal-->
 
-                    <div class="subtitle">
-                        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
-                    </div>
-
-                {% else %}
-                    
-                    <div class="subtitulo">
-                        <p>AGENDAMENTOS</p>
-                    </div>
-
-                {% endif %}
+            {% endblock %}
 
             {% block content %}
+                    <!-- Conteúdo -->
             {% endblock %}
 
         </section>
