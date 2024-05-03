@@ -1,54 +1,8 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{% static 'css/background/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/dashboards/dash_base.css' %}">
-    <title>{% block page-title %} <!--Titulo da pagina--> {% endblock %}</title>
-</head>
-
-<header class="header_dash">
-
-    <div>
-        <span>(11) 3275-3530</span>
-    </div>
-
-    <div>
-        <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
-
-        {% block login-header %}
-
-            <p> Olá! {{ username }} </p>
-
-            <div id="btn_header_dash">
-                <nav>
-                    <ul>
-                        <li><a href="">VOLTAR</a></li>
-                        <li><a href="">LOGOUT</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-        {% endblock %}
-        
-        <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
-            <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </div>
-
-</header>
-
-<body>
+{% block content %}
 
     <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
 
@@ -88,7 +42,6 @@
 
     </main>
 
-    <script src="{% static 'js/sidebar.js' %}"></script>
+{% endblock %}
 
-</body>
-</html>
+
