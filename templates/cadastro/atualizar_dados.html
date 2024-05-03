@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+{% block page-title %} Clinica Vision - Atualizar Cadastro {% endblock %}
+
+{% block login-header %}
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="#">VOLTAR</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    {{ form.as_p }}
+    
+    <form method="POST" class="post-form">{% csrf_token %}
+        <ul>
+            <li>
+                <label></label>
+                <input type="text">
+            </li>
+            <li>
+                <label></label>
+                <input type="text">
+            </li>
+            <li>
+                <label></label>
+                <input type="text">
+            </li>
+        </ul>
+        <button type="submit"><a href="#">Concluir</a></button>
+    </form>
+
+{% endblock %}
+

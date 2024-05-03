@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from django.views.generic import CreateView, View
+from django.urls import reverse_lazy
+from django.views.generic import View, UpdateView
+from .forms import Update_Funcionario_Form
 
 from .models import (
     Funcionario, Cargo, Medico, Especialidade, #app funcionario
@@ -31,5 +33,11 @@ class DashCreateView(View):
         else:
             return HttpResponse(request, 'login.html')
 
+
+class AtualizarDados(UpdateView):
+        form_class = Update_Funcionario_Form()
+        template_name = 'atualizar_dados.html'
+        
+        success_url = reverse_lazy('especialidade_list')
 
 

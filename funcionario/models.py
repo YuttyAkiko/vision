@@ -18,9 +18,6 @@ class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30, verbose_name="nome")
     # criado campo de usuario na tabela que esta associado a criação de usuario automatica do django
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    sobrenome_func = models.CharField(max_length=50, verbose_name="sobrenome")
-    nome_func = models.CharField(max_length=30, verbose_name="nome")
     sobrenome_func = models.CharField(max_length=50, verbose_name="sobrenome")
     GENEROS_FUNCIONARIO = (
         ('F','Feminino'),
@@ -32,7 +29,7 @@ class Funcionario(models.Model):
     tel_func_1 = models.IntegerField(verbose_name="Telefone 1")
     tel_func_2 = models.IntegerField(null=True, verbose_name="telefone 2")
     cep_func = models.IntegerField(verbose_name="cep")
-    end_func = models.CharField(max_length=300, verbose_name="endereco")
+    end_func = models.CharField(max_length=300, verbose_name="endereço")
     bairro_func = models.CharField(max_length=100, verbose_name="bairro")
     cidade_func = models.CharField(max_length=100, verbose_name="cidade")
     email_func = models.EmailField(max_length=300, verbose_name="email")
