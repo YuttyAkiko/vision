@@ -1,4 +1,5 @@
 
+from typing import Any
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -13,6 +14,9 @@ class Cargo(models.Model):
     descricao = models.TextField(max_length=500, null=True)
     entrada = models.TimeField(null=True)
     saida = models.TimeField(null=True)
+
+    def __str__(self):
+        return self.nome_cargo
 
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
