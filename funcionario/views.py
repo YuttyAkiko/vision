@@ -15,7 +15,7 @@ class GeralView(View):
             username = funcionario.nome_func
             cargo = get_object_or_404(Cargo, pk=id)
             nome_cargo = cargo.nome_cargo
-            return render(request, 'dashboard/dash_adm.html', {'username': username, 'cargo': nome_cargo})
+            return render(request, 'dashboard/dash_atend.html', {'username': username, 'cargo': nome_cargo})
         except Funcionario.DoesNotExist:
             return render(request, 'login.html')
 

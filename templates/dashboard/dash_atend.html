@@ -6,10 +6,14 @@
 
 {% block side-menu %}
 
-        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
+    <div class="left_menu">
+        <div>
+            <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
 
-        <h1> {{ cargo }} </h1>
-
+            <h1> {{ cargo }} </h1>
+        </div>
+    </div>
+    
 {% endblock %}
 
 {% block title %}
@@ -23,24 +27,24 @@
 {% block botoes %}
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '#' %}"> {% endcomment %}
             <img id="centralize" src="{% static 'img/dashboard/icone_agend.png' %}" alt="ícone ilustrativo agendamento">
             <h1>CONSULTAR<br>AGENDAMENTOS</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '#' %}"> {% endcomment %}
             <img src="{% static 'img/dashboard/icone_paciente.png' %}" alt="ícone perfil paciente">
             <h1>PACIENTES</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '#' %}"> {% endcomment %}
             <img src="{% static 'img/dashboard/img-calendario.png' %}" alt="ícone ilustrativo calendário">
             <h1>NOVO AGENDAMENTO</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
 {% endblock%}
