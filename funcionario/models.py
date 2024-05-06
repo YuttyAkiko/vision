@@ -27,7 +27,7 @@ class Funcionario(models.Model):
     cpf_func = models.PositiveBigIntegerField(verbose_name="cpf")
     nasc_func = models.DateField(auto_now=False, auto_now_add=False, verbose_name="nascimento")
     tel_func_1 = models.IntegerField(verbose_name="Telefone 1")
-    tel_func_2 = models.IntegerField(null=True, verbose_name="telefone 2")
+    tel_func_2 = models.IntegerField(null=True, blank=True, verbose_name="telefone 2")
     cep_func = models.IntegerField(verbose_name="cep")
     end_func = models.CharField(max_length=300, verbose_name="endereço")
     bairro_func = models.CharField(max_length=100, verbose_name="bairro")

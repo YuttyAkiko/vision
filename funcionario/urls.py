@@ -4,7 +4,7 @@ from . import views
 app_name = 'funcionario'
 
 urlpatterns = [
-    path('usuario/', views.DashCreateView, name='dashboard')
+    path('usuario/<int:id>', views.HeaderView.as_view(), name='dashboard')
 #     path('consultas/',),
 #     path('consultas/detalhes/',),
 #     path('pacientes/'),

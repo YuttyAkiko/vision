@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import os
 from pathlib import Path
-from decouple import config, Csv
+from decouple import config
 from dj_database_url import parse as db_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'vision.wsgi.application'
 DATABASES = {
     'default': config(
         'DATABASE_URL',
-        default=f'sqlite:///{BASE_DIR} / "db.sqlite3"',
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
         cast=db_url,
     )
 }

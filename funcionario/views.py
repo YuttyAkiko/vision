@@ -1,37 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import View, UpdateView
 from .forms import Update_Funcionario_Form
-
 from .models import (
-    Funcionario, Cargo, Medico, Especialidade, #app funcionario
+    Funcionario, Cargo
 )
 
 # funcão que exibirá o nome do usuário/funcionário no header
 
-class DashCreateView(View):
-    
-    def get(self, request):
-        if request.user.is_authenticated:
-            current_user = request.user
-            try:
-                user = Funcionario.objects.get(user=current_user)
-                username = user.nome_func
-                id_cargo = user.id_cargo
-                nome_cargo = Cargo.objects.get(user=id_cargo)
-                template = loader.get_template('templates/base.html')
-                context = {
-                    'username': username,
-                    'cargo': nome_cargo,
-                }
-                return HttpResponse(template.render(context, request))
-            except user.DoesNotExist:
-                pass
-        else:
-            return HttpResponse(request, 'login.html')
-
+class HeaderView(View):
+    def get(self, request, id):
+        try:
+            funcionario = get_object_or_404(Funcionario, pk=id)
+            username = funcionario.nome_func
+            cargo = get_object_or_404(Cargo, pk=id)
+            nome_cargo = cargo.nome_cargo
+            return render(request, 'base.html', {'username': username, 'cargo': nome_cargo})
+        except Funcionario.DoesNotExist:
+            return render(request, 'login.html')
 
 class AtualizarDados(UpdateView):
         form_class = Update_Funcionario_Form()

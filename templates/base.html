@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_base.css' %}">
-    <title>{% block page-title %} <!--Titulo da pagina--> {% endblock %}</title>
+    <title>{% block page-title %} {{ username }} {% endblock %}</title>
 </head>
 
 <header class="header_dash">
