@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import os
 from pathlib import Path
-from decouple import config
-from dj_database_url import parse as db_url
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,12 +75,12 @@ WSGI_APPLICATION = 'vision.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
-        cast=db_url,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
 
 
 # Password validation
