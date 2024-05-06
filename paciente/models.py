@@ -25,25 +25,14 @@ class Paciente(models.Model):
   bairro_pac = models.CharField(max_length=100)
   cidade_pac = models.CharField(max_length=100)
   email_func = models.EmailField(max_length=300)
-<<<<<<< HEAD
-  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE) # Relacionamento (1,n)
-  status_cad_pac = models.BooleanField()
-  
-
-=======
   status_cad_pac = models.BooleanField()
   id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE) # Relacionamento (1,n)
   
->>>>>>> 843f08f721acf512617ef2838ffa4f78c6c67f05
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
     hora_cons = models.TimeField()
     id_paciente = models.ForeignKey('Paciente', on_delete=models.CASCADE) # Relacionamento (1,n)
-<<<<<<< HEAD
     id_medico = models.ManyToManyField(Medico, related_name='Consulta') # Relacionamento (n,n)
-=======
-    # id_medico = models.ManyToManyField('Medico', related_name='Consulta') # Relacionamento (n,n)
->>>>>>> 843f08f721acf512617ef2838ffa4f78c6c67f05
     TIPOS_PAGAMENTO = (
         ('Cartão','Cartão'),
         ('Dinheiro','Dinheiro'),

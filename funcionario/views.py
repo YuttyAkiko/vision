@@ -7,7 +7,6 @@ from .forms import Update_Funcionario_Form
 
 from .models import (
     Funcionario, Cargo, Medico, Especialidade, #app funcionario
-    Paciente # app paciente
 )
 
 # funcão que exibirá o nome do usuário/funcionário no header

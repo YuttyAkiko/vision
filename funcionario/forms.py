@@ -1,9 +1,9 @@
 from django import forms
 from .models import (Cargo, Funcionario, Especialidade, Medico)
 
-class Update_Funcionario_Form(forms.modelForms):
+class Update_Funcionario_Form(forms.ModelForm):
     class Meta:
         model = Funcionario
-        fields = ('nome','sobrenome','nascimento',
-                  'gênero','cpf','telefone 1', 'telefone 2',
-                  'cargo','email','cep','endereço','bairro','cidade')
+        fields = ('nome_func','sobrenome_func','genero_func','cpf_func',
+                  'nasc_func','tel_func_1','tel_func_2','cep_func','end_func','bairro_func',
+                  'cidade_func','email_func','status_cad_func')

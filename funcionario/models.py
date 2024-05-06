@@ -8,19 +8,6 @@ class Cargo(models.Model):
         ('Assistente','Assistente'),
         ('Médico(a)','Médico(a)')
     )
-    tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
-    nome_cargo = models.CharField(max_length=100)
-    descricao = models.TextField(max_length=500, null=True)
-    entrada = models.TimeField(null=True)
-    saida = models.TimeField(null=True)
-
-
-class Cargo(models.Model):
-    TIPOS_CARGO = (
-        ('Administrador(a)','Administrador(a)'),
-        ('Assistente','Assistente'),
-        ('Médico(a)','Médico(a)')
-    )
     tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO, verbose_name="tipo de cargo")
     nome_cargo = models.CharField(max_length=100, verbose_name="cargo")
     descricao = models.TextField(max_length=500, null=True, verbose_name="descrição")
