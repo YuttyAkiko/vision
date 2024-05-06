@@ -38,6 +38,9 @@ class Funcionario(models.Model):
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE)
     status_cad_func = models.BooleanField(verbose_name="Ativar Cadastro")
 
+    def __str__(self):
+        return self.nome_func
+
 class Medico(models.Model):
     cnpj_med = models.CharField(max_length=12, unique=True, null=True)
     crm = models.CharField(max_length=10, unique=True)
@@ -47,4 +50,7 @@ class Medico(models.Model):
 class Especialidade(models.Model):
     tipo_especialidade = models.CharField(max_length=30)
     valor_consulta = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return self.tipo_especialidade
 
