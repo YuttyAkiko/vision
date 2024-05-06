@@ -1,159 +1,154 @@
-{% extends "base_dash.html" %}
+{% extends "base_header.html" %}
 
 {% load static %}
 
 {% block page-title %} Clinica Vision - {{ username }} {% endblock %}
 
-{% block side-menu %}
+{% block content %}
 
-        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
 
-    {% block botoes-laterais-pac %}
+        <main>
 
-                <div class="btn_quadrado_pac"> <!--botao agendamento-->
-                    <a href="#">
-                        <img id="centralize" src="img/img-painel_atend/img-calendario.png" alt="ícone-agendamento">
-                        <h1>NOVO<br>AGENDAMENTO</h1>
-                    </a>
+            <section>
+
+                <div class="left_menu">
+                    <div>
+                        <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
+
+
+                                    <div class="btn_quadrado_pac"> <!--botao agendamento-->
+                                        <a href="#">
+                                            <img id="centralize" src="img/img-painel_atend/img-calendario.png" alt="ícone-agendamento">
+                                            <h1>NOVO<br>AGENDAMENTO</h1>
+                                        </a>
+                                    </div>
+
+                                    <div class="btn_quadrado_pac"> <!--botao meus dados-->
+                                        <a href="#">
+                                            <img id="centralize" src="img/img-painel_paciente/img_paciente.png" alt="ícone-agendamento">
+                                            <h1>MEUS DADOS</h1>
+                                        </a>
+                                    </div>
+                
+                    </div>
                 </div>
 
-                <div class="btn_quadrado_pac"> <!--botao meus dados-->
-                    <a href="#">
-                        <img id="centralize" src="img/img-painel_paciente/img_paciente.png" alt="ícone-agendamento">
-                        <h1>MEUS DADOS</h1>
-                    </a>
+                <div class="subtitulo">
+                    <p>AGENDAMENTOS</p>
                 </div>
 
-    {% endblock %}
+                <div class="section_principal">
 
-{% endblock %}
+                    <h2 class="texto">Agendamentos futuros</h2>
 
-{% block title %}
+                    <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
 
-    <div class="subtitulo">
-        <p>AGENDAMENTOS</p>
-    </div>
+                    <div class="linha_interna"><!--div para estilo-->
+                        <p id=>Segmento anterior</p>
+                        <p id="data">xx/xx/xxxx</p>
+                        <p id="horario">00:00</p>
+                    </div>
+                    <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
+                    <button id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
+                            src="img/img-painel_paciente/img_icone_excluir.svg" alt="ícone-excluir">
+                    </button>
 
-{% endblock %}
+                    <!--codigo do alert de confirmação para cancelar agendamento-->
+                    <div id="janela_cancelar"> <!--janela maior-->
 
-{% block botoes %}
+                        <div class="elem_janela"> <!--container para alinhar o conteudo da janela-->
 
-    <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
-    <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
+                            <div class="align_close">
+                                <!--div para alinhar primeira linha do titulo e botao de fechar janela-->
 
-    <section>
+                                <button class="btn_retornar" onclick="btnRetornar()"><img
+                                        src="img/img-painel_paciente/img_icone_excluir.svg" alt="icone-excluir">
+                                </button><!--<span>&times;</span>-->
 
-        <div class="section_principal">
+                                <h1 class="subtitulo">CANCELAR AGENDAMENTO</h1>
 
-            <h2 class="texto">Agendamentos futuros</h2>
+                            </div>
 
-            <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
+                            <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
 
-                <div class="linha_interna"><!--div para estilo-->
-                    <p id=>Segmento anterior</p>
-                    <p id="data">xx/xx/xxxx</p>
-                    <p id="horario">00:00</p>
-                </div>
-                <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
-                <button id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
-                        src="img/img-painel_paciente/img_icone_excluir.svg" alt="ícone-excluir">
-                </button>
+                                <label for="especialidade">Especialidade:</label>
+                                <input id="input_ajuste" type="text" name="especialidade">
+                                <label for="paciente">Paciente:</label>
+                                <input id="input_ajuste" type="text" name="paciente">
 
-            </div>
+                            </div>
 
-            <!--codigo do alert de confirmação para cancelar agendamento-->
-            <div id="janela_cancelar"> <!--janela maior-->
+                            <div class="align_linha"><!--terceira linha com os inputs restantes-->
 
-                <div class="elem_janela"> <!--container para alinhar o conteudo da janela-->
+                                <label for="data">Data:</label>
+                                <input type="text" name="data">
+                                <label for="hora">Hora:</label>
+                                <input type="text" name="hora">
+                                <label for="medico">Médico(a)<br>solicitado(a):</label>
+                                <input type="text" name="medico">
 
-                    <div class="align_close">
-                        <!--div para alinhar primeira linha do titulo e botao de fechar janela-->
+                            </div>
 
-                        <button class="btn_retornar" onclick="btnRetornar()"><img
-                                src="img/img-painel_paciente/img_icone_excluir.svg" alt="icone-excluir">
-                        </button><!--<span>&times;</span>-->
+                            <div class="align_linha"><!--quarta linha com botao de confirmar-->
 
-                        <h1 class="subtitulo">CANCELAR AGENDAMENTO</h1>
+                                <button id="btn_confirmar" onclick="confirmarCancelamento()">Confirmar
+                                </button><!--adicionar função de excluir-->
+
+                            </div>
+
+                        </div>
 
                     </div>
 
-                    <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
+                    <div id="janela_confirmado"><!--janela de confirmação de cancelamennto-->
+                        <div class="elem_janela elem_janela-self">
+                            <img src="img/img-painel_paciente/img_icone_excluir.svg" alt="icone-excluir"><!--img-botao'x'-->
+                            <h1 class="subtitulo">SUA CONSULTA FOI CANCELADA</h1>
+                        </div>
+                    </div>
 
-                        <label for="especialidade">Especialidade:</label>
-                        <input id="input_ajuste" type="text" name="especialidade">
-                        <label for="paciente">Paciente:</label>
-                        <input id="input_ajuste" type="text" name="paciente">
+                    <h2 class="texto">Histórico de consultas</h2>
+
+                    <div class="historico_consulta"><!--historico de consultas-->
+
+                        <div class="bg_botao"><!--botao laudo 1-->
+                            <p id=>Segmento anterior</p>
+                            <p id="data">xx/xx/xxxx</p>
+                            <p id="horario">00:00</p>
+                            <a href="">
+                                <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
+                                    alt="ícone-laudo-médico">
+                            </a>
+                        </div>
+
+                        <div class="bg_botao"><!--botao laudo 2-->
+                            <p id=>Neuroftalmologia</p>
+                            <p id="data">xx/xx/xxxx</p>
+                            <p id="horario">00:00</p>
+                            <a href="">
+                                <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
+                                    alt="ícone-laudo-médico">
+                            </a>
+                        </div>
+
+                        <div class="bg_botao"><!--botao laudo 3-->
+                            <p id=>Oftalmologia</p>
+                            <p id="data">xx/xx/xxxx</p>
+                            <p id="horario">00:00</p>
+                            <a href="">
+                                <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
+                                    alt="ícone-laudo-médico">
+                            </a>
+                        </div>
 
                     </div>
 
-                    <div class="align_linha"><!--terceira linha com os inputs restantes-->
-
-                        <label for="data">Data:</label>
-                        <input type="text" name="data">
-                        <label for="hora">Hora:</label>
-                        <input type="text" name="hora">
-                        <label for="medico">Médico(a)<br>solicitado(a):</label>
-                        <input type="text" name="medico">
-
-                    </div>
-
-                    <div class="align_linha"><!--quarta linha com botao de confirmar-->
-
-                        <button id="btn_confirmar" onclick="confirmarCancelamento()">Confirmar
-                        </button><!--adicionar função de excluir-->
-
-                    </div>
-
                 </div>
+                
+            </section>    
 
-            </div>
-
-            <div id="janela_confirmado"><!--janela de confirmação de cancelamennto-->
-                <div class="elem_janela elem_janela-self">
-                    <img src="img/img-painel_paciente/img_icone_excluir.svg" alt="icone-excluir"><!--img-botao'x'-->
-                    <h1 class="subtitulo">SUA CONSULTA FOI CANCELADA</h1>
-                </div>
-            </div>
-
-            <h2 class="texto">Histórico de consultas</h2>
-
-            <div class="historico_consulta"><!--historico de consultas-->
-
-                <div class="bg_botao"><!--botao laudo 1-->
-                    <p id=>Segmento anterior</p>
-                    <p id="data">xx/xx/xxxx</p>
-                    <p id="horario">00:00</p>
-                    <a href="">
-                        <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
-                            alt="ícone-laudo-médico">
-                    </a>
-                </div>
-
-                <div class="bg_botao"><!--botao laudo 2-->
-                    <p id=>Neuroftalmologia</p>
-                    <p id="data">xx/xx/xxxx</p>
-                    <p id="horario">00:00</p>
-                    <a href="">
-                        <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
-                            alt="ícone-laudo-médico">
-                    </a>
-                </div>
-
-                <div class="bg_botao"><!--botao laudo 3-->
-                    <p id=>Oftalmologia</p>
-                    <p id="data">xx/xx/xxxx</p>
-                    <p id="horario">00:00</p>
-                    <a href="">
-                        <img class="icones_menores" src="img/img-painel_paciente/img_icone_laudo.svg"
-                            alt="ícone-laudo-médico">
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+        </main>
 
 {% endblock %}
 
