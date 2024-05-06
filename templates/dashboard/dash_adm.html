@@ -1,24 +1,26 @@
-{% extends "base_dash.html" %}
+{% extends 'base_dash.html' %}
 
 {% load static %}
 
-{% load widget_tweaks %}
-
 {% block page-title %} Clinica Vision - {{ username }} {% endblock %}
 
-{% block side menu %}
+{% block side-menu %}
 
-        <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
-
-        <h1> {{ cargo }} </h1>
-
+    <div class="left_menu">
         <div>
-            <label>+ Criar novo usuário</label>
-            <select>
-                <option value="Paciente">Paciente</option>
-                <option value="Funcionário">Funcionário</option>
-            </select>
+            <img src="{% static 'img/dashboard/perfil_icon/icone_adm.png' %}" alt="ícone perfil">
+
+            <h1> {{ cargo }} </h1>
+
+            <div>
+                <label>+ Criar novo usuário</label>
+                <select>
+                    <option value="Paciente">Paciente</option>
+                    <option value="Funcionário">Funcionário</option>
+                </select>
+            </div>
         </div>
+    </div>
 
 {% endblock %}
 
@@ -30,34 +32,34 @@
     
 {% endblock %}
 
-{% block content %}
+{% block botoes %}
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
             <img src="{% static 'img/dashboard/icone_clinica.png' %}" alt="ícone ilustrativo clínica">
             <h1>DADOS DA<br>CLÍNICA</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
             <img id="centralize" src="{% static 'img/dashboard/icone_agend.png' %}" alt="ícone ilustrativo agendamento">
             <h1>CONSULTAR<br>AGENDAMENTOS</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
             <img src="{% static 'img/dashboard/icone_paciente.png' %}" alt="ícone perfil paciente">
             <h1>PACIENTES</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
     <div class="btn_main">
-        <a href="{% url '#' %}">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
             <img src="{% static 'img/dashboard/icone_funcionario.png' %}" alt="ícone perfil funcionário">
             <h1>FUNCIONÁRIOS</h1>
-        </a>
+        {% comment %} </a> {% endcomment %}
     </div>
 
 {% endblock%}

@@ -1,0 +1,37 @@
+{% extends 'base_header.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    <main>
+
+        <section>
+
+            {% block side-menu %} <!--Conteudo do menu lateral azul do dashboard -->
+            
+                {% block botoes-laterais-pac %}
+                    <!-- Botoes pagina do paciente -->
+                {% endblock %} 
+
+            {% endblock %}
+
+            {% block title %}
+                
+                <!--Titulo Principal-->
+
+            {% endblock %}
+
+            {% block botoes %}
+                    <!-- Conteúdo -->
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+{% endblock %}
+
+

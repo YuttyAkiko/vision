@@ -2,11 +2,9 @@
 
 {% load static %}
 
-{% load widget_tweaks %}
-
 {% block page-title %} Clinica Vision - Dr(a) {{ username }} {% endblock %}
 
-{% block side menu %}
+{% block side-menu %}
 
         <img src="{% static 'img/dashboard/perfil_icon/icone_med.png' %}" alt="ícone perfil">
 
@@ -22,7 +20,7 @@
     
 {% endblock %}
 
-{% block content %}
+{% block bototes %}
 
     <div class="btn_main">
         <a href="{% url '#' %}">

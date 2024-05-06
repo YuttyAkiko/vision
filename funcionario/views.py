@@ -8,14 +8,14 @@ from .models import (
 
 # funcão que exibirá o nome do usuário/funcionário no header
 
-class HeaderView(View):
+class GeralView(View):
     def get(self, request, id):
         try:
             funcionario = get_object_or_404(Funcionario, pk=id)
             username = funcionario.nome_func
             cargo = get_object_or_404(Cargo, pk=id)
             nome_cargo = cargo.nome_cargo
-            return render(request, 'base.html', {'username': username, 'cargo': nome_cargo})
+            return render(request, 'dashboard/dash_adm.html', {'username': username, 'cargo': nome_cargo})
         except Funcionario.DoesNotExist:
             return render(request, 'login.html')
 
@@ -24,5 +24,4 @@ class AtualizarDados(UpdateView):
         template_name = 'atualizar_dados.html'
         
         success_url = reverse_lazy('especialidade_list')
-
 

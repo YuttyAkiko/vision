@@ -2,11 +2,9 @@
 
 {% load static %}
 
-{% load widget_tweaks %}
-
 {% block page-title %} Clinica Vision - {{ username }} {% endblock %}
 
-{% block side menu %}
+{% block side-menu %}
 
         <img src="{% static 'img/dashboard/perfil_icon/icone_atend.png' %}" alt="ícone perfil">
 
@@ -38,7 +36,7 @@
 
 {% endblock %}
 
-{% block content %}
+{% block botoes %}
 
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
