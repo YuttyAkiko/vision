@@ -36,7 +36,7 @@ class Funcionario(models.Model):
     cidade_func = models.CharField(max_length=100)
     email_func = models.EmailField(max_length=300)
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE)
-    status_cad_func = models.BooleanField(verbose_name="Ativar cadastro")
+    status_cad_func = models.BooleanField(verbose_name="Ativar Cadastro")
 
 class Medico(models.Model):
     cnpj_med = models.CharField(max_length=12, unique=True, null=True)

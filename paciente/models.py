@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 from funcionario.models import Medico
 
 class Convenio(models.Model):
-  num_carteirinha = models.IntegerField(null=True)
-  nome_convenio = models.CharField(max_length=50, null=True)
-  titular = models.CharField(max_length=50, null=True)
-  cpf_titular = models.PositiveIntegerField()
+  num_carteirinha = models.IntegerField(null=True, blank=True)
+  nome_convenio = models.CharField(max_length=50, null=True, blank=True)
+  titular = models.CharField(max_length=50, null=True, blank=True)
+  cpf_titular = models.PositiveIntegerField(null=True, blank=True)
 
 class Paciente(models.Model):
   nome_pac = models.CharField(max_length=30)
@@ -19,14 +19,14 @@ class Paciente(models.Model):
   cpf_pac = models.PositiveBigIntegerField()
   nasc_pac  = models.DateField(auto_now=False, auto_now_add=False)
   tel_pac_1 = models.IntegerField()
-  tel_pac_2 = models.IntegerField(null=True)
+  tel_pac_2 = models.IntegerField(null=True, blank=True)
   cep_pac = models.IntegerField()
   end_pac = models.CharField(max_length=300)
   bairro_pac = models.CharField(max_length=100)
   cidade_pac = models.CharField(max_length=100)
   email_func = models.EmailField(max_length=300)
-  status_cad_pac = models.BooleanField()
-  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE) # Relacionamento (1,n)
+  status_cad_pac = models.BooleanField(verbose_name="Ativar Cadastro")
+  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True) # Relacionamento (1,n)
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
