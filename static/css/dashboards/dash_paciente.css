@@ -5,7 +5,7 @@ body{
     height: 500px;
 }
 /* Aplicando display grid na pagina e definindo duas colunas, com duas linhas;*/
-section{
+.container_grid_paciente {
     margin: 0 auto;
     max-width: 100%;
     height: fit-content;
@@ -15,8 +15,8 @@ section{
     grid-template-columns: 450px auto;
     grid-template-rows: auto auto;
     grid-template-areas: 
-    "janela_azul subtitulo"
-    "janela_azul section_principal";
+    "left_menu subtitle"
+    "left_menu section_principal";
     grid-gap: 0% 5%;
 }
 /* definindo posição dos botoes centrais */
@@ -27,6 +27,7 @@ section{
     justify-content: space-around;
     font-weight: 600; /*fonte em negrito*/
 }
+
 /* estilo dos botoes à esquerda, dentro da janela azul*/
 .btn_quadrado_pac {
     max-width: 380px;
@@ -56,7 +57,7 @@ section{
 }
 /* estilo e alinhamento do botao de do "segmento anterior" */
 .btn_agendamentos_futuros {
-    max-width: 800px;
+    max-width: 90%;
     height: 82px;
 
     display: flex;
@@ -71,7 +72,7 @@ section{
 }
 /* estilo da linha interna do botao do "segmento anterior" */
 .linha_interna{
-    width: 700px;
+    width: 90%;
     height: 45px;
     font-family: var(--texto);
 
@@ -99,7 +100,7 @@ button {
 }
 /* estilo botao historico de consultas */
 .historico_consulta {
-    max-width: 800px;
+    max-width: 90%;
     height: 340px;
 
     display: flex;
@@ -115,7 +116,7 @@ button {
 }
 /* estilo dos botoes dentro do historico de consultas */
 .bg_botao{
-    width: 700px;
+    width: 90%;
     height: 66px;
     font-family: var(--texto);
 
@@ -127,8 +128,6 @@ button {
     border-radius: 15px;
     background-color: var(--cinza-claro);
 }
-
-/* Estilo do Alert - Excluir -------------------- */
 
 /* parametro para a pagina do alert */
 #janela_cancelar {
@@ -212,6 +211,7 @@ button {
 	font-family: var(--texto);
 	font-size: 20px;
 }
+
 /* estilo do segundo alert, pós clicar no botao "confirmar" */
 #janela_confirmado {
 	display: none;
@@ -234,3 +234,6 @@ button {
 .elem_janela-self {
 	align-items: center;
 }
+
+
+
