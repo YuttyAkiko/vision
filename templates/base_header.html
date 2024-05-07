@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_base.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
     <title>{% block page-title %} {{ username }} {% endblock %}</title>
 </head>
 
@@ -54,7 +54,9 @@
     {% block content %}
     {% endblock %}
 
-    <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'js/sideBar.js' %}"></script>
+    <script src="{% static 'js/alert_del.js' %}"></script>
+    <script src="{% static 'js/calendario.js' %}"></script>
 
 </body>
 </html>
