@@ -38,7 +38,7 @@
 
             {% block title %}
             
-                <div class="subtitle">
+                <div class="subtitle" id="subtitle_paciente">
                     <p>AGENDAMENTOS</p>
                 </div>
 
@@ -53,9 +53,9 @@
                     <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
     
                         <div class="linha_interna"><!--div para estilo-->
-                            <p id=>Segmento anterior</p>
-                            <p id="data">xx/xx/xxxx</p>
-                            <p id="horario">00:00</p>
+                            <p id=> {{ especialidade }}</p>
+                            <p id="data">{{ data }}</p>
+                            <p id="horario">{{ hora }}</p>
                         </div>
                         <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
                         <button id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
@@ -83,20 +83,20 @@
                             <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
     
                                 <label for="especialidade">Especialidade:</label>
-                                <input id="input_ajuste" type="text" name="especialidade">
+                                <input id="input_ajuste" type="text" name="especialidade", value="{{ cancelar_especialidade }}">
                                 <label for="paciente">Paciente:</label>
-                                <input id="input_ajuste" type="text" name="paciente">
+                                <input id="input_ajuste" type="text" name="paciente", value="{{ cancelar_paciente }}">
     
                             </div>
     
                             <div class="align_linha"><!--terceira linha com os inputs restantes-->
     
                                 <label for="data">Data:</label>
-                                <input type="text" name="data">
+                                <input type="text" name="data", value="{{ cancelar_data }}">
                                 <label for="hora">Hora:</label>
-                                <input type="text" name="hora">
+                                <input type="text" name="hora", value="{{ cancelar_hora }}">
                                 <label for="medico">Médico(a)<br>solicitado(a):</label>
-                                <input type="text" name="medico">
+                                <input type="text" name="medico", value="{{ cancelar_medico }}">
     
                             </div>
     
@@ -123,9 +123,9 @@
                     <div class="historico_consulta"><!--historico de consultas-->
     
                         <div class="bg_botao"><!--botao laudo 1-->
-                            <p id=>Segmento anterior</p>
-                            <p id="data">xx/xx/xxxx</p>
-                            <p id="horario">00:00</p>
+                            <p id=>{{ especialidade }}</p>
+                            <p id="data">{{ data }}</p>
+                            <p id="horario">{{ hora }}</p>
                             <a href="">
                                 <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
                                     alt="ícone-laudo-médico">
@@ -133,9 +133,9 @@
                         </div>
     
                         <div class="bg_botao"><!--botao laudo 2-->
-                            <p id=>Neuroftalmologia</p>
-                            <p id="data">xx/xx/xxxx</p>
-                            <p id="horario">00:00</p>
+                            <p id=>{{ especialidade }}</p>
+                            <p id="data">{{ data }}</p>
+                            <p id="horario">{{ hora }}</p>
                             <a href="">
                                 <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
                                     alt="ícone-laudo-médico">
@@ -143,9 +143,9 @@
                         </div>
     
                         <div class="bg_botao"><!--botao laudo 3-->
-                            <p id=>Oftalmologia</p>
-                            <p id="data">xx/xx/xxxx</p>
-                            <p id="horario">00:00</p>
+                            <p id=>{{ especialidade }}</p>
+                            <p id="data">{{ data }}</p>
+                            <p id="horario">{{ hora }}</p>
                             <a href="">
                                 <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
                                     alt="ícone-laudo-médico">

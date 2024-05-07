@@ -19,6 +19,11 @@ body{
     "left_menu section_principal";
     grid-gap: 0% 5%;
 }
+
+#subtitle_paciente {
+    margin-right: 10%;
+}
+
 /* definindo posição dos botoes centrais */
 .section_principal {
     grid-area: "section_principal";
