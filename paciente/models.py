@@ -27,6 +27,9 @@ class Paciente(models.Model):
   email_func = models.EmailField(max_length=300)
   status_cad_pac = models.BooleanField(verbose_name="Ativar Cadastro")
   id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True) # Relacionamento (1,n)
+
+  def __str__(self):
+        return self.nome_pac
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)

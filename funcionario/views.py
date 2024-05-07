@@ -22,6 +22,5 @@ class GeralView(View):
 class AtualizarDados(UpdateView):
         form_class = Update_Funcionario_Form()
         template_name = 'atualizar_dados.html'
-        
         success_url = reverse_lazy('especialidade_list')
 
