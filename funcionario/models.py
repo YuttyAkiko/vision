@@ -13,7 +13,8 @@ class Cargo(models.Model):
     descricao = models.TextField(max_length=500, null=True)
     entrada = models.TimeField(null=True)
     saida = models.TimeField(null=True)
-    
+
+
 class Funcionario(models.Model):
     nome_func = models.CharField(max_length=30)
     sobrenome_func = models.CharField(max_length=50)

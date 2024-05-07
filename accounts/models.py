@@ -1,9 +1,9 @@
-import re
-from django.db import models
-from django.core import validators
-from django.contrib.auth.models import (
-    AbstractBaseUser, PermissionsMixin, UserManager, User
-)
+# import re
+# from django.db import models
+# from django.core import validators
+# from django.contrib.auth.models import (
+#     AbstractBaseUser, PermissionsMixin, UserManager, User
+# )
 
 # class User(AbstractBaseUser, PermissionsMixin): 
 #     user_id     =   models.AutoField(primary_key=True)
@@ -25,4 +25,6 @@ from django.contrib.auth.models import (
 
 # # Criando um gerenciador de usuario para cada user criado
 # User = UserManager()
+
+
 

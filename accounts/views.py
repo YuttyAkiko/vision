@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.views.decorators.http import require_POST
-from django.contrib.auth.decorators import login_required
-from .models import User
+# from django.shortcuts import render
+# from django.views.decorators.http import require_POST
+# from django.contrib.auth.decorators import login_required
+# from .models import User
 
-# definindo função de criação de usuario
+# # definindo função de criação de usuario
 # @require_POST
 # def cadastrar_usuario(request):
 #     username = request.POST('input-username')
@@ -12,4 +12,5 @@ from .models import User
 
 #     novo_user = User.objects.create_user(username=username, email=email, password=senha)
 #     novo_user.save()
+
 
