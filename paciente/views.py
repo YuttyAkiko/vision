@@ -10,15 +10,13 @@ class GeralView(View):
         try:
             paciente = get_object_or_404(Paciente, pk=id)
             username = paciente.nome_pac
-            agendamentos = Consulta.objects.filter(nome_pac=username, status_cons='Pendente').values()
-
-
-            historico = Consulta.objects.filter()
+            agendamentos = Consulta.objects.filter(id_paciente=paciente, status_cons='Pendente')
+            # historicos = Consulta.objects.filter(id_paciente=paciente, status_cons='Concluída')
             return render(request, 'dashboard/dash_paciente.html', {'username': username, 
-            'agendamento': agendamento, })
+            'agendamentos': agendamentos})
         
         except Paciente.DoesNotExist:
-            return render(request, 'login.html')
+            return render(request, '404.html')
 
 
 # REVISAAAAAR
