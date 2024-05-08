@@ -1,6 +1,6 @@
 {% load static %}
 
-
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +18,14 @@
         rel="stylesheet">
 
     <!-- Estes são os links dos arquivos css com os estilos -->
-    <link rel="stylesheet" href="/static/css/reset.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/index.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/background/cabecalho.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/home/banner.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/home/sobre.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/home/especialidades.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/home/historia.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/background/rodape.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
+    <link rel="stylesheet" href="assets/css/home/banner.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/home/sobre.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/home/especialidades.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/home/historia.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/rodape.css" type="text/css">
     
     <title>Clínica Vision | Home</title>
 </head>
@@ -268,3 +268,5 @@
 </body>
 
 </html>
+
+{% endblock %}

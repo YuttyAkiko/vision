@@ -8,5 +8,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('cadastrar/', views.cadastrar_usuario, name='cadastro'),
     path('home/', home, name="home"),
-    path('perfil-do-paciente/', PerfilPaciente, name="perfil-paciente")
 ]
