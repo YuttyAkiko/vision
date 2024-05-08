@@ -1,17 +1,18 @@
-{% extends "base.html" %} 
+{% extends "base_header.html" %} 
 
 {% load static %}
-
-{% load widget_tweaks %}
 
 {% block page-title %} Clinica Vision - Atualizar Cadastro {% endblock %}
 
 {% block login-header %}
 
+    <p> Olá! {{ paciente.nome_pac }} </p>
+
     <div id="btn_header_dash">
         <nav>
             <ul>
-                <li><a href="#">VOLTAR</a></li>
+                <li><a href="">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
             </ul>
         </nav>
     </div>
@@ -20,25 +21,22 @@
 
 {% block content %}
 
-    {{ form.as_p }}
-    
-    <form method="POST" class="post-form">{% csrf_token %}
-        <ul>
-            <li>
-                <label></label>
-                <input type="text">
-            </li>
-            <li>
-                <label></label>
-                <input type="text">
-            </li>
-            <li>
-                <label></label>
-                <input type="text">
-            </li>
-        </ul>
-        <button type="submit"><a href="#">Concluir</a></button>
-    </form>
+    <div id="atualizar_cadastro">
+
+        <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+        
+        <form method="POST" class="form-grid">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label><br>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit">CONCLUIR</button>
+        </form>
+
+    </div>
 
 {% endblock %}
 
