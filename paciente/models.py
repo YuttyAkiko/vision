@@ -58,7 +58,10 @@ class Consulta(models.Model):
     sintomas = models.TextField(max_length=500, null=True, blank=True)
     observacoes = models.TextField(max_length=500, null=True, blank=True)
     laudo = models.TextField(max_length=500, null=True, blank=True)
-    
+
+    class Meta:
+        ordering = ['data_cons', 'hora_cons']
+  
 class Receita(models.Model):
   id_consulta = models.ForeignKey('Consulta', on_delete=models.CASCADE) # Relacionamento (1,n)
   data_rec = models.DateTimeField(auto_now_add=True)
