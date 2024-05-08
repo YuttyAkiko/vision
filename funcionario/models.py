@@ -47,6 +47,10 @@ class Medico(models.Model):
     id_especialidade = models.ManyToManyField('Especialidade', related_name='Medicos')
     id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE)
 
+    def __str__(self):
+        nome_medico = str(self.id_funcionario.nome_func)
+        return nome_medico
+
 class Especialidade(models.Model):
     tipo_especialidade = models.CharField(max_length=30)
     valor_consulta = models.DecimalField(max_digits=5, decimal_places=2)
