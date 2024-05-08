@@ -7,5 +7,5 @@ app_name = 'paciente'
 
 urlpatterns = [
     path('geral/<int:id>', views.GeralView.as_view(), name='dashboard'),
-    path('cancelar-consulta/', views.DeletarConsulta.as_view(), name='cancelar-consulta')
+    path('geral/<int:id>/cancelar-consulta/', views.DeletarConsulta.as_view(), name='cancelar-consulta')
 ]

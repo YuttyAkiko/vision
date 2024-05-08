@@ -10,13 +10,22 @@ class GeralView(View):
         try:
             paciente = get_object_or_404(Paciente, pk=id)
             username = paciente.nome_pac
-            # agendamento = Consulta.objects.filter('filtrar agendamento pela data futura')
-            # historico = Consulta.objects.filter('filtrar hitorico pelas datas passadas')
-            return render(request, 'dashboard/dash_paciente.html', {'username': username})
+            agendamentos = Consulta.objects.filter(nome_pac=username, status_cons='Pendente').values()
+
+
+            historico = Consulta.objects.filter()
+            return render(request, 'dashboard/dash_paciente.html', {'username': username, 
+            'agendamento': agendamento, })
+        
         except Paciente.DoesNotExist:
             return render(request, 'login.html')
-        
+
+
+# REVISAAAAAR
 class DeletarConsulta(DeleteView):
     model = Consulta
     template_name = "cancelar_consulta.html"
-    success_url = reverse_lazy('dash_paciente.html')
+
+    def get_success_url(self):
+        return reverse_lazy('dash_paciente.html',kwargs={'pk': self.get_object().id})
+    
