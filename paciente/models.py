@@ -55,9 +55,9 @@ class Consulta(models.Model):
     )
     status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
     motivo = models.CharField(max_length=199)
-    sintomas = models.TextField(max_length=500, null=True)
-    observacoes = models.TextField(max_length=500, null=True)
-    laudo = models.TextField(max_length=500, null=True)
+    sintomas = models.TextField(max_length=500, null=True, blank=True)
+    observacoes = models.TextField(max_length=500, null=True, blank=True)
+    laudo = models.TextField(max_length=500, null=True, blank=True)
     
 class Receita(models.Model):
   id_consulta = models.ForeignKey('Consulta', on_delete=models.CASCADE) # Relacionamento (1,n)
