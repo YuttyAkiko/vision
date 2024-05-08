@@ -4,29 +4,32 @@ from funcionario.models import Medico
 
 class Convenio(models.Model):
   num_carteirinha = models.IntegerField(null=True, blank=True)
-  nome_convenio = models.CharField(max_length=50, null=True, blank=True)
+  nome_convenio = models.CharField(max_length=50, null=True)
   titular = models.CharField(max_length=50, null=True, blank=True)
   cpf_titular = models.PositiveIntegerField(null=True, blank=True)
 
+  def __str__(self):
+    return self.nome_convenio
+
 class Paciente(models.Model):
-  nome_pac = models.CharField(max_length=30)
-  sobrenome_pac = models.CharField(max_length=50)
+  nome_pac = models.CharField(max_length=30, verbose_name="nome")
+  sobrenome_pac = models.CharField(max_length=50, verbose_name="sobrenome")
   GENERO_PACIENTE = (
     ('Feminino', 'Feminino'),
     ('Masculino', 'Masculino')
   )
-  genero_pac = models.CharField(max_length=10, choices=GENERO_PACIENTE)
-  cpf_pac = models.PositiveBigIntegerField()
-  nasc_pac  = models.DateField(auto_now=False, auto_now_add=False)
-  tel_pac_1 = models.IntegerField()
-  tel_pac_2 = models.IntegerField(null=True, blank=True)
-  cep_pac = models.IntegerField()
-  end_pac = models.CharField(max_length=300)
-  bairro_pac = models.CharField(max_length=100)
-  cidade_pac = models.CharField(max_length=100)
-  email_pac = models.EmailField(max_length=300)
+  genero_pac = models.CharField(max_length=10, choices=GENERO_PACIENTE, verbose_name="gênero")
+  cpf_pac = models.PositiveBigIntegerField(verbose_name="CPF")
+  nasc_pac  = models.DateField(auto_now=False, auto_now_add=False, verbose_name="nascimento")
+  tel_pac_1 = models.IntegerField(verbose_name="Telefone 1")
+  tel_pac_2 = models.IntegerField(null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
+  cep_pac = models.IntegerField(verbose_name="CEP")
+  end_pac = models.CharField(max_length=300, verbose_name="endereço")
+  bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
+  cidade_pac = models.CharField(max_length=100, verbose_name="cidade")
+  email_pac = models.EmailField(max_length=300, verbose_name="e-mail")
   status_cad_pac = models.BooleanField(verbose_name="Ativar Cadastro")
-  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True) # Relacionamento (1,n)
+  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
 
   def __str__(self):
     return self.nome_pac

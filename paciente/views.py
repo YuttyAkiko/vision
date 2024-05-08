@@ -1,14 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import View, DeleteView
+from django.views.generic import View, UpdateView, DeleteView
 from .models import (
     Convenio, Paciente, Consulta, Receita, Exame
 )
+from .forms import Update_Paciente_Form, Delete_Consulta_Form
 
 class GeralView(View):
-    def get(self, request, id):
+    def get(self, request, pk):
         try:
-            paciente = get_object_or_404(Paciente, pk=id)
+            paciente = get_object_or_404(Paciente, pk=pk)
             username = paciente.nome_pac
             agendamentos = Consulta.objects.filter(id_paciente=paciente, status_cons='Pendente')
             historicos = Consulta.objects.filter(id_paciente=paciente, status_cons='Concluída')
@@ -18,6 +19,13 @@ class GeralView(View):
         except Paciente.DoesNotExist:
             return render(request, '404.html')
 
+class AtualizarDados(UpdateView):
+    model = Paciente
+    form_class = Update_Paciente_Form
+    template_name = 'cadastro/atualizar_dados.html' 
+
+    def get_success_url(self):
+        return reverse_lazy('geral', kwargs={'pk': self.object.pk})
 
 # REVISAAAAAR
 class DeletarConsulta(DeleteView):
