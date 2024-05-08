@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% block page-title %} Clinica Vision / Cancelar consulta {% endblock %}
+
 {% block cancelar-consulta %}
 
     <!--codigo do alert de confirmação para cancelar agendamento-->
@@ -12,13 +14,16 @@
             <div class="align_close">
                 <!--div para alinhar primeira linha do titulo e botao de fechar janela-->
 
-                <button type="submit" class="btn_retornar" onclick="btnRetornar()"><img
-                        src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="icone-excluir">
-                </button>
+                    <a href="{% url 'cancelar-consulta' consulta.id %}"><button type="submit" class="btn_retornar" onclick="btnRetornar()"><img
+                        src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="icone-excluir"></button>
+                    </a>
 
                 <h1 class="subtitulo">CANCELAR AGENDAMENTO</h1>
 
             </div>
+
+            {% csrf_token %}
+            {{ form.as_p }}
 
             <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
 
