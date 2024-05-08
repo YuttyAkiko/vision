@@ -60,7 +60,7 @@ body{
     flex-direction: row;
     align-items: center;
 }
-/* estilo e alinhamento do botao de do "segmento anterior" */
+/* estilo e alinhamento do botao de do "agendamentos" */
 .btn_agendamentos_futuros {
     max-width: 90%;
     height: 82px;
@@ -75,9 +75,9 @@ body{
     background-color: var(--branco);
     box-shadow: 0 4px 4px var(--cinza-claro);
 }
-/* estilo da linha interna do botao do "segmento anterior" */
+/* estilo da linha interna do botao do "agendamentos" */
 .linha_interna{
-    width: 90%;
+    width: 80%;
     height: 45px;
     font-family: var(--texto);
 
