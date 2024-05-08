@@ -24,7 +24,7 @@ class Paciente(models.Model):
   end_pac = models.CharField(max_length=300)
   bairro_pac = models.CharField(max_length=100)
   cidade_pac = models.CharField(max_length=100)
-  email_func = models.EmailField(max_length=300)
+  email_pac = models.EmailField(max_length=300)
   status_cad_pac = models.BooleanField(verbose_name="Ativar Cadastro")
   id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True) # Relacionamento (1,n)
 
