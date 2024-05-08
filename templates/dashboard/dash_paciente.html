@@ -51,9 +51,11 @@
                     <h2 class="texto">Agendamentos futuros</h2>
     
                     <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
+
+                    {% for agendamento in agendamentos %}
     
                         <div class="linha_interna"><!--div para estilo-->
-                            <p id=> {{ especialidade }}</p>
+                            <p id=> {{ agendamento.medico.especialidade }}</p>
                             <p id="data">{{ data }}</p>
                             <p id="horario">{{ hora }}</p>
                         </div>
@@ -61,6 +63,8 @@
                         <button id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
                                 src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
                         </button>
+                    
+                    {% endif %}
     
                     </div>
 
