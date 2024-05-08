@@ -63,61 +63,10 @@
                         </button>
     
                     </div>
-    
-                    <!--codigo do alert de confirmação para cancelar agendamento-->
-                    <div id="janela_cancelar"> <!--janela maior-->
-    
-                        <div class="elem_janela"> <!--container para alinhar o conteudo da janela-->
-    
-                            <div class="align_close">
-                                <!--div para alinhar primeira linha do titulo e botao de fechar janela-->
-    
-                                <button class="btn_retornar" onclick="btnRetornar()"><img
-                                        src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="icone-excluir">
-                                </button><!--<span>&times;</span>-->
-    
-                                <h1 class="subtitulo">CANCELAR AGENDAMENTO</h1>
-    
-                            </div>
-    
-                            <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
-    
-                                <label for="especialidade">Especialidade:</label>
-                                <input id="input_ajuste" type="text" name="especialidade", value="{{ cancelar_especialidade }}">
-                                <label for="paciente">Paciente:</label>
-                                <input id="input_ajuste" type="text" name="paciente", value="{{ cancelar_paciente }}">
-    
-                            </div>
-    
-                            <div class="align_linha"><!--terceira linha com os inputs restantes-->
-    
-                                <label for="data">Data:</label>
-                                <input type="text" name="data", value="{{ cancelar_data }}">
-                                <label for="hora">Hora:</label>
-                                <input type="text" name="hora", value="{{ cancelar_hora }}">
-                                <label for="medico">Médico(a)<br>solicitado(a):</label>
-                                <input type="text" name="medico", value="{{ cancelar_medico }}">
-    
-                            </div>
-    
-                            <div class="align_linha"><!--quarta linha com botao de confirmar-->
-    
-                                <button id="btn_confirmar" onclick="confirmarCancelamento()">Confirmar
-                                </button><!--adicionar função de excluir-->
-    
-                            </div>
-    
-                        </div>
-    
-                    </div>
-    
-                    <div id="janela_confirmado"><!--janela de confirmação de cancelamennto-->
-                        <div class="elem_janela elem_janela-self">
-                            <img src="/assets/img/paciente/img_icone_excluir.svg" alt="icone-excluir"><!--img-botao'x'-->
-                            <h1 class="subtitulo">SUA CONSULTA FOI CANCELADA</h1>
-                        </div>
-                    </div>
-    
+
+                    {% block cancelar-consulta %}
+                    {% endblock %}
+
                     <h2 class="texto">Histórico de consultas</h2>
     
                     <div class="historico_consulta"><!--historico de consultas-->

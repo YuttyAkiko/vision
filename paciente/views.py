@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import View
+from django.views.generic import View, DeleteView
 from .models import (
     Convenio, Paciente, Consulta, Receita, Exame
 )
@@ -15,3 +15,8 @@ class GeralView(View):
             return render(request, 'dashboard/dash_paciente.html', {'username': username})
         except Paciente.DoesNotExist:
             return render(request, 'login.html')
+        
+class DeletarConsulta(DeleteView):
+    model = Consulta
+    template_name = "cancelar_consulta.html"
+    success_url = reverse_lazy('dash_paciente.html')
