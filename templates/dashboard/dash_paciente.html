@@ -52,18 +52,45 @@
     
                     <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
 
-                    {% for agendamento in agendamentos %}
-    
-                        <div class="linha_interna"><!--div para estilo-->
-                            <p id=> {{ agendamento.medico.especialidade }}</p>
-                            <p id="data">{{ data }}</p>
-                            <p id="horario">{{ hora }}</p>
-                        </div>
-                        <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
-                        <button id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
-                                src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
-                        </button>
-                    
+                    {% if agendamentos.count == 1 %}
+
+                        {% for agendamento in agendamentos %}
+                            {% comment "" %} 
+                                Iterando objetos de consulta sobre a queryset criada pelo filter definido na view 
+                            {% endcomment %}
+                            <div class="linha_interna"><!--div para estilo-->
+
+                                {% for medico in agendamento.id_medico.all %}
+                                    {% comment %} 
+                                        Iterando sobre a tabela intermediaria entre consulta e medico 
+                                    {% endcomment %}
+                                    {% for especialidade in medico.id_especialidade.all %}
+                                        {% comment %} 
+                                            Iterando sobre a tabela intermediaria entre medico e especialidade
+                                        {% endcomment %}
+                                        <p>{{ especialidade }}</p>
+                                    {% endfor %}
+                                {% endfor %}
+                                <p>{{ agendamento.data_cons }}</p>
+                                <p>{{ agendamento.hora_cons }}</p>
+                                
+                            </div>
+                            <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
+                                <button type="submit" id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
+                                    src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
+                                </button>
+
+                        {% endfor %}
+
+                    {% elif agendamentos.count >= 2 %}
+
+                        <p class="texto">{{ agendamentos.count }} consultas futuras. Ver todos</p>
+                        {% comment %} <a href="" type="submit"></a> {% endcomment %}
+
+                    {% else %}
+
+                        <p class='texto'>Não há agendementos futuros</p>
+
                     {% endif %}
     
                     </div>
@@ -74,36 +101,41 @@
                     <h2 class="texto">Histórico de consultas</h2>
     
                     <div class="historico_consulta"><!--historico de consultas-->
-    
-                        <div class="bg_botao"><!--botao laudo 1-->
-                            <p id=>{{ especialidade }}</p>
-                            <p id="data">{{ data }}</p>
-                            <p id="horario">{{ hora }}</p>
-                            <a href="">
-                                <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
-                                    alt="ícone-laudo-médico">
-                            </a>
-                        </div>
-    
-                        <div class="bg_botao"><!--botao laudo 2-->
-                            <p id=>{{ especialidade }}</p>
-                            <p id="data">{{ data }}</p>
-                            <p id="horario">{{ hora }}</p>
-                            <a href="">
-                                <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
-                                    alt="ícone-laudo-médico">
-                            </a>
-                        </div>
-    
-                        <div class="bg_botao"><!--botao laudo 3-->
-                            <p id=>{{ especialidade }}</p>
-                            <p id="data">{{ data }}</p>
-                            <p id="horario">{{ hora }}</p>
-                            <a href="">
-                                <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
-                                    alt="ícone-laudo-médico">
-                            </a>
-                        </div>
+
+                        {% if historicos %}
+
+                            {% for historico in historicos|slice:":3" %}
+
+                                <div class="bg_botao"><!--botao laudo 1-->
+
+                                    {% for medico in historico.id_medico.all %}
+                                        {% for especialidade in medico.id_especialidade.all %}
+                                            <p>{{ especialidade }}</p>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                                    <p>{{ historico.data_cons }}</p>
+                                    <p>{{ historico.hora_cons }}</p>
+                                    <a href="">
+                                        <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
+                                            alt="ícone-laudo-médico">
+                                    </a>
+                                </div>
+            
+                            {% endfor %}
+
+                            {% if historicos.count >= 3 %}
+
+                                <p class="texto">Ver outras {{ historicos.count }} consultas passadas.</p>
+                                {% comment %} <a href="" type="submit"></a> {% endcomment %}
+
+                            {% endif %}
+
+                        {% else %}
+
+                            <p class="texto">Não há histórico de consulta</P>
+
+                        {% endif %}
     
                     </div>
     
