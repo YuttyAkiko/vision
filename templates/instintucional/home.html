@@ -1,9 +1,5 @@
-{% load static %}
-
-{% block content %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -21,11 +17,11 @@
     <link rel="stylesheet" href="{% static 'css/background/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
-    <link rel="stylesheet" href="assets/css/home/banner.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/home/sobre.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/home/especialidades.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/home/historia.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/rodape.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/especialidades.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/historia.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/sobre.css' %}">
     
     <title>Clínica Vision | Home</title>
 </head>
@@ -268,5 +264,3 @@
 </body>
 
 </html>
-
-{% endblock %}
