@@ -3,10 +3,7 @@ from django.contrib.auth.models import User
 from funcionario.models import Medico
 
 class Convenio(models.Model):
-  num_carteirinha = models.IntegerField(null=True, blank=True)
   nome_convenio = models.CharField(max_length=50, null=True)
-  titular = models.CharField(max_length=50, null=True, blank=True)
-  cpf_titular = models.PositiveIntegerField(null=True, blank=True)
 
   def __str__(self):
     return self.nome_convenio
@@ -30,6 +27,7 @@ class Paciente(models.Model):
   email_pac = models.EmailField(max_length=300, verbose_name="e-mail")
   status_cad_pac = models.BooleanField(verbose_name="Ativar Cadastro")
   id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
+  num_carteirinha = models.IntegerField(blank=True)
 
   def __str__(self):
     return self.nome_pac
@@ -38,7 +36,7 @@ class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
     hora_cons = models.TimeField()
     id_paciente = models.ForeignKey('Paciente', on_delete=models.CASCADE) # Relacionamento (1,n)
-    id_medico = models.ManyToManyField(Medico, related_name='Consulta') # Relacionamento (n,n)
+    id_medico = models.ForeignKey(Medico, related_name='Consulta') # Relacionamento (1,n)
     TIPOS_PAGAMENTO = (
         ('Cartão','Cartão'),
         ('Dinheiro','Dinheiro'),
