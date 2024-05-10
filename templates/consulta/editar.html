@@ -6,12 +6,12 @@
 
 {% block login-header %}
 
-    <p> Olá! {{ paciente.nome_pac }} </p>
+    <p> Olá! {{ consulta.id_paciente }} </p>
 
     <div id="btn_header_dash">
         <nav>
             <ul>
-                <li><a href="">VOLTAR</a></li>
+                <li><a href="{% url 'paciente:geral-list' consulta.pk %}">VOLTAR</a></li>
                 <li><a href="">LOGOUT</a></li>
             </ul>
         </nav>
@@ -25,7 +25,6 @@
 
 <main>
     <section>
-
         <form method="POST" class="form-grid">
             {% csrf_token %}
             {% for field in form %}
@@ -36,7 +35,6 @@
             {% endfor %}
             <button type="submit">CONCLUIR</button>
         </form>
-
     </section>
 </main>
 

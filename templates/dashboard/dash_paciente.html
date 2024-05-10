@@ -76,8 +76,9 @@
 
                     {% elif agendamentos.count >= 2 %}
 
-                        <p class="texto">{{ agendamentos.count }} consultas futuras. Ver todos</p>
-                        {% comment %} <a href="" type="submit"></a> {% endcomment %}
+                        <a href="" type="submit">
+                            <p class="texto">{{ agendamentos.count }} consultas futuras. Ver todos</p>
+                        </a> 
 
                     {% else %}
 
