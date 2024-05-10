@@ -1,0 +1,43 @@
+{% extends "base_dash.html" %}
+
+{% load static %}
+
+{% block page-title %} Clinica Vision - Editar Consulta {% endblock %}
+
+{% block login-header %}
+
+    <p> Olá! {{ paciente.nome_pac }} </p>
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+<main>
+    <section>
+
+        <form method="POST" class="form-grid">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label><br>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit">CONCLUIR</button>
+        </form>
+
+    </section>
+</main>
+
+{% endblock %}

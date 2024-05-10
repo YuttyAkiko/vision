@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="btn_quadrado_pac"> <!--botao meus dados-->
-                            <a href="#">
+                            <a href="{% url 'paciente:atualizar-cadastro' paciente.pk %}">
                                 <img id="centralize" src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone-agendamento">
                                 <h1>MEUS DADOS</h1>
                             </a>
@@ -55,31 +55,22 @@
                     {% if agendamentos.count == 1 %}
 
                         {% for agendamento in agendamentos %}
-                            {% comment "" %} 
-                                Iterando objetos de consulta sobre a queryset criada pelo filter definido na view 
-                            {% endcomment %}
+                            
                             <div class="linha_interna"><!--div para estilo-->
 
-                                {% for medico in agendamento.id_medico.all %}
-                                    {% comment %} 
-                                        Iterando sobre a tabela intermediaria entre consulta e medico 
-                                    {% endcomment %}
-                                    {% for especialidade in medico.id_especialidade.all %}
-                                        {% comment %} 
-                                            Iterando sobre a tabela intermediaria entre medico e especialidade
-                                        {% endcomment %}
-                                        <p>{{ especialidade }}</p>
-                                    {% endfor %}
-                                {% endfor %}
+                                <p>{{ agendamento.id_especialidade }}</p>
                                 <p>{{ agendamento.data_cons }}</p>
                                 <p>{{ agendamento.hora_cons }}</p>
                                 
                             </div>
-                            <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
-                                <button type="submit" id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
-                                    src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
-                                </button>
 
+                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto">Editar</a>
+
+                            <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
+                            <button type="submit" id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
+                                src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
+                            </button>
+                            
                         {% endfor %}
 
                     {% elif agendamentos.count >= 2 %}
@@ -108,12 +99,7 @@
 
                                 <div class="bg_botao"><!--botao laudo 1-->
 
-                                    {% for medico in historico.id_medico.all %}
-                                        {% for especialidade in medico.id_especialidade.all %}
-                                            <p>{{ especialidade }}</p>
-                                        {% endfor %}
-                                    {% endfor %}
-
+                                    <p>{{ historico.id_especialidade }}</p>
                                     <p>{{ historico.data_cons }}</p>
                                     <p>{{ historico.hora_cons }}</p>
                                     <a href="">
