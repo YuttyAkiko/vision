@@ -11,7 +11,7 @@ class Cargo(models.Model):
     )
     tipos_cargo = models.CharField(max_length=16, choices=TIPOS_CARGO)
     nome_cargo = models.CharField(max_length=100)
-    descricao = models.TextField(max_length=500, null=True)
+    descricao = models.TextField(max_length=2000, null=True)
     entrada = models.TimeField(null=True)
     saida = models.TimeField(null=True)
 

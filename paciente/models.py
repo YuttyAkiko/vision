@@ -56,9 +56,9 @@ class Consulta(models.Model):
     )
     status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
     motivo = models.CharField(max_length=199)
-    sintomas = models.TextField(max_length=500, null=True, blank=True)
-    observacoes = models.TextField(max_length=500, null=True, blank=True)
-    laudo = models.TextField(max_length=500, null=True, blank=True)
+    sintomas = models.TextField(max_length=2000, null=True, blank=True)
+    observacoes = models.TextField(max_length=2000, null=True, blank=True)
+    laudo = models.TextField(max_length=2000, null=True, blank=True)
 
     class Meta:
         ordering = ['data_cons', 'hora_cons']
