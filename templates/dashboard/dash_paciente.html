@@ -64,7 +64,8 @@
                                 
                             </div>
 
-                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto">Editar</a>
+                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto"><img class="icones_menores"
+                                src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir"></a>
 
                             <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
                             <button type="submit" id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
@@ -106,6 +107,8 @@
                                         <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
                                             alt="ícone-laudo-médico">
                                     </a>
+                                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}"
+                                            alt="ícone-laudo-médico">
                                 </div>
             
                             {% endfor %}
