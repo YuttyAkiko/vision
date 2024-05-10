@@ -42,10 +42,10 @@ class Funcionario(models.Model):
         return self.nome_func
 
 class Medico(models.Model):
+    id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE)
     cnpj_med = models.CharField(max_length=12, unique=True, null=True)
     crm = models.CharField(max_length=10, unique=True)
     id_especialidade = models.ManyToManyField('Especialidade', related_name='Medicos')
-    id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE)
 
     def __str__(self):
         nome_medico = str(self.id_funcionario.nome_func)
