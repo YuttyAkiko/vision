@@ -6,6 +6,8 @@ from .models import (
 )
 from .forms import Update_Paciente_Form, Delete_Consulta_Form
 
+# LoginRequiredMixin - função da classe view para solicitar o login do usuario
+
 class GeralView(View):
     def get(self, request, pk):
         try:
@@ -23,9 +25,8 @@ class AtualizarDados(UpdateView):
     model = Paciente
     form_class = Update_Paciente_Form
     template_name = 'cadastro/atualizar_dados.html' 
+    success_url = reverse_lazy('geral')
 
-    def get_success_url(self):
-        return reverse_lazy('geral', kwargs={'pk': self.object.pk})
 
 # REVISAAAAAR
 class DeletarConsulta(DeleteView):

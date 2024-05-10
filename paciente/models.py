@@ -25,7 +25,7 @@ class Paciente(models.Model):
   bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
   cidade_pac = models.CharField(max_length=100, verbose_name="cidade")
   email_pac = models.EmailField(max_length=300, verbose_name="e-mail")
-  status_cad_pac = models.BooleanField(verbose_name="ativar Cadastro")
+  status_cad_pac = models.BooleanField(verbose_name="ativar cadastro")
   id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
   num_carteirinha = models.IntegerField(blank=True, default=0)
 
