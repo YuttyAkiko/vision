@@ -29,7 +29,7 @@ class AtualizarDados(UpdateView):
     template_name = 'cadastro/atualizar_dados.html' 
 
     def get_success_url(self):
-        return reverse_lazy('paciente:geral-list',kwargs={'pk': self.get_object().id})
+        return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
 
 class EditarConsulta(UpdateView):
     model = Consulta
@@ -37,15 +37,14 @@ class EditarConsulta(UpdateView):
     template_name = 'consulta/editar.html'
 
     def get_success_url(self):
-        return reverse_lazy('paciente:geral-list',kwargs={'pk': self.get_object().id})
+        return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
 
-# REVISAAAAAR
 class DeletarConsulta(DeleteView):
     model = Consulta
-    template_name = "cancelar_consulta.html"
+    template_name = "pop-up/cancelar_consulta.html"
 
     def get_success_url(self):
-        return reverse_lazy('dash_paciente.html',kwargs={'pk': self.get_object().id})
+        return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
     
 
         
