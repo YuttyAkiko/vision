@@ -7,8 +7,7 @@ class Update_Paciente_Form(forms.ModelForm):
 
     class Meta:
         model = Paciente
-        fields = ('nome_pac','sobrenome_pac','genero_pac','cpf_pac','nasc_pac','tel_pac_1','tel_pac_2','cep_pac','end_pac','bairro_pac',
-                  'cidade_pac','email_pac','id_convenio','carteirinha')
+        fields = ('nome_pac','sobrenome_pac','genero_pac','cpf_pac','nasc_pac','tel_pac_1','tel_pac_2','cep_pac','end_pac','bairro_pac', 'cidade_pac','email_pac','id_convenio','carteirinha')
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
