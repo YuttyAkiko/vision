@@ -1,14 +1,13 @@
 from django import forms
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
 
+# ATUALIZAR DADOS DO PACIENTE
 class Update_Paciente_Form(forms.ModelForm):
-
-    carteirinha = forms.CharField(max_length=100)
 
     class Meta:
         model = Paciente
         fields = ('nome_pac','sobrenome_pac','genero_pac','cpf_pac','nasc_pac','tel_pac_1','tel_pac_2','cep_pac','end_pac','bairro_pac',
-                  'cidade_pac','email_pac','id_convenio','carteirinha')
+                  'cidade_pac','email_pac','id_convenio','num_carteirinha')
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -20,6 +19,12 @@ class Update_Paciente_Form(forms.ModelForm):
         for field_name, field in self.fields.items():
             if field_name not in ['genero_pac', 'id_convenio','nasc_pac','carteirinha']:
                 field.widget.attrs.update({'maxlength': '50', 'size': '60'})
+
+# EDITAR DADOS DE CONSULTA
+class Update_Consulta_Form(forms.ModelForm):
+    class Meta:
+        model = Consulta
+        fields = ('data_cons','hora_cons','id_especialidade','id_medico')
 
 class Delete_Consulta_Form(forms.ModelForm):
     class meta:
