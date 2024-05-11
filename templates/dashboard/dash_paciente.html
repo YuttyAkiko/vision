@@ -68,9 +68,13 @@
                                 src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir"></a>
 
                             <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
-                            <button type="submit" id="btn_excluir" onclick="btnCancelar()"><img class="icones_menores"
+                            {% comment %} <button id="btn_excluir" onclick="{% url 'paciente:cancelar-consulta' agendamento.pk %}"><img class="icones_menores"
                                 src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
-                            </button>
+                            </button>  {% endcomment %}
+
+                            <a href="{% url 'paciente:cancelar-consulta' agendamento.pk %}">
+                                <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
+                            </a>
                             
                         {% endfor %}
 
