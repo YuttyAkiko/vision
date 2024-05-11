@@ -34,14 +34,14 @@ class AtualizarDados(UpdateView):
 class EditarConsulta(UpdateView):
     model = Consulta
     form_class = Update_Consulta_Form
-    template_name = 'consulta/editar.html'
+    template_name = 'consulta/editar-consulta.html'
 
     def get_success_url(self):
         return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
 
-class DeletarConsulta(DeleteView):
+class CancelarConsulta(DeleteView):
     model = Consulta
-    template_name = "pop-up/cancelar_consulta.html"
+    template_name = "consulta/cancelar-consulta.html"
 
     def get_success_url(self):
         return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
