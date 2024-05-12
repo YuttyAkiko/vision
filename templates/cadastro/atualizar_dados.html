@@ -21,10 +21,15 @@
 
 {% block content %}
 
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    <div class="perfil-cadastro">
+        <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="perfil">
+        <h1 class="titulo">MEUS DADOS</h1>
+    </div>
+
     <div id="atualizar_cadastro">
 
-        <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
-        
         <form method="POST" class="form-grid">
             {% csrf_token %}
             {% for field in form %}
@@ -33,7 +38,7 @@
                     {{ field }}
                 </div>
             {% endfor %}
-            <button type="submit">CONCLUIR</button>
+            <button class="form-button" type="submit">CONCLUIR</button>
         </form>
 
     </div>
