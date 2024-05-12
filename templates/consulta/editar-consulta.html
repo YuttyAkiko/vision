@@ -11,7 +11,7 @@
     <div id="btn_header_dash">
         <nav>
             <ul>
-                <li><a href="{% url 'paciente:geral-list' consulta.pk %}">VOLTAR</a></li>
+                <li><a href="{% url 'paciente:geral-list' consulta.id_paciente.pk %}">VOLTAR</a></li>
                 <li><a href="">LOGOUT</a></li>
             </ul>
         </nav>

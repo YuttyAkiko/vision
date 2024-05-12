@@ -1,67 +1,44 @@
-{% extends "dashboard/dash_paciente.html" %}
+{% extends "base_header.html" %}
 
 {% load static %}
 
 {% block page-title %} Clinica Vision / Cancelar consulta {% endblock %}
 
-{% block cancelar-consulta %}
+{% block login-header %}
 
-    <!--codigo do alert de confirmação para cancelar agendamento-->
-    <div id="janela_cancelar"> <!--janela maior-->
-        
-        <div class="elem_janela"> <!--container para alinhar o conteudo da janela-->
+    <p> Olá! {{ consulta.id_paciente }} </p>
 
-            <div class="align_close">
-                <!--div para alinhar primeira linha do titulo e botao de fechar janela-->
-
-                    <a href="{% url 'cancelar-consulta' consulta.id %}"><button type="submit" class="btn_retornar" onclick="btnRetornar()"><img
-                        src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="icone-excluir"></button>
-                    </a>
-
-                <h1 class="subtitulo">CANCELAR AGENDAMENTO</h1>
-
-            </div>
-
-            {% csrf_token %}
-            {{ form.as_p }}
-
-            <div class="align_linha"><!--segunda linha com os inputs de especialidade e paciente-->
-
-                <label for="especialidade">Especialidade:</label>
-                <input id="input_ajuste" type="text" name="especialidade", value="{{ cancelar_especialidade }}">
-                <label for="paciente">Paciente:</label>
-                <input id="input_ajuste" type="text" name="paciente", value="{{ cancelar_paciente }}">
-
-            </div>
-
-            <div class="align_linha"><!--terceira linha com os inputs restantes-->
-
-                <label for="data">Data:</label>
-                <input type="text" name="data", value="{{ cancelar_data }}">
-                <label for="hora">Hora:</label>
-                <input type="text" name="hora", value="{{ cancelar_hora }}">
-                <label for="medico">Médico(a)<br>solicitado(a):</label>
-                <input type="text" name="medico", value="{{ cancelar_medico }}">
-
-            </div>
-
-            <div class="align_linha"><!--quarta linha com botao de confirmar-->
-
-                <button type="submit" id="btn_confirmar" onclick="confirmarCancelamento()">Confirmar
-                </button><!--adicionar função de excluir-->
-
-            </div>
-
-        </div>
-
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="{% url 'paciente:geral-list' consulta.id_paciente.pk %}">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <div id="janela_confirmado"><!--janela de confirmação de cancelamennto-->
-        <div class="elem_janela elem_janela-self">
-            <img src="/assets/img/paciente/img_icone_excluir.svg" alt="icone-excluir"><!--img-botao'x'-->
-            <h1 class="subtitulo">SUA CONSULTA FOI CANCELADA</h1>
-        </div>
-    </div>
+{% endblock %}
 
+{% block content %}
+
+    <div id="cancelar_agendamento">
+
+        <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+            <h1 class="titulo">CANCELAR AGENDAMENTO</h1>
+            
+            <p>Data: {{ consulta.data_cons }}</p>
+            <p>Hora: {{ consulta.hora_cons }}</p>
+            <p>Especialidade: {{ consulta.id_especialidade }}</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="motivo">Motivo:</label><br>
+                    <input type="text" id="motivo" name="motivo">
+                </div>
+                <button type="submit">Confirmar Cancelamento</button>
+            </form>
+    </div>
 {% endblock %}
 

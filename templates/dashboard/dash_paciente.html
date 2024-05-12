@@ -64,13 +64,9 @@
                                 
                             </div>
 
-                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto"><img class="icones_menores"
-                                src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir"></a>
-
-                            <!--botao de excluir agendamento, função que chama o alert para confirmação do usuário-->
-                            {% comment %} <button id="btn_excluir" onclick="{% url 'paciente:cancelar-consulta' agendamento.pk %}"><img class="icones_menores"
-                                src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
-                            </button>  {% endcomment %}
+                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto">
+                                <img class="icones_menores" src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir">
+                            </a>
 
                             <a href="{% url 'paciente:cancelar-consulta' agendamento.pk %}">
                                 <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
@@ -91,9 +87,6 @@
                     {% endif %}
     
                     </div>
-
-                    {% block cancelar-consulta %}
-                    {% endblock %}
 
                     <h2 class="texto">Histórico de consultas</h2>
     
