@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import View, UpdateView, DeleteView
 from .models import (
     Convenio, Paciente, Consulta, Receita, Exame
 )
-from .forms import Update_Paciente_Form, Update_Consulta_Form, Delete_Consulta_Form
+from .forms import Update_Paciente_Form, Update_Consulta_Form
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
 
@@ -37,14 +37,23 @@ class EditarConsulta(UpdateView):
     template_name = 'consulta/editar-consulta.html'
 
     def get_success_url(self):
-        return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
+        paciente_pk = self.object.id_paciente.pk
+        return reverse_lazy('paciente:geral-list', kwargs={'pk': paciente_pk})
 
 class CancelarConsulta(DeleteView):
     model = Consulta
-    template_name = "consulta/cancelar-consulta.html"
+    template_name = 'consulta/cancelar-consulta.html'
 
-    def get_success_url(self):
-        return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
+    def post(self, request, pk):
+        consulta = get_object_or_404(Consulta, pk=pk)
+        motivo = request.POST.get('motivo', '')
+
+        consulta.status_cons = 'Cancelada'
+        consulta.observacoes = motivo
+        consulta.save()
+
+        return redirect('paciente:geral-list', consulta.id_paciente.pk)
+
     
 
         

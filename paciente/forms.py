@@ -26,8 +26,5 @@ class Update_Consulta_Form(forms.ModelForm):
         model = Consulta
         fields = ('data_cons','hora_cons','id_especialidade','id_medico')
 
-class Delete_Consulta_Form(forms.ModelForm):
-    class meta:
-        model = Consulta
-        fields = ('data_cons','hora_cons','id_paciente','id_medico')
+
 
