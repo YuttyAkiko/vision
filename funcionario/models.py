@@ -39,7 +39,7 @@ class Funcionario(models.Model):
     status_cad_func = models.BooleanField(verbose_name="Ativar Cadastro")
 
     def __str__(self):
-        return self.nome_func
+        return f"{self.nome_func} {self.sobrenome_func}"
 
 class Medico(models.Model):
     id_funcionario = models.OneToOneField('Funcionario', on_delete= models.CASCADE)
