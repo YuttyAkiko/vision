@@ -36,7 +36,7 @@ class Funcionario(models.Model):
     cidade_func = models.CharField(max_length=100, verbose_name="cidade")
     email_func = models.EmailField(max_length=300, verbose_name="e-mail")
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE, verbose_name="cargo")
-    status_cad_func = models.BooleanField(verbose_name="Ativar Cadastro", verbose_name="Ativar Cadastro")
+    status_cad_func = models.BooleanField(verbose_name="Ativar Cadastro")
 
     def __str__(self):
         return f"{self.nome_func} {self.sobrenome_func}"
