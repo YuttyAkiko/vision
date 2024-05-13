@@ -8,6 +8,10 @@ from .forms import Update_Paciente_Form, Update_Consulta_Form
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
 
+def Home(request):
+    # Página principal da clínica vision
+    return render(request, 'institucional/home.html')
+
 class GeralView(View):
     def get(self, request, pk):
         try:

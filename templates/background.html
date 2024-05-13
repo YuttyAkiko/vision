@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -16,16 +16,12 @@
         rel="stylesheet">
 
     <!-- Estes são os links dos arquivos css com os estilos -->
-    <link rel="stylesheet" href="{% static 'css/background/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/especialidades.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/historia.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home/sobre.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/base.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/header.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/footer.css' %}" type="text/css">
     
-    <title>{% block title %}Clínica Vision | Home{% endblock %}</title>
+    <title>Clínica Vision | Home</title>
 </head>
 
 <body>
@@ -36,7 +32,7 @@
         </div>
 
         <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
-            <img class="logo__cabecalho" src="assets/img/logo/logo-vision-escuro.svg" alt="Logotipo da Clínica Vision.">
+            <img class="logo__cabecalho" src="{% static 'img/logo/logo-vision-escuro.svg' %}" alt="Logotipo da Clínica Vision.">
             <nav id="mostrarMenu" class="cabecalho__menu">
                 <ul class="cabecalho__menu__lista">
                     <li><a href="index.html">Home</a></li>
@@ -73,7 +69,7 @@
         </div>
     </header>
 
-    <main>{% block content %}{% endblock %}</main>
+    {% block content %}{% endblock content %}
 
     <!-- Aqui começa o rodapé -->
     <footer class="rodape__container">
@@ -127,6 +123,6 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/sideBar.js'%}"></script>
+    <script src="{% static 'js/sideBar.js' %}"></script>
 </body>
 </html>
