@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from funcionario.models import Medico, Especialidade
+from cpf_field.models import CPFField
 
 class Convenio(models.Model):
   nome_convenio = models.CharField(max_length=50, null=True)
@@ -16,11 +17,12 @@ class Paciente(models.Model):
     ('Masculino', 'Masculino')
   )
   genero_pac = models.CharField(max_length=10, choices=GENERO_PACIENTE, verbose_name="gênero")
-  cpf_pac = models.PositiveBigIntegerField(verbose_name="CPF")
+  # cpf_pac = CPFField('cpf') # O método CPFField valida um cpf real
+  cpf_pac = models.CharField(max_length=30, verbose_name="CPF")
   nasc_pac  = models.DateField(auto_now=False, auto_now_add=False, verbose_name="nascimento")
-  tel_pac_1 = models.IntegerField(verbose_name="Telefone 1")
-  tel_pac_2 = models.IntegerField(null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
-  cep_pac = models.IntegerField(verbose_name="CEP")
+  tel_pac_1 = models.CharField(max_length=30, verbose_name="Telefone 1")
+  tel_pac_2 = models.CharField(max_length=30, null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
+  cep_pac = models.CharField(max_length=30, verbose_name="CEP")
   end_pac = models.CharField(max_length=300, verbose_name="endereço")
   bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
   cidade_pac = models.CharField(max_length=100, verbose_name="cidade")
