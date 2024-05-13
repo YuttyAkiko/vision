@@ -1,0 +1,66 @@
+{% extends 'base_dash.html' %}
+
+{% load static %}
+
+{% block page-title %} Clinica Vision - {{ username }} {% endblock %}
+
+{% block side-menu %}
+
+    <div class="left_menu">
+        <div>
+            <img src="{% static 'img/dashboard/perfil_icon/icone_02.png' %}" alt="ícone perfil">
+
+            <h1> {{ cargo }} </h1>
+
+            <div>
+                <label>+ Criar novo usuário</label>
+                <select>
+                    <option value="Paciente">Paciente</option>
+                    <option value="Funcionário">Funcionário</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block title %}
+
+    <div class="subtitle">
+        <p>O QUE VOCÊ DESEJA ACESSAR?</p>
+    </div>
+    
+{% endblock %}
+
+{% block botoes %}
+
+    <div class="btn_main">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
+            <img src="{% static 'img/dashboard/icone_clinica.png' %}" alt="ícone ilustrativo clínica">
+            <h1>DADOS DA<br>CLÍNICA</h1>
+        {% comment %} </a> {% endcomment %}
+    </div>
+
+    <div class="btn_main">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
+            <img id="centralize" src="{% static 'img/dashboard/icone_agend.png' %}" alt="ícone ilustrativo agendamento">
+            <h1>CONSULTAR<br>AGENDAMENTOS</h1>
+        {% comment %} </a> {% endcomment %}
+    </div>
+
+    <div class="btn_main">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
+            <img src="{% static 'img/dashboard/icone_paciente.png' %}" alt="ícone perfil paciente">
+            <h1>PACIENTES</h1>
+        {% comment %} </a> {% endcomment %}
+    </div>
+
+    <div class="btn_main">
+        {% comment %} <a href="{% url '' %}"> {% endcomment %}
+            <img src="{% static 'img/dashboard/icone_funcionario.png' %}" alt="ícone perfil funcionário">
+            <h1>FUNCIONÁRIOS</h1>
+        {% comment %} </a> {% endcomment %}
+    </div>
+
+{% endblock%}
+

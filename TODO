@@ -1,0 +1,33 @@
+/* TEMPLATES:
+/* 
+- profile_patient.html: Vai ficar dentro do app 'paciete/templates/paciente'.
+- exam.html, prescription.html, register.html, update_data.html, login.html: Vai ficar na BASE_DIR 'templates'.
+- background.html: Vai ter o header e o footer, que vai ser extendido para o agendamento e as páginas institucionais. 
+- scheduling.html, scheduling_cancel.html, scheduling_history.html: Vai ficar na BASE_DIR 'templantes/scheduling'.
+
+Obs: Renomear os apps, templastes, models, views, classes e arquivos em geral para o inglês para boas práticas. 
+*/
+
+O QUE FAZER
+--Adicionar o verbose_name a todos os campos das tabelas paciente e funcionario
+
+O QUE JA FOI FEITO - 10/05/2024
+--Adicionei id_funcionario como primeiro campo na tabela de medico;
+
+--Adicionei o campo id_especialidade na tabela de consulta, uma vez que cada consulta pode ter apenas uma 
+--especialidade e um medico, porém a mesma especialidade pode ter muitos medicos;
+
+--Mudei o status de consulta 'Pendente', para 'Agendada';
+
+ */
+
+/* 
+SEGMENTOS:
+institucional
+login
+cadastrar
+perfil
+alterar dados
+agendar
+histórico de agendamentos
+ */

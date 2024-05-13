@@ -1,0 +1,74 @@
+.perfil-cadastro {
+    width: 40%;
+    background-color: var(--azul-claro);
+    border-radius: 0 0 90px 0;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content:right;
+}
+
+.perfil-cadastro img{
+    width: 190px;
+    margin-left: 20px;
+}
+
+.perfil-cadastro h1 {
+    font-size: 30px;
+}
+
+#container-forms {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cinza-claro);
+}
+
+.form-grid {
+    max-width: 80%;
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "input input"
+    "input input"
+    "input input"
+    "input input"
+    "input input"
+    "input input"
+    "input input"
+    "input input"
+    "button button";
+    gap: 10px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.form-label {
+    font-family: var(--texto);
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.form-button {
+    height: 30px;
+    margin-bottom: 30px;
+    background-color: var(--verde);
+    color: var(--branco);
+    font-weight: 600;
+    border-radius: 10px;
+
+    grid-area: button;
+}
+
+.input-estilizado {
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--azul-claro);
+}
+

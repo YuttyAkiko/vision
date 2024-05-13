@@ -1,0 +1,139 @@
+{% extends "base_dash.html" %}
+
+{% load static %}
+
+{% block page-title %} Clinica Vision - {{ username }} {% endblock %}
+
+{% block content %}
+
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    <main>
+
+        <section class="container_grid_paciente">
+
+            {% block side-menu %}
+
+                <div class="left_menu">
+                    <div>
+                        <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone perfil">
+
+                        <div class="btn_quadrado_pac"> <!--botao agendamento-->
+                            <a href="#">
+                                <img id="centralize" src="{% static 'img/dashboard/img-calendario.png' %}" alt="ícone-agendamento">
+                                <h1>NOVO<br>AGENDAMENTO</h1>
+                            </a>
+                        </div>
+
+                        <div class="btn_quadrado_pac"> <!--botao meus dados-->
+                            <a href="{% url 'paciente:atualizar-cadastro' paciente.pk %}">
+                                <img id="centralize" src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone-agendamento">
+                                <h1>MEUS DADOS</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endblock %}
+
+            {% block title %}
+            
+                <div class="subtitle" id="subtitle_paciente">
+                    <p>AGENDAMENTOS</p>
+                </div>
+
+            {% endblock %}
+
+            {% block botoes %}
+
+                <div class="section_principal">
+
+                    <h2 class="texto">Agendamentos futuros</h2>
+    
+                    <div class="btn_agendamentos_futuros"> <!--linha com os agendamentos futuros-->
+
+                    {% if agendamentos.count == 1 %}
+
+                        {% for agendamento in agendamentos %}
+                            
+                            <div class="linha_interna"><!--div para estilo-->
+
+                                <p>{{ agendamento.id_especialidade }}</p>
+                                <p>{{ agendamento.data_cons }}</p>
+                                <p>{{ agendamento.hora_cons }}</p>
+                                
+                            </div>
+
+                            <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto">
+                                <img class="icones_menores" src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir">
+                            </a>
+
+                            <a href="{% url 'paciente:cancelar-consulta' agendamento.pk %}">
+                                <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
+                            </a>
+                            
+                        {% endfor %}
+
+                    {% elif agendamentos.count >= 2 %}
+
+                        <a href="" type="submit">
+                            <p class="texto">{{ agendamentos.count }} consultas futuras. Ver todos</p>
+                        </a> 
+
+                    {% else %}
+
+                        <p class='texto'>Não há agendementos futuros</p>
+
+                    {% endif %}
+    
+                    </div>
+
+                    <h2 class="texto">Histórico de consultas</h2>
+    
+                    <div class="historico_consulta"><!--historico de consultas-->
+
+                        {% if historicos %}
+
+                            {% for historico in historicos|slice:":3" %}
+
+                                <div class="bg_botao"><!--botao laudo 1-->
+
+                                    <p>{{ historico.id_especialidade }}</p>
+                                    <p>{{ historico.data_cons }}</p>
+                                    <p>{{ historico.hora_cons }}</p>
+                                    <a href="">
+                                        <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
+                                            alt="ícone-laudo-médico">
+                                    </a>
+                                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}"
+                                            alt="ícone-laudo-médico">
+                                </div>
+            
+                            {% endfor %}
+
+                            {% if historicos.count >= 3 %}
+
+                                <p class="texto">Ver outras {{ historicos.count }} consultas passadas.</p>
+                                {% comment %} <a href="" type="submit"></a> {% endcomment %}
+
+                            {% endif %}
+
+                        {% else %}
+
+                            <p class="texto">Não há histórico de consulta</P>
+
+                        {% endif %}
+    
+                    </div>
+    
+                </div>
+
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+    {% endblock %}
+
+       

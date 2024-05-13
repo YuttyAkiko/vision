@@ -1,112 +1,73 @@
-.rodape__container {
-    /* Aqui defini o tamanho geral do rodapé e a cor do fundo */
+footer {
     background-color: var(--azul-escuro);
-    height: auto;
+    height: 250px;
     width: 100%;
-  }
-  
-  .rodape {
-    /* Aqui seria onde ficam todos os elementos do rodapé */
-    align-items: center;
-    display: flex;
-    height: auto;
-    justify-content: space-evenly;
-    padding: 2rem 0;
-    width: 100%;
-  }
-  
-  .logo__rodape {
-    width: 230px;
-    margin-bottom: 20px;
-    height: 80px;
-  }
-  
-  .texto__rodape {
     color: var(--branco);
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-  }
-  
-  #contato img {
+}
+
+footer> div {
+    align-items: center;
+    display: flex;
+    height: 250px;
+    justify-content: space-evenly;
+    width: 100%;
+
+    font-family: var(--texto);
+}
+/* logo img */
+footer> div:first-child> div> img{
+    width: 230px;
+    margin-bottom: 20px;
+    height: 80px;
+}
+/* tamanho dos icones menores - tel, whatsapp, localização */
+footer> div> div:nth-child(2) img {
     height: 30px;
     margin: 16px;
     width: 30px;
-  }
-  
-  #redes__links {
+}
+
+footer> div> div:nth-child(2) li, a {
+    align-items: center;
+    display: flex;
+    color: var(--branco);
+    text-decoration: none;
+} 
+/* alinhamento dos icones de insta e facebook */
+footer> div> div:nth-child(3)> div {
     display: flex;
     justify-content: space-around;
-  }
-  
-  #redes-sociais img {
+}
+/* tamanho dos icones de instagram e facebook */
+footer> div> div:nth-child(3) a img{
     height: 40px;
     margin: 10px;
     width: 40px;
-  }
+}
   
-  #contato li, a {
-    align-items: center;
-    display: flex;
-  }
-  
-  #titulo__redes {
+footer> div> div:nth-child(3)> h1 {
     color: var(--branco);
     font-size: 30px;
     font-weight: 600;
     padding: 20px 0;
-  }
+}
   
-  #info-dev {
+footer> div> div:nth-child(4) {
     align-items: flex-end;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-  }
+}
   
-  #info-dev__texto {
+footer> div> div:nth-child(4)> p {
     padding: 0 0 20px 0;
   }
   
-  #logo-time {
-    border-radius: 20%;
+footer> div> div:nth-child(4) img {
+    border-radius: 20px;
     height: 80px;
     width: 200px;
-  }
-  
-  @media screen and (max-width: 1024px) {
-    .rodape {
-      align-items: center;
-      flex-direction: column;
-    }
-  
-    #horario {
-      margin-top: 2rem;
-    }
-  
-    .texto__rodape {
-      text-align: center;
-    }
-  
-    #contato ul {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      margin: 1rem 0;
-    }
-  
-    #contato li, a {
-      flex-direction: column;
-    }
-  
-    #info-dev {
-      align-items: center;
-      margin: 2rem;
-    }
-  }
-  
-  @media screen and (max-width:768px) {
-    .texto__rodape {
-      font-size: 16px;
-    }
-  }
+}

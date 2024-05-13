@@ -1,0 +1,45 @@
+{% extends "base_header.html" %}
+
+{% load static %}
+
+{% block page-title %} Clinica Vision / Cancelar consulta {% endblock %}
+
+{% block login-header %}
+
+    <p> Olá! {{ consulta.id_paciente }} </p>
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="{% url 'paciente:geral-list' consulta.id_paciente.pk %}">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="cancelar_agendamento">
+
+        <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+            <h1 class="titulo">CANCELAR AGENDAMENTO</h1>
+            
+            <p>Data: {{ consulta.data_cons }}</p>
+            <p>Hora: {{ consulta.hora_cons }}</p>
+            <p>Especialidade: {{ consulta.id_especialidade }}</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="motivo">Motivo:</label><br>
+                    <input type="text" id="motivo" name="motivo">
+                </div>
+                <button type="submit">Confirmar Cancelamento</button>
+            </form>
+    </div>
+    
+{% endblock %}
+
