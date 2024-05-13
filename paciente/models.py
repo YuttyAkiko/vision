@@ -27,7 +27,7 @@ class Paciente(models.Model):
   email_pac = models.EmailField(max_length=300, verbose_name="e-mail")
   status_cad_pac = models.BooleanField(verbose_name="ativar cadastro")
   id_convenio = models.ForeignKey(Convenio, on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
-  num_carteirinha = models.IntegerField(blank=True, default=0)
+  num_carteirinha = models.IntegerField(blank=True, default=0, verbose_name="carteirinha")
 
   def __str__(self):
     return self.nome_pac

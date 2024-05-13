@@ -17,14 +17,25 @@ class Update_Paciente_Form(forms.ModelForm):
         self.fields['cpf_pac'].widget.attrs['readonly'] = True
         self.fields['nasc_pac'].widget.attrs['readonly'] = True
         for field_name, field in self.fields.items():
-            field.widget.attrs.update({'class': 'input-estilizado','maxlength': '50', 'size': '60'})
+            if field_name not in ['genero_pac', 'id_convenio']:
+                field.widget.attrs.update({'class': 'input-estilizado','maxlength': '50', 'size': '60'})
+            else:
+                field.widget.attrs.update({'class': 'custom-select'})
             
-                
-
 class Update_Consulta_Form(forms.ModelForm):
+
     class Meta:
         model = Consulta
-        fields = ('data_cons','hora_cons','id_especialidade','id_medico')
+        fields = ('data_cons', 'hora_cons', 'id_especialidade', 'id_medico')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            if field_name not in ['id_especialidade', 'id_medico']:
+                field.widget.attrs.update({'class': 'input-estilizado','maxlength': '30', 'size': '40'})
+            else:
+                field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Default select example'})
 
 
+        
 
