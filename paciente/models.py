@@ -33,40 +33,40 @@ class Paciente(models.Model):
     return self.nome_pac
   
 class Consulta(models.Model):
-    data_cons = models.DateField(auto_now=False, auto_now_add=False)
-    hora_cons = models.TimeField()
-    id_paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE) # Relacionamento (1,n)
-    id_medico = models.ForeignKey(Medico, related_name='Consulta', on_delete=models.CASCADE, default=0) # Relacionamento (1,n)
-    id_especialidade = models.ForeignKey(Especialidade, related_name='consultas', on_delete=models.CASCADE)
+    data_cons = models.DateField(auto_now=False, auto_now_add=False, verbose_name="data")
+    hora_cons = models.TimeField(verbose_name="hora")
+    id_paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, verbose_name="paciente") # Relacionamento (1,n)
+    id_medico = models.ForeignKey(Medico, related_name='Consulta', on_delete=models.CASCADE, default=0, verbose_name="médico") # Relacionamento (1,n)
+    id_especialidade = models.ForeignKey(Especialidade, related_name='consultas', on_delete=models.CASCADE, verbose_name="especialidade")
     TIPOS_PAGAMENTO = (
         ('Cartão','Cartão'),
         ('Dinheiro','Dinheiro'),
         ('Pix','Pix')
     )
-    tipo_pag_cons = models.CharField(max_length=10, choices=TIPOS_PAGAMENTO)
+    tipo_pag_cons = models.CharField(max_length=10, choices=TIPOS_PAGAMENTO, verbose_name="Tipo de Pagamento")
     STATUS_PAGAMENTO = (
         ('Pago','Pago'),
         ('Pendente', 'Pendente')
     )
-    status_pag_cons = models.CharField(max_length=10, choices=STATUS_PAGAMENTO) # Select "Yes" ou "No" para o status de pagamento.
+    status_pag_cons = models.CharField(max_length=10, choices=STATUS_PAGAMENTO, verbose_name="Status de Pagamento") # Select "Yes" ou "No" para o status de pagamento.
     STATUS_CONSULTA = (
         ('Concluída', 'Concluída'),
         ('Cancelada', 'Cancelada'),
         ('Agendada', 'Agendada'),
         ('Remarcada', 'Remarcada'),
     )
-    status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
-    motivo = models.CharField(max_length=199)
-    sintomas = models.TextField(max_length=500, null=True, blank=True)
-    observacoes = models.TextField(max_length=500, null=True, blank=True)
-    laudo = models.TextField(max_length=500, null=True, blank=True)
+    status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA, verbose_name="Status da Consulta")
+    motivo = models.CharField(max_length=199, verbose_name="motivo")
+    sintomas = models.TextField(max_length=500, null=True, blank=True, verbose_name="sintomas")
+    observacoes = models.TextField(max_length=500, null=True, blank=True, verbose_name="observações")
+    laudo = models.TextField(max_length=500, null=True, blank=True, verbose_name="laudo")
 
     class Meta:
         ordering = ['data_cons', 'hora_cons']
   
 class Receita(models.Model):
   id_consulta = models.ForeignKey('Consulta', on_delete=models.CASCADE) # Relacionamento (1,n)
-  data_rec = models.DateTimeField(auto_now_add=True)
+  data_rec = models.DateTimeField(auto_now_add=True, verbose_name="data")
   L_esf_OD = models.CharField(max_length=30, null=True)
   L_esf_OE = models.CharField(max_length=30, null=True)
   L_cil_OD = models.CharField(max_length=30, null=True)
@@ -86,16 +86,16 @@ class Receita(models.Model):
   
 class Exame(models.Model):
   id_consulta = models.ForeignKey(Consulta, on_delete=models.CASCADE)
-  tipo_exame = models.CharField(max_length=30)
-  valor_exame = models.FloatField()
+  tipo_exame = models.CharField(max_length=30, verbose_name="exame")
+  valor_exame = models.FloatField(verbose_name="valor")
   TIPOS_PAGAMENTO = (
         ('Cartão','Cartão'),
         ('Dinheiro','Dinheiro'),
         ('Pix','Pix')
     )
-  tipo_pag_ex = models.CharField(max_length=10, choices=TIPOS_PAGAMENTO)
+  tipo_pag_ex = models.CharField(max_length=10, choices=TIPOS_PAGAMENTO, verbose_name="Tipo de Pagamento")
   STATUS_PAGAMENTO = (
         ('Pago','Pago'),
         ('Pendente', 'Pendente')
     )
-  status_pag_ex = models.CharField(max_length=10, choices=STATUS_PAGAMENTO) # Select "Yes" ou "No" para o status de pagamento.
+  status_pag_ex = models.CharField(max_length=10, choices=STATUS_PAGAMENTO, verbose_name="Status de Pagamento") # Select "Yes" ou "No" para o status de pagamento.
