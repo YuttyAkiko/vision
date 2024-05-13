@@ -11,9 +11,12 @@
     <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/dashboards/dash_base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboards/base_dash.css' %}">
     <link rel="stylesheet" href="{% static 'css/dashboards/dash_paciente.css' %}">
-    <link rel="stylesheet" href="{% static 'css/formulario/atualizar.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/formulario/inputs.css' %}">
+    {% block head %}
+    {% endblock %}
     
     <title>{% block page-title %} {{ username }} {% endblock %}</title>
 </head>
