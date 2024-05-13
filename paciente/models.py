@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from funcionario.models import Medico
+from funcionario.models import Medico, Especialidade
 
 class Convenio(models.Model):
   nome_convenio = models.CharField(max_length=50, null=True)
@@ -25,9 +25,9 @@ class Paciente(models.Model):
   bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
   cidade_pac = models.CharField(max_length=100, verbose_name="cidade")
   email_pac = models.EmailField(max_length=300, verbose_name="e-mail")
-  status_cad_pac = models.BooleanField(verbose_name="ativar Cadastro")
-  id_convenio = models.ForeignKey('Convenio', on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
-  num_carteirinha = models.IntegerField(blank=True, default=0)
+  status_cad_pac = models.BooleanField(verbose_name="ativar cadastro")
+  id_convenio = models.ForeignKey(Convenio, on_delete=models.CASCADE, blank=True, verbose_name="convênio") # Relacionamento (1,n)
+  num_carteirinha = models.IntegerField(blank=True, default=0, verbose_name="carteirinha")
 
   def __str__(self):
     return self.nome_pac
@@ -35,8 +35,9 @@ class Paciente(models.Model):
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
     hora_cons = models.TimeField()
-    id_paciente = models.ForeignKey('Paciente', on_delete=models.CASCADE) # Relacionamento (1,n)
+    id_paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE) # Relacionamento (1,n)
     id_medico = models.ForeignKey(Medico, related_name='Consulta', on_delete=models.CASCADE, default=0) # Relacionamento (1,n)
+    id_especialidade = models.ForeignKey(Especialidade, related_name='consultas', on_delete=models.CASCADE)
     TIPOS_PAGAMENTO = (
         ('Cartão','Cartão'),
         ('Dinheiro','Dinheiro'),
@@ -51,7 +52,7 @@ class Consulta(models.Model):
     STATUS_CONSULTA = (
         ('Concluída', 'Concluída'),
         ('Cancelada', 'Cancelada'),
-        ('Pendente', 'Pendente'),
+        ('Agendada', 'Agendada'),
         ('Remarcada', 'Remarcada'),
     )
     status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
@@ -84,7 +85,7 @@ class Receita(models.Model):
   P_dp_OE = models.CharField(max_length=30, null=True)
   
 class Exame(models.Model):
-  id_consulta = models.ForeignKey('Consulta', on_delete=models.CASCADE)
+  id_consulta = models.ForeignKey(Consulta, on_delete=models.CASCADE)
   tipo_exame = models.CharField(max_length=30)
   valor_exame = models.FloatField()
   TIPOS_PAGAMENTO = (
