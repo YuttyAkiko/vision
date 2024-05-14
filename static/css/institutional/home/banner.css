@@ -2,7 +2,7 @@
     /* Coloquei o fundo da imagem no background */
     align-items: center;
     background-size: cover;
-    background-image: url(/clinica-vision/assets/img/fundos/bg-banner.svg);
+    background-image: url(/static/img/home/bg-banner.svg);
     background-position: center;
     background-repeat: no-repeat;
     display: flex;

@@ -21,10 +21,13 @@
     <link rel="stylesheet" href="{% static 'css/institutional/home/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/background/footer.css' %}">
     
-    <title>{% block page-title %}Clínica Vision | Home{% endblock page-title %}</title>
+    {% block head %}{% endblock head %}
+
+    <title>Clínica Vision | Home</title>
 </head>
 
 <body>
+    {% block header %}
     <header> <!-- Aqui é o cabeçalho -->
         <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
             <p>(11) 3275-3530</p>
@@ -68,9 +71,12 @@
             </div>
         </div>
     </header>
+    {% endblock header %}
+    
 
     {% block content %}{% endblock content %}
 
+    {% block footer %}
     <!-- Aqui começa o rodapé -->
     <footer>
         <div> <!-- Esta div é onde está todos os elementos -->
@@ -118,6 +124,7 @@
             </div>
         </div>
     </footer>
+    {% endblock footer %}
 
     <script src="{% static 'js/sideBar.js' %}"></script>
 </body>
