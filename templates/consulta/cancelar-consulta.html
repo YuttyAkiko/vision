@@ -25,7 +25,7 @@
 
     <div id="container-forms">
 
-        <h1 class="titulo">CANCELAR AGENDAMENTO</h1>
+        <h1 class="title">CANCELAR AGENDAMENTO</h1>
 
         <div class="dados-consulta">
         
@@ -37,9 +37,9 @@
                 {% csrf_token %}
                 <div class="form-field">
                     <label for="motivo">Motivo:</label><br>
-                    <input type="text" id="motivo" name="motivo">
+                    <textarea id="motivo" rows="10" name="motivo" cols="33"></textarea>
                 </div>
-                <button class="form-button" type="submit">Confirmar Cancelamento</button>
+                <button class="form-button" type="submit">CONFIRMAR CANCELAMENTO</button>
             </form>
 
         </div>
