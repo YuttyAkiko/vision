@@ -2,7 +2,7 @@ from django import forms
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
 
 class Update_Paciente_Form(forms.ModelForm):
-
+    
     class Meta:
         model = Paciente
         fields = ('nome_pac','sobrenome_pac','genero_pac','cpf_pac','nasc_pac','tel_pac_1','tel_pac_2','cep_pac','end_pac','bairro_pac',
@@ -20,7 +20,7 @@ class Update_Paciente_Form(forms.ModelForm):
             if field_name not in ['genero_pac', 'id_convenio']:
                 field.widget.attrs.update({'class': 'input-estilizado','maxlength': '50', 'size': '60'})
             else:
-                field.widget.attrs.update({'class': 'custom-select'})
+                field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Disabled select example'})
             
 class Update_Consulta_Form(forms.ModelForm):
 
