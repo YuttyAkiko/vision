@@ -17,16 +17,18 @@
         </nav>
     </div>
 
-{% endblock %}
+{% endblock %} 
 
 {% block content %}
 
-    <div id="cancelar_agendamento">
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
 
-        <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+    <div id="container-forms">
 
-            <h1 class="titulo">CANCELAR AGENDAMENTO</h1>
-            
+        <h1 class="titulo">CANCELAR AGENDAMENTO</h1>
+
+        <div class="dados-consulta">
+        
             <p>Data: {{ consulta.data_cons }}</p>
             <p>Hora: {{ consulta.hora_cons }}</p>
             <p>Especialidade: {{ consulta.id_especialidade }}</p>
@@ -37,9 +39,12 @@
                     <label for="motivo">Motivo:</label><br>
                     <input type="text" id="motivo" name="motivo">
                 </div>
-                <button type="submit">Confirmar Cancelamento</button>
+                <button class="form-button" type="submit">Confirmar Cancelamento</button>
             </form>
-    </div>
+
+        </div>
+
+    </div> 
     
 {% endblock %}
 
