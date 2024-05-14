@@ -2,7 +2,7 @@
 
 {% load static %}
 
-<title>Agendamento</title>
+<title>{% block page-title %}Clínica Vision | Agendamento{% endblock page-title %}</title>
 
 <body>
     <header> <!-- Aqui é o cabeçalho -->
@@ -14,7 +14,7 @@
             <img class="logo__cabecalho" src="assets/img/logo/logo-vision-escuro.svg" alt="Logotipo da Clínica Vision.">
             <span id="userName">Olá! {{ username }}</span>
             <nav>
-                <a class="cabecalho__btn__voltar" href="tipo-de-acesso.html">VOLTAR</a>
+                <a class="cabecalho__btn__voltar" href="#">VOLTAR</a>
                 <button class="cabecalho__btn__logout titulo">LOGOUT</button>
                 <!-- link do login também vai ficar em formato de botão -->
             </nav>

@@ -12,6 +12,14 @@ def Home(request):
     # Página principal da clínica vision
     return render(request, 'institucional/home.html')
 
+def Login(request):
+    # Página de Login
+    return render(request, 'login.html')
+
+def Agendamento(request):
+    # Página de Agendamento
+    return render(request, 'agendamento.html')
+
 class GeralView(View):
     def get(self, request, pk):
         try:

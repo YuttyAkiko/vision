@@ -16,26 +16,26 @@
         rel="stylesheet">
 
     <!-- Estes são os links dos arquivos css com os estilos -->
-    <link rel="stylesheet" href="{% static 'css/background/base.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/background/header.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/background/footer.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/background/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/footer.css' %}">
     
-    <title>Clínica Vision | Home</title>
+    <title>{% block page-title %}Clínica Vision | Home{% endblock page-title %}</title>
 </head>
 
 <body>
     <header> <!-- Aqui é o cabeçalho -->
         <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
             <p>(11) 3275-3530</p>
-            <a href="tipo-de-acesso.html">Agende sua consulta </a> <!-- Este link está em formato de botão -->
+            <a href="{% url 'login' %}">Agende sua consulta </a> <!-- Este link está em formato de botão -->
         </div>
 
         <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
             <img class="logo__cabecalho" src="{% static 'img/logo/logo-vision-escuro.svg' %}" alt="Logotipo da Clínica Vision.">
             <nav id="mostrarMenu" class="cabecalho__menu">
                 <ul class="cabecalho__menu__lista">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
                     <li id="clinica"><a onclick="menuClinica()" href="#">A Clínica</a>
                         <div id="menuClinica">
                             <!-- A div "menuClinica" só vai aparecer quando o usuário clicar no link "A Clínica" -->
@@ -57,7 +57,7 @@
                 </ul>
             </nav>
             
-            <a class="cabecalho__btn__login" href="tipo-de-acesso.html">LOGIN</a>
+            <a class="cabecalho__btn__login" href="{% url 'login' %}">LOGIN</a>
             <!-- link do login também vai ficar em formato de botão -->
             <div onclick="mostrarMenu()" class="mobile-menu-amburguer"> 
                 <!-- A função "mostrarMenu()" está no arquivo /sideBar.js -->
@@ -75,7 +75,7 @@
     <footer class="rodape__container">
         <div class="rodape"> <!-- Esta div é onde está todos os elementos -->
             <div id="horario"> <!-- Nesta div fica o logo e a informação com os horários -->
-                <img class="logo__rodape" src="assets/img/logo/logo-vision-claro.svg" alt="Logotipo da Clínica Vision.">
+                <img class="logo__rodape" src="{% static 'img/logo/logo-vision-claro.svg' %}" alt="Logotipo da Clínica Vision.">
                 <p class="texto texto__rodape">
                     Horário de Atendimento
                     <br>
@@ -87,17 +87,17 @@
             <div id="contato"> <!-- Nesta div fica os ícones de telefone, whasapp e endereço -->
                 <ul>
                     <li>
-                        <img src="assets/img/logo/logo-telefone.png" alt="Ícone de telefone">
+                        <img src="{% static 'img/redes/telefone.png' %}" alt="Ícone de telefone">
                         <!-- imagem seguida da mensagem do lado -->
                         <span class="texto texto__rodape">(11) 3276-3530</span>
                     </li>
                     <li>
-                        <img src="assets/img/logo/logo-whatsapp.png" alt="Ícone do Whatsapp"><span
+                        <img src="{% static 'img/redes/whatsapp.png' %}" alt="Ícone do Whatsapp"><span
                             class="texto texto__rodape">(11) 96731-8829</span>
                     </li>
                     <li>
                         <a href="https://goo.gl/maps/iw4931p3dmeGrhv8A" target="_blank">
-                            <img src="assets/img/logo/logo-localizacao.png" alt="Ícone de localização"><span
+                            <img src="{% static 'img/redes/localizacao.png' %}" alt="Ícone de localização"><span
                                 class="texto texto__rodape">R. Padre Adelino, 333 - Belenzinho
                                 <br>
                                 São Paulo - SP, CEP: 03303-000</span>
@@ -108,9 +108,9 @@
             <div id="redes-sociais"> <!-- Aqui fica as imagens das redes sociais, elas são links -->
                 <h1 class="titulo" id="titulo__redes">Siga-nos!</h1>
                 <nav id="redes__links">
-                    <a href="https://www.instagram.com/" target="_blank"><img src="assets/img/logo/logo-instagram.png"
+                    <a href="#" target="_blank"><img src="{% static 'img/redes/instagram.png' %}"
                             alt="Ícone do Instagram"></a>
-                    <a href="https://pt-br.facebook.com/" target="_blank"><img src="assets/img/logo/logo-facebook.png"
+                    <a href="#" target="_blank"><img src="{% static 'img/redes/facebook.png' %}"
                             alt="Ícone do Facebook"></a>
                 </nav>
             </div>
