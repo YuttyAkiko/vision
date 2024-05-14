@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from funcionario.models import Medico, Especialidade
-from cpf_field.models import CPFField
+#  from cpf_field.models import CPFField
 
 class Convenio(models.Model):
   nome_convenio = models.CharField(max_length=50, null=True)

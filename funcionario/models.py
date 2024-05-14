@@ -2,7 +2,7 @@
 from typing import Any
 from django.db import models
 from django.contrib.auth.models import User
-from cpf_field.models import CPFField
+#  from cpf_field.models import CPFField
 
 class Cargo(models.Model):
     TIPOS_CARGO = (
