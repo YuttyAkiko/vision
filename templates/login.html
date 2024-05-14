@@ -1,9 +1,27 @@
-{% extends base_header.html %}
-
 {% load static %}
 
-<title>Login</title>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Aqui estão os links das fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Estes são os links dos arquivos css com os estilos -->
+    <link rel="stylesheet" href="{% static "css/background/reset.css" %}">
+    <link rel="stylesheet" href="{% static "css/background/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/login/login.css" %}">
+    <link rel="stylesheet" href="{% static "css/login/header-login.css" %}">
+
+    <title>Login</title>
 </head>
 
 <body>
@@ -13,10 +31,9 @@
         </div>
 
         <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
-            <img class="logo__cabecalho" src="assets/img/logo/logo-vision-escuro.svg" alt="Logotipo da Clínica Vision.">
+            <img class="logo__cabecalho" src="{% static "img/logo/logo-vision-dark.svg" %}" alt="Logotipo da Clínica Vision.">
             <nav>
-                <a href="index.html">Home</a>
-                <a class="cabecalho__btn__voltar" href="tipo-de-acesso.html">VOLTAR</a>
+                <a class="cabecalho__btn__voltar" href="{{ home }}">VOLTAR</a> 
                 <!-- link do login também vai ficar em formato de botão -->
             </nav>
         </div>
@@ -27,7 +44,7 @@
             <div class="bg-bem-vindo"></div> <!-- Esta div é o fundo branco emcima do bg -->
             <div class="bem-vindo__conteudo">
                 <h1>Seja<br>bem-vindo(a)</h1>
-                <a id="btn-criar-conta" href="#">+ Criar conta</a>
+                <a id="btn-criar-conta" href="{{ cadastro }}">+ Criar conta</a>
             </div>
         </section>
 
@@ -36,17 +53,16 @@
                 <h1>LOGIN</h1>
                 <nav>
                     <div class="login__facebook texto__padrao">
-                        <a href="https://www.facebook.com/"><img src="assets/img/logo/logo-facebook-branco.png"
+                        <a href="https://www.facebook.com/"><img src="{% static "img/redes/facebook.png" %}"
                                 alt="Logotipo do Facebook.">Continuar com Facebook</a>
                     </div>
                     <div class="login__apple texto__padrao">
-                        <a href="https://appleid.apple.com/sign-in"><img src="assets/img/logo/logo-apple.png"
+                        <a href="https://appleid.apple.com/sign-in"><img src="{% static "img/redes/apple.png" %}"
                                 alt="Logotipo da Apple">Continuar com Apple</a>
                     </div>
                     <div class="login__google texto__padrao">
                         <a
-                            href="https://accounts.google.com/v3/signin/identifier?dsh=S369551555%3A1680555202420996&continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dpt-BR%26sa%3DX%26ved%3D0ahUKEwi8s7r5y47-AhXqqpUCHUajDsYQPAgI&ec=GAZAmgQ&hl=pt-BR&ifkv=AQMjQ7TU-DOt3uE3wFoV8-ly8ILr-uFQHe48MVS_fzNT0HA7AWKWhz1PDDWhbT13eMorudbtEThjbw&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
-                                src="assets/img/logo/logo-google.png" alt="">Continuar com Google</a>
+                            href="https://accounts.google.com/v3/signin/identifier?dsh=S369551555%3A1680555202420996&continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dpt-BR%26sa%3DX%26ved%3D0ahUKEwi8s7r5y47-AhXqqpUCHUajDsYQPAgI&ec=GAZAmgQ&hl=pt-BR&ifkv=AQMjQ7TU-DOt3uE3wFoV8-ly8ILr-uFQHe48MVS_fzNT0HA7AWKWhz1PDDWhbT13eMorudbtEThjbw&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img src="{% static "img/redes/google.png" %}" alt="">Continuar com Google</a>
                     </div>
                 </nav>
             </div>
@@ -60,7 +76,7 @@
                 <a href="#">Esqueceu a senha?</a>
                 <p>Não tem conta?</p><a href="#">Criar agora</a>
             </div>
-            <button class="btn-login">LOGIN</button>
+            <button class="btn-login" type="submit">LOGIN</button>
         </section>
     </main>
 </body>

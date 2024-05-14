@@ -1,0 +1,81 @@
+.faixa {
+    /* Essa faixa fica acima do cabeçalho */
+    /* É aquela faixa azul com telefone e link(botão) "Agende sua consulta" */
+    align-items: center;
+    background-color: var(--azul-escuro);
+    display: flex;
+    font-family: var(--texto);
+    font-weight: 600;
+    font-size: 20px;
+    height: 50px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.faixa p {
+    color: var(--branco);
+    margin-right: 5.5%;
+}
+
+.cabecalho__container {
+    align-items: center;
+    background-color: var(--branco);
+    color: var(--azul-roxo);
+    display: flex;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: var(--titulo);
+    height: 100px;
+    justify-content: space-between;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.cabecalho__container nav {
+    align-items: center;
+    display: flex;
+    margin: 0 6%;
+}
+
+.cabecalho__container a {
+    text-decoration: none;
+}
+
+.cabecalho__container a:hover {
+    transform: scale(1.1);
+}
+
+.logo__cabecalho {
+    height: 85px;
+    margin: 0 0 0 6%;
+    max-width: 235px;
+    min-width: 150px;
+}
+
+.cabecalho__btn__voltar {
+    align-items: center;
+    background: var(--azul-roxo);
+    border-radius: 10px;
+    color: var(--branco);
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 0 6% 0 1rem;
+    text-decoration: none;
+    width: 100px;
+}
+
+.cabecalho__btn__voltar:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 432px) {
+    .faixa {
+        font-size: 16px;
+        justify-content: space-evenly;
+    }
+
+    .faixa a {
+        margin: 0;
+    }
+}
