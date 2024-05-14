@@ -6,6 +6,9 @@ from . import views
 app_name = 'paciente'
 
 urlpatterns = [
+    path('', views.Home, name='home'),
+    path('login/', views.Login, name='login'),
+    path('agendamento/', views.Agendamento, name='agendamento'),
     path('geral/<int:pk>', views.GeralView.as_view(), name='geral-list'),
     path('geral/<int:pk>/atualizar-cadastro/', views.AtualizarDados.as_view(), name='atualizar-cadastro'),
     path('geral/<int:pk>/editar-consulta/', views.EditarConsulta.as_view(), name='editar-consulta'),
