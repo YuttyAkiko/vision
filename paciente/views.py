@@ -10,7 +10,7 @@ from .forms import Update_Paciente_Form, Update_Consulta_Form
 
 def Home(request):
     # Página principal da clínica vision
-    return render(request, 'background.html')
+    return render(request, 'institutional/home.html')
 
 def Login(request):
     # Página de Login
