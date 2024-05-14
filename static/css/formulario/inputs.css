@@ -1,4 +1,4 @@
-/* ------- form alterar dados de cadastro ------- */
+/* ------- form alterar dados de cadastro e alterar consulta ------- */
 .perfil-cadastro {
     width: 40%;
     background-color: var(--azul-claro);
@@ -55,6 +55,7 @@
 }
 
 .form-button {
+    width: 100%;
     height: 40px;
     margin-bottom: 30px;
     background-color: var(--verde);
@@ -97,4 +98,15 @@
 
 .form-field label {
     font-family: var(--texto);
+}
+
+#motivo {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
 }
