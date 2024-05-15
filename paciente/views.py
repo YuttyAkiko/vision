@@ -4,7 +4,7 @@ from django.views.generic import View, UpdateView, DeleteView
 from .models import (
     Convenio, Paciente, Consulta, Receita, Exame
 )
-from .forms import Update_Paciente_Form, Update_Consulta_Form
+from .forms import Update_Paciente_Form, Update_Consulta_Form, PacienteForm
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
 
@@ -19,6 +19,15 @@ def Login(request):
 def Agendamento(request):
     # Página de Agendamento
     return render(request, 'agendamento.html')
+
+
+class Cadastro(View):
+    model = Paciente
+    form_class = PacienteForm
+    template_name = 'cadastro/atualizar_dados.html' 
+
+    def get_success_url(request):
+        return render(request, 'cadastro/atualizar_dados.html')
 
 class GeralView(View):
     def get(self, request, pk):

@@ -1,42 +1,15 @@
+{% extends "base_header.html" %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Aqui estão os links das fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Estes são os links dos arquivos css com os estilos -->
-    <link rel="stylesheet" href="{% static "css/background/reset.css" %}">
-    <link rel="stylesheet" href="{% static "css/background/base.css" %}">
+{% block head %}
     <link rel="stylesheet" href="{% static "css/login/login.css" %}">
     <link rel="stylesheet" href="{% static "css/login/header-login.css" %}">
 
     <title>Login</title>
-</head>
+{% endblock head %}
 
-<body>
-    <header> <!-- Aqui é o cabeçalho -->
-        <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior--></div>
-
-        <div class="cabecalho__container"> <!-- Este cabeçalho é aquela parte com bg branco e o menu com os links -->
-            <img class="logo__cabecalho" src="{% static "img/logo/logo-vision-dark.svg" %}" alt="Logotipo da Clínica Vision.">
-            <nav>
-                <a class="cabecalho__btn__voltar" href="{{ home }}">VOLTAR</a> 
-                <!-- link do login também vai ficar em formato de botão -->
-            </nav>
-        </div>
-    </header>
-
+{% block content %}
     <main>
         <section class="bem-vindo__container">
             <div class="bg-bem-vindo"></div> <!-- Esta div é o fundo branco emcima do bg -->
@@ -72,11 +45,10 @@
                 <label for="senha">Senha</label>
                 <input id="input-senha" name="senha" type="password" placeholder="Senha">
                 <a href="#">Esqueceu a senha?</a>
-                <p>Não tem conta?</p><a href="#">Criar agora</a>
+                <p>Não tem conta?</p><a href="{{ cadastro }}">Criar agora</a>
             </div>
             <button class="btn-login" type="submit">LOGIN</button>
         </section>
     </main>
-</body>
+{% endblock content %}
 
-</html>

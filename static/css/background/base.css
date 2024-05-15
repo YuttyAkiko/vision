@@ -1,5 +1,5 @@
 :root {
-    /* Aqui está nossa paleta de corese as fontes padrões */
+    /* Variáveis da paleta de cores do projeto */
     --amarelo: #EDD604;
     --azul-claro: #A2D3E1;
     --azul-claro-light: #C8E2DF;
@@ -14,12 +14,9 @@
     --cinza-claro: #D9D9D9;
     --preto: #000000;
     --verde: #1FC625;
-    --cinza: #aaa;
-    --preto: #000000;
-    --verde: #1FC625;
-    --cinza-claro: #D9D9D9;
     --vermelho: #FF0000;
   
+    /* Variáveis de font */
     --titulo: 'Raleway', sans-serif;
     --texto: 'Montserrat', sans-serif;
   }
@@ -27,6 +24,7 @@
   body {
     background-color: var(--bg);
     /* É assim que chama as cores e as fontes */
+    height: auto;
     width: 100%;
   }
   

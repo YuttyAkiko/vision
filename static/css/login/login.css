@@ -58,6 +58,7 @@ h1 {
     font-weight: 800;
     font-size: 20px;
     width: 180px;
+    padding: 0 1rem;
 }
 
 #btn-criar-conta:hover {

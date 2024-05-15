@@ -5,7 +5,7 @@ header>div:first-child {
     font-family: var(--texto);
     font-weight: 600;
     font-size: 20px;
-    height: 50px;
+    height: 20px;
 
     display: flex;
     align-items: center;
@@ -36,8 +36,8 @@ header>div:first-child>a {
 .header_logo {
     height: 85px;
     margin: 0 3%;
-    max-width: 235px;
-    min-width: 150px;
+    max-width: 200px;
+    min-width: 120px;
 }
 /* nav bar */
 header>div:nth-child(2) {
@@ -191,5 +191,7 @@ header>div:nth-child(2)>a {
 .header_dash> div:nth-child(2)> p {
     color: var(--azul-roxo);
     padding-right: 40px;
+    width: 60%;
+    text-align: center;
 }
 
