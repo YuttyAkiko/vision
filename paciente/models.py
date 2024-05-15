@@ -32,7 +32,7 @@ class Paciente(models.Model):
   num_carteirinha = models.IntegerField(blank=True, default=0, verbose_name="carteirinha")
 
   def __str__(self):
-    return self.nome_pac
+    return f"{self.id} - {self.nome_pac} {self.sobrenome_pac}"
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
