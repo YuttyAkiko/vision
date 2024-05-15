@@ -5,9 +5,9 @@
 {% block head %}
     <link rel="stylesheet" href="{% static "css/login/login.css" %}">
     <link rel="stylesheet" href="{% static "css/login/header-login.css" %}">
-
-    <title>Login</title>
 {% endblock head %}
+
+{% block page-title %}Cínica Vision | Login{% endblock page-title %}
 
 {% block content %}
     <main>
@@ -15,7 +15,7 @@
             <div class="bg-bem-vindo"></div> <!-- Esta div é o fundo branco emcima do bg -->
             <div class="bem-vindo__conteudo">
                 <h1>Seja<br>bem-vindo(a)</h1>
-                <a id="btn-criar-conta" href="{{ cadastro }}">+ Criar conta</a>
+                <a id="btn-criar-conta" href="{% url 'paciente:cadastro' %}">+ Criar conta</a>
             </div>
         </section>
 
@@ -39,15 +39,17 @@
             </div>
             <div class="login">
                 <span class="titulo__padrao">Ou</span>
-                <label for="E-mail">E-mail</label>
-                <input id="input-email" name="email" type="email" placeholder="seuemail@email.com">
-                <br>
-                <label for="senha">Senha</label>
-                <input id="input-senha" name="senha" type="password" placeholder="Senha">
+                <form action="">
+                    {% csrf_token %}
+                    <label for="E-mail">E-mail</label>
+                    <input id="input-email" name="email" type="email" placeholder="seu_email@email.com">
+                    <br>
+                    <label for="senha">Senha</label>
+                    <input id="input-senha" name="password" type="password" placeholder="Senha">
+                </form>
                 <a href="#">Esqueceu a senha?</a>
-                <p>Não tem conta?</p><a href="{{ cadastro }}">Criar agora</a>
+                <button class="btn-login" type="submit">LOGIN</button>
             </div>
-            <button class="btn-login" type="submit">LOGIN</button>
         </section>
     </main>
 {% endblock content %}

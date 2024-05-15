@@ -1,12 +1,12 @@
 from django import forms
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
 
-
-class PacienteForm(forms.ModelForm):
+class AddPatientForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)  # Adiciona campo para senha
     class Meta:
         model = Paciente
         fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
-                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'email_pac', 'id_convenio', 'num_carteirinha')
+                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'id_convenio', 'num_carteirinha', 'email_pac', 'password')
 
 
 class Update_Paciente_Form(forms.ModelForm):

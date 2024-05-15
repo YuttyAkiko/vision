@@ -1,33 +1,54 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
-from django.views.generic import View, UpdateView, DeleteView
-from .models import (
-    Convenio, Paciente, Consulta, Receita, Exame
-)
-from .forms import Update_Paciente_Form, Update_Consulta_Form, PacienteForm
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, View, UpdateView, DeleteView, TemplateView
+from .models import (Convenio, Paciente, Consulta, Receita, Exame)
+from .forms import Update_Paciente_Form, Update_Consulta_Form, AddPatientForm
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
 
-def Home(request):
+class Home(TemplateView):
     # Página principal da clínica vision
-    return render(request, 'institutional/home.html')
+    template_name = 'institutional/home.html'
 
-def Login(request):
+class Login(TemplateView):
     # Página de Login
-    return render(request, 'login.html')
+    template_name = 'login.html'
 
-def Agendamento(request):
+class Agendamento(TemplateView):
     # Página de Agendamento
-    return render(request, 'agendamento.html')
+    template_name = 'agendamento.html'
 
-
-class Cadastro(View):
+class Add_Client(CreateView):
     model = Paciente
-    form_class = PacienteForm
-    template_name = 'cadastro/atualizar_dados.html' 
+    form_class = AddPatientForm
+    template_name = "cadastro/add.html"
 
-    def get_success_url(request):
-        return render(request, 'cadastro/atualizar_dados.html')
+    def add(request):
+        if request.method == 'POST':  # Verifica se a requisição é do tipo POST
+            form = AddPatientForm(request.POST)  # Cria uma instância do formulário com os dados submetidos
+        if form.is_valid():  # Verifica se os dados do formulário são válidos
+            # Salva os dados do paciente
+            paciente = form.save(commit=False)  # Salva os dados do formulário no objeto Paciente, mas não no banco de dados
+
+            # Cria um novo usuário do Django com os dados fornecidos
+            user = User.objects.create_user(username=paciente.email_pac, email=paciente.email_pac, password=form.cleaned_data['password'])
+            
+            # Associa o paciente ao usuário criado
+            paciente.user = user
+            
+            # Salva o paciente no banco de dados com a informação do usuário associado
+            paciente.save()
+            
+            # Redireciona para a página de sucesso após o cadastro
+            return redirect(request, 'login.html') # Altere 'pagina_sucesso_cadastro' para a URL desejada
+        else:
+            # Se a requisição não for do tipo POST, exibe um formulário vazio
+            form = AddPatientForm()
+    
+        # Renderiza o template 'add.html' com o formulário para exibição
+        return render(request, 'cadastro/add.html', {'form': form})
 
 class GeralView(View):
     def get(self, request, pk):

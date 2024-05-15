@@ -1,0 +1,34 @@
+{% extends 'base_header.html' %}
+
+{% load static %}
+
+{% block page-title %}Clinica Vision - Cadastro{% endblock %}
+
+{% block login-header %}
+
+<p>Olá!</p>
+
+<div id="btn_header_dash">
+  <nav>
+    <ul>
+      <li>
+        <a href="{% url 'login' %}">VOLTAR</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+{% endblock %}
+
+{% block content %}
+  <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras" />
+
+  <div id="container-forms">
+    <h1 class="titulo__padrao">CADASTRO</h1>
+    <form action="{% url "paciente:cadastro" %}" method="POST" class="form-grid">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="form-button" type="submit">CADASTRAR</button>
+    </form>
+  </div>
+{% endblock %}
