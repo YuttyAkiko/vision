@@ -1,13 +1,21 @@
 from django import forms
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
 
+
+class PacienteForm(forms.ModelForm):
+    class Meta:
+        model = Paciente
+        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
+                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'email_pac', 'id_convenio', 'num_carteirinha')
+
+
 class Update_Paciente_Form(forms.ModelForm):
     
     class Meta:
         model = Paciente
-        fields = ('nome_pac','sobrenome_pac','genero_pac','cpf_pac','nasc_pac','tel_pac_1','tel_pac_2','cep_pac','end_pac','bairro_pac',
-                  'cidade_pac','email_pac','id_convenio','num_carteirinha')
-        
+        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
+                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'email_pac', 'id_convenio', 'num_carteirinha')
+
     # adicionando readonly aos campos nao editaveis
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -18,10 +26,17 @@ class Update_Paciente_Form(forms.ModelForm):
         self.fields['nasc_pac'].widget.attrs['readonly'] = True
         for field_name, field in self.fields.items():
             if field_name not in ['genero_pac', 'id_convenio']:
-                field.widget.attrs.update({'class': 'input-estilizado','maxlength': '50', 'size': '60'})
+                field.widget.attrs.update(
+                    {'class': 'input-estilizado', 'maxlength': '50', 'size': '60'})
             else:
+<<<<<<< HEAD
                 field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Disabled select example'})
             
+=======
+                field.widget.attrs.update({'class': 'custom-select'})
+
+
+>>>>>>> 5fd1ab4547129d5d5e531b2c90c8093686cea2ec
 class Update_Consulta_Form(forms.ModelForm):
 
     class Meta:
@@ -32,10 +47,8 @@ class Update_Consulta_Form(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             if field_name not in ['id_especialidade', 'id_medico']:
-                field.widget.attrs.update({'class': 'input-estilizado','maxlength': '30', 'size': '40'})
+                field.widget.attrs.update(
+                    {'class': 'input-estilizado', 'maxlength': '30', 'size': '40'})
             else:
-                field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Default select example'})
-
-
-        
-
+                field.widget.attrs.update(
+                    {'class': 'form-select', 'aria-label': 'Default select example'})

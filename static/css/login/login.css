@@ -1,0 +1,201 @@
+main {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+/* Aqui começa onde fica os elementos a esquerda */
+
+.bem-vindo__container {
+    background-image: url(/static/img/background/bg-create-account.svg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 40%;
+}
+
+.bem-vindo {
+    background-color: var(--branco);
+    height: auto;
+    opacity: 0.5;
+    width: 80%;
+}
+
+.bem-vindo__conteudo {
+    background: rgba(255, 255, 255, 0.5);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 900px;
+    width: 400px;
+}
+
+.bem-vindo__conteudo h1 {
+    padding-top: 5em;
+}
+
+h1 {
+    color: var(--azul-escuro);
+    font-family: var(--titulo);
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#btn-criar-conta {
+    background-color: var(--azul-roxo);
+    border-radius: 30px;
+    color: var(--branco);
+    display: flex;
+    font-family: var(--titulo);
+    height: 55px;
+    justify-content: center;
+    margin-top: 3em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 20px;
+    width: 180px;
+}
+
+#btn-criar-conta:hover {
+    transform: scale(1.1);
+}
+
+/* Fim dos elementos a esquerda */
+
+/* Início dos elementos a direita */
+
+.login__container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    align-items: center;
+    color: var(--azul-roxo);
+}
+
+.login__links nav {
+    border-bottom: 1px solid var(--preto);
+}
+
+.login__links nav a {
+    margin: 3rem 0;
+}
+
+.login__links h1 {
+    height: auto;
+    width: auto;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.login__facebook a {
+    background-color: #3C5A9A;
+    border-radius: 40px;
+    color: var(--branco);
+    display: flex;
+    font-family: var(--texto);
+    font-size: 20px;
+    font-weight: 700;
+    height: 50px;
+    justify-content: center;
+    padding: 0 70px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+}
+
+.login__facebook img {
+    height: 30px;
+    margin-right: 2rem;
+    width: 30px;
+}
+
+.login__apple a {
+    align-items: center;
+    background-color: var(--preto);
+    border-radius: 40px;
+    color: var(--branco);
+    display: flex;
+    font-weight: 700;
+    height: 50px;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+}
+
+.login__apple img {
+    height: 45x;
+    margin-right: 2rem;
+    width: 45px;
+}
+
+.login__google a {
+    background-color: var(--branco);
+    border: 1px solid var(--preto);
+    border-radius: 40px;
+    color: var(--preto);
+    display: flex;
+    font-weight: 700;
+    height: 50px;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+}
+
+.login__google img {
+    height: 30px;
+    margin-right: 2rem;
+    width: 30px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--texto);
+}
+
+.login span {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.login p {
+    line-height: 2rem;
+}
+
+.login a {
+    text-decoration: none;
+}
+
+#input-email, #input-senha {
+    background-color: var(--azul-claro);
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0 300px 0 50px;
+    width: auto;
+}
+
+.btn-login {
+    background-color: var(--azul-medio-light);
+    border-radius: 20px;
+    border: none;
+    color: var(--branco);
+    font-family: var(--titulo);
+    font-size: 20px;
+    font-weight: 800;
+    height: 40px;
+    width: 140px;
+}
+
+/* Fim dos elementos que ficam a direita */

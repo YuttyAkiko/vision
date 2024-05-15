@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "background.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %}
 
-    <!-- Aqui estão os links das fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Estes são os links dos arquivos css com os estilos -->
-    <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/base.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/cabecalho-painel.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/agendamento/index.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/titulo.css">
-    <link rel="stylesheet" href="assets/css/agendamento/calendario.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/agendamento/card-hours.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/agendamento/convenios.css">
-    <link rel="stylesheet" href="assets/css/agendamento/confirmacao.css">
-    <link rel="stylesheet" href="assets/css/agendamento/confirmado.css">
-    <link rel="stylesheet" href="assets/css/rodape.css" type="text/css">
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/agendamento/base-agend.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento/calendario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento/card-hours.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento/confirmacao.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento/confirmado.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agendamento/convenio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/background/title.css' %}">
 
     <title>Agendamento</title>
-</head>
+{% endblock head %}
 
+{% block content %}
 <body>
     <header> <!-- Aqui é o cabeçalho -->
         <div class="faixa"> <!--Esta faixa fica em cima do menu na parte superior-->
@@ -73,7 +59,7 @@
                 <div class="calendario">
                     <header>
                         <span class="icons prev">←</span>
-                        <p id="data-atual"></p>
+                        <p id="data-atual"><!-- MAIO 2023 --></p>
                         <span class="icons next">→</span>
                     </header>
                     <div class="mes">
@@ -209,5 +195,4 @@
 
     <script src="assets/js/calendar.js"></script>
 </body>
-
-</html>
+{% endblock content %}

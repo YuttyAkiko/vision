@@ -1,5 +1,5 @@
-:root{ 
-    /* Aqui está nossa paleta de cores as fontes padrões */
+:root {
+    /* Aqui está nossa paleta de corese as fontes padrões */
     --amarelo: #EDD604;
     --azul-claro: #A2D3E1;
     --azul-claro-light: #C8E2DF;
@@ -11,19 +11,22 @@
     --bg: #F1F1F1;
     --branco: #ffffff;
     --cinza: #44403F;
+    --cinza-claro: #D9D9D9;
     --preto: #000000;
     --verde: #1FC625;
-    --cinza-claro: #D9D9D9; /* adicionado nova cor por Caroline*/
-    --vermelho: #FF0000; /* adicionado nova cor por Caroline */
+    --cinza: #aaa;
+    --preto: #000000;
+    --verde: #1FC625;
+    --cinza-claro: #D9D9D9;
+    --vermelho: #FF0000;
   
     --titulo: 'Raleway', sans-serif;
     --texto: 'Montserrat', sans-serif;
-
-    --button: 'Inter', sans-serif;
   }
   
   body {
-    background-color: var(--bg); /* É assim que chama as cores e as fontes */
+    background-color: var(--bg);
+    /* É assim que chama as cores e as fontes */
     width: 100%;
   }
   
@@ -33,8 +36,8 @@
   }
   
   .texto {
+    /* Aqui todas as tags com a classe .titulo vão ter a fonte --titulo que é a 'Montserrat' */
     font-family: var(--texto);
-    text-align: center;
   }
   
   .titulo__padrao__home {
@@ -44,6 +47,18 @@
     padding: 20px 0;
     text-decoration-line: underline;
     text-transform: uppercase;
+  }
+  
+  .titulo__padrao {
+    font-family: var(--titulo);
+    font-size: 30px;
+    font-weight: 600;
+  }
+  
+  .texto__padrao {
+    font-family: var(--texto);
+    font-size: 18px;
+    line-height: 20px;
   }
   
   .texto__padrao__home {
@@ -58,8 +73,6 @@
     font-family: var(--titulo);
     font-size: 20px;
     font-weight: 600;
-    padding: 0 0 20px 0;
+    padding: 20px 0 20px 0;
     text-decoration-line: underline;
-    text-indent: 50px;
   }
-

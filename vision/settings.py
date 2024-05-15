@@ -35,9 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
-    'funcionario',
-    'paciente',
+    'accounts.apps.AccountsConfig',
+    'funcionario.apps.FuncionariosConfig',
+    'paciente.apps.PacienteConfig',
+    'cpf_field',
 ]
 
 MIDDLEWARE = [

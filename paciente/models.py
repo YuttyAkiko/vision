@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from funcionario.models import Medico, Especialidade
+#  from cpf_field.models import CPFField
 
 class Convenio(models.Model):
   nome_convenio = models.CharField(max_length=50, null=True)
@@ -16,11 +17,12 @@ class Paciente(models.Model):
     ('Masculino', 'Masculino')
   )
   genero_pac = models.CharField(max_length=10, choices=GENERO_PACIENTE, verbose_name="gênero")
-  cpf_pac = models.PositiveBigIntegerField(verbose_name="CPF")
+  # cpf_pac = CPFField('cpf') # O método CPFField valida um cpf real
+  cpf_pac = models.CharField(max_length=30, verbose_name="CPF")
   nasc_pac  = models.DateField(auto_now=False, auto_now_add=False, verbose_name="nascimento")
-  tel_pac_1 = models.IntegerField(verbose_name="Telefone 1")
-  tel_pac_2 = models.IntegerField(null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
-  cep_pac = models.IntegerField(verbose_name="CEP")
+  tel_pac_1 = models.CharField(max_length=30, verbose_name="Telefone 1")
+  tel_pac_2 = models.CharField(max_length=30, null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
+  cep_pac = models.CharField(max_length=30, verbose_name="CEP")
   end_pac = models.CharField(max_length=300, verbose_name="endereço")
   bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
   cidade_pac = models.CharField(max_length=100, verbose_name="cidade")
@@ -55,11 +57,19 @@ class Consulta(models.Model):
         ('Agendada', 'Agendada'),
         ('Remarcada', 'Remarcada'),
     )
+<<<<<<< HEAD
     status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA, verbose_name="Status da Consulta")
     motivo = models.CharField(max_length=199, verbose_name="motivo")
     sintomas = models.TextField(max_length=500, null=True, blank=True, verbose_name="sintomas")
     observacoes = models.TextField(max_length=500, null=True, blank=True, verbose_name="observações")
     laudo = models.TextField(max_length=500, null=True, blank=True, verbose_name="laudo")
+=======
+    status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
+    motivo = models.CharField(max_length=199)
+    sintomas = models.TextField(max_length=2000, null=True, blank=True)
+    observacoes = models.TextField(max_length=2000, null=True, blank=True)
+    laudo = models.TextField(max_length=2000, null=True, blank=True)
+>>>>>>> 5fd1ab4547129d5d5e531b2c90c8093686cea2ec
 
     class Meta:
         ordering = ['data_cons', 'hora_cons']
