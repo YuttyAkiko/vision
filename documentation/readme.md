@@ -18,63 +18,33 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Raleway', sans-serif;
 ```
 
-#### MOBILE
+#### MOBILE - font-size
 - Header font-size 14
 - Título Font-size 16
 - Subtítulo Font-size 14
 - Descrição font-size 12
 
 ## Paleta de cores
-``` css
-#44403F
-#031D38
-#031D38
-#160041
-#337F98
-#3F95A9
-#66B5C4
-#A2D3E1
-#C8E2DF
-#F1F1F1
-#EDD604
-#1FC625
-#FF0000
-#D9D9D9
-```
-
-## Imagens
-Para acessar as imagens no Trello [Clique aqui](https://trello.com/c/Ff6wbnJp).
+<img src="img/palette.png" width="80">
 
 ## Login
-A faixa azul superior está apenas com o telefone. Na faixa branca: o logo fica à esquerda, no meio a mensagem [Olá! “Nome-do-usuário“] e à direita dois links (em formato de botão) [VOLTAR] [LOGOUT].
+<img src="img/login.png">
 
-- Selecionar o tipo de acesso ADM, usuário ou funcionário.
+No cabeçalho da página: o logo fica à esquerda, no meio a mensagem [Olá! “Nome-do-usuário“] e à direita o link (em formato de botão) [VOLTAR].
+
 - Criar cadastro.
 - Recuperar Senha.
-- Login + botões para acessar com Google, Facebook e Apple.
+- Login para acessar com Google, Facebook e Apple.
 - Inputs: e-mail, senha.
-- Texto e link
 - Botão Login
 
 ## Administrador
-O administrador vai ter acesso ao Banco de dados e agendamentos em formato de tabelas.
+<img src="img/profile_adm.png">
+O administrador vai ter acesso a todos os dados e agendamentos.
 
-Tendo opções para acrescentar, alterar ou excluir.
+Tendo opções para acrescentar, alterar ou excluir dados de funcionários, médicos, pacientes e da própria clínica. 
 
-Quando clicar no nome, será direcionado a dados mais completos.
-
-BANCO DE DADOS
-- Criar acesso de usuários
-- Funcionários (Lista com nome, CPF)
-
-Nome, cargo, CRM, data de nascimento, RG, CPF, telefone, e-mail, endereço
-- Pacientes (Lista com nome, CPF)
-
-Nome, RG, CPF, Data de Nascimento, Telefone, e-mail, endereço, convênio, número da carteirinha, histórico de agendamento.
-
-- Dados da clínica
-
-CNPJ, Razão Social, Nome fantasia, Endereço, horário de funcionamento.
+Quando clicar no card, será direcionado a dados mais completos.
 
 ### ACESSAR AGENDAMENTOS
 
@@ -86,6 +56,7 @@ Terá um botão para alterar agendamento ou cancelar.
 Vamos ter 2 opções de perfil (médico e atendente)
 
 ### Perfil Médico
+<img src="img/profile_doctor.png">
 - Visualização das consultas agendadas.
 
 Data, hora e paciente.
@@ -95,7 +66,7 @@ Data, hora e paciente.
 Descrição das consultas e exames realizados, histórico médico de doenças de cada paciente.
 
 ### Perfil Atendente
-
+<img src="img/profile_att.png">
 - Banco de dados dos pacientes.
 
 Nome, gênero, telefone, endereço, e-mail, convênio e CPF.
@@ -113,3 +84,8 @@ Lista de convênios que serão atendidos na clinica.
 - Amil
 - Bradesco
 - Porto Seguro
+
+## Agendamento
+<img src="img/agenda.png">
+
+O usuário poderá agendar suas consultas, exames através desta página.

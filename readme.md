@@ -16,4 +16,4 @@ complicada devido à alta demanda dos pacientes.
 A Clínica Vision nos contratou para desenvolver um sistema web integrado onde seja possível realizar a gestão da clínica de forma automatizada e ter acesso fácil aos dados sobre as informações de seus pacientes.
 
 ## Protótipo de alta fidelidade
-![Home page](static/img/vision-1.png)
+![Home page](static/img/home_vision.png)
