@@ -32,6 +32,7 @@
                 <div id="btn_header_dash">
                     <nav>
                         <ul>
+                            <li><a href="#">VOLTAR</a></li>
                             <li><a href="{% url "login" %}">LOGOUT</a></li>
                         </ul>
                     </nav>
@@ -39,12 +40,14 @@
     
             {% endblock %}
             
-            <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
-                <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+            {% comment %} 
+                <div onclick="mostrarMenu()" class="mobile-menu-amburguer">
+                    <!-- Este menu amburguer só aparece no responsivo. A função está no path:assets/js/sideBar.js -->
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div> 
+            {% endcomment %}
         </div>
     
     </header>

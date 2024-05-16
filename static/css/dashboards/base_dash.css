@@ -150,7 +150,7 @@ h1{
     font-family: var(--titulo);
     color: var(--preto);
     font-weight:600;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     text-align: center;
 }
 /* retirando sublinhado do link */

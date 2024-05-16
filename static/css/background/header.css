@@ -49,10 +49,9 @@ header>div:nth-child(2) {
     color: var(--azul-roxo);
     text-transform: uppercase;
     width: 100%;
-
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #show_menu ul {
@@ -176,10 +175,9 @@ header>div:nth-child(2)>a {
     background: var(--azul-roxo);
     border-radius: 10px;
     color: var(--branco);
-    margin: 0 3% 0 0;
     text-decoration: none;
-
     display: flex;
+    margin: 0 1rem 0 0;
     align-items: center;
     justify-content: center;
 }

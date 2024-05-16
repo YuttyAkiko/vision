@@ -1,17 +1,15 @@
-{% extends "background.html" %}
+{% extends "base_dash.html" %}
 
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/agendamento/base-agend.css' %}">
-    <link rel="stylesheet" href="{% static 'css/agendamento/calendario.css' %}">
-    <link rel="stylesheet" href="{% static 'css/agendamento/card-hours.css' %}">
-    <link rel="stylesheet" href="{% static 'css/agendamento/confirmacao.css' %}">
-    <link rel="stylesheet" href="{% static 'css/agendamento/confirmado.css' %}">
-    <link rel="stylesheet" href="{% static 'css/agendamento/convenio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agenda/base-agenda.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agenda/calendar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agenda/card-hours.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agenda/confirm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/agenda/check.css' %}">
     <link rel="stylesheet" href="{% static 'css/background/title.css' %}">
-
-    <title>Agendamento</title>
+    
 {% endblock head %}
 
 {% block content %}
@@ -22,7 +20,7 @@
         <h1>Agendamento</h1>
     </div>
 
-    <!-- input de seleção com opções para escolher especialidade -->
+    <!-- input de seleção -->
     <section class="container-especialidade-data">
         <div class="seleciona-especialidade-container">
             <label for="especialidade">Selecione a especialidade</label>
@@ -43,7 +41,7 @@
             <div class="calendario">
                 <header>
                     <span class="icons prev">←</span>
-                    <p id="data-atual"><!-- MAIO 2023 --></p>
+                    <p id="data-atual"><!-- MÊS ANO --></p>
                     <span class="icons next">→</span>
                 </header>
                 <div class="mes">

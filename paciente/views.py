@@ -22,7 +22,7 @@ class Login(TemplateView):
 
 class Agendamento(TemplateView):
     # Página de Agendamento
-    template_name = 'agendamento.html'
+    template_name = 'agenda.html'
 
 
 class Add_Client(CreateView):

@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.as_view(), name='home'),
     path('login/', Login.as_view(), name='login'),
-    path('agendamento/', Agendamento.as_view(), name='agendamento'),
+    path('agendamento/', Agendamento.as_view(), name='agenda'),
     path('funcionario/', include('funcionario.urls', namespace="funcionario")),
     path('paciente/', include('paciente.urls', namespace="paciente"))
 ]
