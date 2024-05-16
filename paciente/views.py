@@ -3,7 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, View, UpdateView, DeleteView, TemplateView
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
 from .forms import Update_Paciente_Form, Update_Consulta_Form, AddPatientForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
@@ -14,6 +14,7 @@ class Home(TemplateView):
 
 class Login(TemplateView):
     # Página de Login
+    model = Paciente
     template_name = 'login.html'
 
 class Agendamento(TemplateView):
@@ -34,15 +35,21 @@ class Add_Client(CreateView):
 
             # Cria um novo usuário do Django com os dados fornecidos
             user = User.objects.create_user(username=paciente.email_pac, email=paciente.email_pac, password=form.cleaned_data['password'])
+
             
             # Associa o paciente ao usuário criado
             paciente.user = user
+
+            # Verifica se o usuário já existe
+            user = User.objects.get(username=paciente.paciente)
+            if user:
+                return HttpResponse("Já existe um usuários com esse username!")
             
             # Salva o paciente no banco de dados com a informação do usuário associado
             paciente.save()
             
             # Redireciona para a página de sucesso após o cadastro
-            return redirect(request, 'login.html') # Altere 'pagina_sucesso_cadastro' para a URL desejada
+            return HttpResponseRedirect('login.html') # Altere 'pagina_sucesso_cadastro' para a URL desejada
         else:
             # Se a requisição não for do tipo POST, exibe um formulário vazio
             form = AddPatientForm()
