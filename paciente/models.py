@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from funcionario.models import Medico, Especialidade
+from django.urls import reverse
 #  from cpf_field.models import CPFField
 
 class Convenio(models.Model):
@@ -33,6 +34,9 @@ class Paciente(models.Model):
 
   def __str__(self):
     return f"{self.id} - {self.nome_pac} {self.sobrenome_pac}"
+  
+  # def get_absolute_url(self):
+  #   return reverse("login")
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
