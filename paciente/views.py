@@ -20,7 +20,7 @@ def Agendamento(request):
     # Página de Agendamento
     return render(request, 'agendamento.html')
 
-class GeralView(View):
+class ProfileView(View):
     def get(self, request, pk):
         try:
             paciente = get_object_or_404(Paciente, pk=pk)
@@ -35,7 +35,7 @@ class GeralView(View):
         
 # class AgendarConsulta():
 
-class AtualizarDados(UpdateView):
+class ProfileUpdateView(UpdateView):
     model = Paciente
     form_class = Update_Paciente_Form
     template_name = 'cadastro/atualizar_dados.html' 
@@ -43,7 +43,9 @@ class AtualizarDados(UpdateView):
     def get_success_url(self):
         return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
 
-class EditarConsulta(UpdateView):
+# class SchedulingView(View):
+
+class SchedulingUpdateView(UpdateView):
     model = Consulta
     form_class = Update_Consulta_Form
     template_name = 'consulta/editar-consulta.html'
@@ -52,7 +54,7 @@ class EditarConsulta(UpdateView):
         paciente_pk = self.object.id_paciente.pk
         return reverse_lazy('paciente:geral-list', kwargs={'pk': paciente_pk})
 
-class CancelarConsulta(DeleteView):
+class SchedulingDeleteView(DeleteView):
     model = Consulta
     template_name = 'consulta/cancelar-consulta.html'
 
