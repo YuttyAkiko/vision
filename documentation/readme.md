@@ -86,6 +86,8 @@ Lista de convênios que serão atendidos na clinica.
 - Porto Seguro
 
 ## Agendamento
+<img src="img/flow_agenda.jpg">
+
+O usuário poderá agendar suas consultas, exames através desta página após ter feito o login.
 <img src="img/agenda.png">
 
-O usuário poderá agendar suas consultas, exames através desta página.
