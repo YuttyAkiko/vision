@@ -27,7 +27,7 @@ class GeralView(View):
             username = paciente.nome_pac
             agendamentos = Consulta.objects.filter(id_paciente=paciente, status_cons='Agendada')
             historicos = Consulta.objects.filter(id_paciente=paciente, status_cons='Concluída')
-            return render(request, 'profile_patient.html', {'paciente': paciente, 'username': username, 
+            return render(request, 'dashboard/dash_paciente.html', {'paciente': paciente, 'username': username, 
             'agendamentos': agendamentos, 'historicos': historicos})
         
         except Paciente.DoesNotExist:
