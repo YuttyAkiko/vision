@@ -35,8 +35,8 @@ class Paciente(models.Model):
   def __str__(self):
     return f"{self.id} - {self.nome_pac} {self.sobrenome_pac}"
   
-  # def get_absolute_url(self):
-  #   return reverse("login")
+  def get_absolute_url(self):
+    return reverse("login")
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
