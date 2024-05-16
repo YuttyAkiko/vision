@@ -29,14 +29,8 @@ class Update_Paciente_Form(forms.ModelForm):
                 field.widget.attrs.update(
                     {'class': 'input-estilizado', 'maxlength': '50', 'size': '60'})
             else:
-<<<<<<< HEAD
                 field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Disabled select example'})
             
-=======
-                field.widget.attrs.update({'class': 'custom-select'})
-
-
->>>>>>> 5fd1ab4547129d5d5e531b2c90c8093686cea2ec
 class Update_Consulta_Form(forms.ModelForm):
 
     class Meta:

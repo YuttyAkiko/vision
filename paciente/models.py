@@ -57,19 +57,11 @@ class Consulta(models.Model):
         ('Agendada', 'Agendada'),
         ('Remarcada', 'Remarcada'),
     )
-<<<<<<< HEAD
     status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA, verbose_name="Status da Consulta")
     motivo = models.CharField(max_length=199, verbose_name="motivo")
     sintomas = models.TextField(max_length=500, null=True, blank=True, verbose_name="sintomas")
     observacoes = models.TextField(max_length=500, null=True, blank=True, verbose_name="observações")
     laudo = models.TextField(max_length=500, null=True, blank=True, verbose_name="laudo")
-=======
-    status_cons = models.CharField(max_length=10, choices=STATUS_CONSULTA)
-    motivo = models.CharField(max_length=199)
-    sintomas = models.TextField(max_length=2000, null=True, blank=True)
-    observacoes = models.TextField(max_length=2000, null=True, blank=True)
-    laudo = models.TextField(max_length=2000, null=True, blank=True)
->>>>>>> 5fd1ab4547129d5d5e531b2c90c8093686cea2ec
 
     class Meta:
         ordering = ['data_cons', 'hora_cons']
