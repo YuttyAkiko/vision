@@ -153,6 +153,7 @@ h1{
     font-weight:600;
     padding-top: 20px;
     text-align: center;
+    text-decoration: none;
 }
 /* retirando sublinhado do link */
 a{

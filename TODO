@@ -1,6 +1,6 @@
-/* TEMPLATES:
+-- /* TEMPLATES:
 /* 
-- profile_patient.html: Vai ficar dentro do app 'paciete/templates/paciente'.
+- profile_patient.html: Vai ficar dentro do app 'paciete/templates/paciente'. OK
 - exam.html, prescription.html, register.html, update_data.html, login.html: Vai ficar na BASE_DIR 'templates'.
 - background.html: Vai ter o header e o footer, que vai ser extendido para o agendamento e as páginas institucionais. 
 - scheduling.html, scheduling_cancel.html, scheduling_history.html: Vai ficar na BASE_DIR 'templantes/scheduling'.

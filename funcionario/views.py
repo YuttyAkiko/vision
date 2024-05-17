@@ -20,11 +20,11 @@ class GeralView(View):
 
         # Renderiza a página adequada com base no tipo de cargo
         if cargo.tipos_cargo == "ADM":
-            return render(request, 'dashboard/dash_adm.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
+            return render(request, 'funcionario/dash_adm.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
         elif cargo.tipos_cargo == "ATD":
-                return render(request, 'dashboard/dash_atend.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
+                return render(request, 'funcionario/dash_atend.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
         elif cargo.tipos_cargo == "DTR":
-                return render(request, 'dashboard/dash_med.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
+                return render(request, 'funcionario/dash_med.html', {'funcionario': funcionario, 'username': username, 'cargo': nome_cargo})
         else:
             messages.add_message(request, messages.INFO, "Perfil de usuário não encontrado.")
             return render(request, 'login.html')
@@ -33,7 +33,7 @@ class GeralView(View):
 class AtualizarDados(UpdateView):
     model = Funcionario
     form_class = Update_Funcionario_Form
-    template_name = 'cadastro/atualizar_dados.html' 
+    template_name = 'funcionario/atualizar_dados.html' 
 
     def get_success_url(self):
         return reverse_lazy('funcionario:geral-list', kwargs={'pk': self.object.pk})

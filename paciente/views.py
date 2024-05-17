@@ -28,7 +28,7 @@ class GeralView(View):
     def get(self, request, pk):
         try:
             paciente, agendamentos, historicos = self.get_queryset(pk)
-            return render(request, 'dashboard/dash_paciente.html', {
+            return render(request, 'paciente/dash_paciente.html', {
                 'paciente': paciente,
                 'username': paciente.nome_pac,
                 'agendamentos': agendamentos,
@@ -53,7 +53,7 @@ class GeralView(View):
 class AtualizarDados(UpdateView):
     model = Paciente
     form_class = Update_Paciente_Form
-    template_name = 'cadastro/atualizar_dados.html' 
+    template_name = 'paciente/atualizar_dados.html' 
 
     def get_success_url(self):
         return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
@@ -62,7 +62,7 @@ class AtualizarDados(UpdateView):
 class EditarConsulta(UpdateView):
     model = Consulta
     form_class = Update_Consulta_Form
-    template_name = 'consulta/editar-consulta.html'
+    template_name = 'paciente/consulta/editar-consulta.html'
 
     # atualiza o status da consulta para remarcada
     def form_valid(self, form):
@@ -78,7 +78,7 @@ class EditarConsulta(UpdateView):
 # view generica para cancelar consulta
 class CancelarConsulta(DeleteView):
     model = Consulta
-    template_name = 'consulta/cancelar-consulta.html'
+    template_name = 'paciente/consulta/cancelar-consulta.html'
 
     # função que altera o status de agendada para cancelada
     def post(self, request, pk):
