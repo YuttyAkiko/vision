@@ -89,5 +89,9 @@ Lista de convênios que serão atendidos na clinica.
 <img src="img/flow_agenda.jpg">
 
 O usuário poderá agendar suas consultas, exames através desta página após ter feito o login.
+Após o usuário preencher as irformações necessárias para o agendamento, na tabela no final da página hávera os dados para confirmação de agendamento.
+Irá aparecer o valor, apenas se o paciente não tiver convênio cadastrado. E o pagamento será realizado na própria clínica quando a pessoa se apresentar na clínica para fazer a consulta.
+Caso o paciente tenha convênio, o campo será selecionado automaticamente.
+
 <img src="img/agenda.png">
 
