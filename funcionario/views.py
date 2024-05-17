@@ -7,8 +7,6 @@ from .models import (
     Funcionario, Cargo
 )
 
-# funcão que exibirá o nome do usuário/funcionário no header
-
 class GeralView(View):
     def get(self, request, id):
         
