@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'funcionario.apps.FuncionariosConfig',
     'paciente.apps.PacienteConfig',
-    # 'cpf_field',
+    'cpf_field',
 ]
 
 MIDDLEWARE = [
