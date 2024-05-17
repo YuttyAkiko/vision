@@ -77,17 +77,33 @@ body{
 }
 /* estilo da linha interna do botao do "agendamentos" */
 .linha_interna{
-    width: 80%;
+    width: 80%; 
     height: 45px;
+
+    border: 1px solid var(--preto);
+    border-radius: 15px;
+}
+
+/* Remove Bootstrap button styles */
+a.custom-modal-link {
+    height: 100%;
+    color: var(--preto);
+    background-color: transparent;
+    text-decoration: none;
+
     font-family: var(--texto);
 
     display: flex;
     align-items: center;
     justify-content: space-around;
-
-    border: 1px solid var(--preto);
-    border-radius: 15px;
 }
+
+/* Custom styles for modal link */
+a.custom-modal-link:hover {
+    text-decoration: none;
+    color: var(--azul-escuro-light);
+}
+
 /* tam botão excluir (vermelho) */
 .icones_menores{
     width: 30px;
@@ -239,6 +255,13 @@ button {
 .elem_janela-self {
 	align-items: center;
 }
+
+
+
+
+
+
+
 
 
 

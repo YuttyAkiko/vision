@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block head %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %} 
+
 {% block page-title %} Clinica Vision - {{ username }} {% endblock %}
 
 {% block content %}
@@ -56,23 +60,25 @@
 
                         {% for agendamento in agendamentos %}
                             
-                            <div class="linha_interna"><!--div para estilo-->
+                            <div class="linha_interna">
+                                <a href="#" class="custom-modal-link" data-toggle="modal" data-target="#myModal">
 
-                                <p>{{ agendamento.id_especialidade }}</p>
-                                <p>{{ agendamento.data_cons }}</p>
-                                <p>{{ agendamento.hora_cons }}</p>
-                                
+                                    <p>{{ agendamento.id_especialidade }}</p>
+                                    <p>Dr(a) {{ agendamento.id_medico }}</p>
+                                    <p>{{ agendamento.data_cons }}</p>
+                                    <p>{{ agendamento.hora_cons }}</p>
+
+                                </a> 
                             </div>
-
+                            
                             <a href="{% url 'paciente:editar-consulta' agendamento.pk %}" class="texto">
                                 <img class="icones_menores" src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir">
                             </a>
 
                             <a href="{% url 'paciente:cancelar-consulta' agendamento.pk %}">
                                 <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
-                            </a> 
+                            </a>
 
-                            
                         {% endfor %}
 
                     {% elif agendamentos.count >= 2 %}
@@ -135,6 +141,30 @@
 
     </main>
 
+    <!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Detalhes da Consulta</h4>
+        </div>
+        <div class="modal-body">
+            <p>{{ agendamento.id_especialidade }}</p>
+            <p>Dr(a) {{ agendamento.id_medico }}</p>
+            <p>{{ agendamento.data_cons }}</p>
+            <p>{{ agendamento.hora_cons }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+</div>
+    
 {% endblock %}
 
        
