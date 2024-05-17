@@ -36,3 +36,9 @@ histórico de agendamentos
  FAZER TABELA COM OS DADOS DA CLÍNICA
   */
 
+-- O QUE FAZER
+
+-- Tabela Clinica;
+-- Arrumar Views - colocar as validações;
+-- Criar o template de receitas;
+-- Colocar nome do medico na list views de consulta;
