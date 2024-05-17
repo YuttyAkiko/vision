@@ -39,6 +39,6 @@ histórico de agendamentos
 -- O QUE FAZER
 
 -- Tabela Clinica;
--- Arrumar Views - colocar as validações;
+-- Arrumar Views - colocar as validações; OK
 -- Criar o template de receitas;
--- Colocar nome do medico na list views de consulta;
+-- Colocar nome do medico na list views de consulta; OK
