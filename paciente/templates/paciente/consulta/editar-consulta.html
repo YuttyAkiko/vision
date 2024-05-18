@@ -1,4 +1,4 @@
-{% extends "base_header.html" %}
+{% extends "base_dash.html" %}
 
 {% load static %}
 
@@ -26,6 +26,12 @@
 {% block content %}
 
     <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    {% block title %}
+                    
+        <h1 class="subtitle">REMARCAR CONSULTA</h1>
+
+    {% endblock %}
 
     <div id="container-forms">
         <form method="POST" class="form-grid-consulta">

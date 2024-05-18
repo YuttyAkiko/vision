@@ -20,7 +20,7 @@
 }
 
 #container-forms {
-    height: auto;
+    height: 100%;
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -29,8 +29,6 @@
 }
 
 .form-grid {
-    max-width: 80%;
-    height: 80%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
@@ -48,7 +46,6 @@
 
 .form-field {
     margin-bottom: 10px;
-    grid-area: input;
 }
 
 .form-label {
@@ -117,8 +114,6 @@ textarea {
 /* ------- form alterar consulta ------- */
 
 .form-grid-consulta {
-    max-width: 80%;
-    height: 80%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
