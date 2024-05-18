@@ -1,5 +1,13 @@
 from django import forms
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
+from funcionario.models import (Medico, Especialidade, Funcionario)
+
+class LoginForm(forms.ModelForm):
+    username = forms.CharField(max_length=150, required=True, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(required=True, widget=forms.PasswordInput, label='Senha')
+    class Meta:
+        model = Paciente
+        fields = ('username', 'email_pac', 'password')
 
 class AddPatientForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label='Senha')  # Adiciona campo para senha
@@ -8,6 +16,10 @@ class AddPatientForm(forms.ModelForm):
         fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
                 'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'id_convenio', 'num_carteirinha', 'email_pac', 'password')
 
+class AddAgendaForm(forms.ModelForm):
+    class Meta:
+        model = Consulta
+        fields = ('id_especialidade', 'data_cons', 'hora_cons', 'id_medico')
 
 class Update_Paciente_Form(forms.ModelForm):
 

@@ -19,7 +19,7 @@
                         <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone perfil">
 
                         <div class="btn_quadrado_pac"> <!--botao agendamento-->
-                            <a href="#">
+                            <a href="{% url "paciente:agenda" paciente.pk %}">
                                 <img id="centralize" src="{% static 'img/dashboard/img-calendario.png' %}" alt="ícone-agendamento">
                                 <h1>NOVO<br>AGENDAMENTO</h1>
                             </a>

@@ -1,0 +1,9 @@
+{% extends "base_dash.html" %}
+
+{% block content %}
+<div class="finish">
+    <img src="{% static 'assets/img/icones/icon-verificado.svg' %}" alt="">
+    <p>Agendamento realizado com sucesso!</p>
+    <a href="{% url 'geral-list' %}">Retornar para a página inicial</a>
+</div>
+{% endblock content %}

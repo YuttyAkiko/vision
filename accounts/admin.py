@@ -1,3 +1,6 @@
 from django.contrib import admin
+from accounts.models import *
+from funcionario.models import *
+from paciente.models import *
 
-# Register your models here.
+admin.site.register(UserProfile)

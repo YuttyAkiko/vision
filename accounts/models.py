@@ -1,3 +1,11 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Adicione outros campos de perfil, se necessário
+
+
 # import re
 # from django.db import models
 # from django.core import validators
@@ -58,7 +66,7 @@
 
 #     def __str__(self):
 #         return self.first_name or self.username
-    
+
 #     def get_full_name(self):
 #         return str(self)
 

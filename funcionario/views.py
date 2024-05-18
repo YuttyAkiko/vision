@@ -2,13 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import View, UpdateView
 from .forms import Update_Funcionario_Form
-from .models import (
-    Funcionario, Cargo
-)
+from .models import (Funcionario, Cargo)
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # funcão que exibirá o nome do usuário/funcionário no header
 
-class GeralView(View):
+class GeralView(LoginRequiredMixin, View):
     def get(self, request, id):
         try:
             funcionario = get_object_or_404(Funcionario, pk=id)
@@ -19,7 +18,7 @@ class GeralView(View):
         except Funcionario.DoesNotExist:
             return render(request, 'login.html')
 
-class AtualizarDados(UpdateView):
+class AtualizarDados(LoginRequiredMixin, UpdateView):
         form_class = Update_Funcionario_Form()
         template_name = 'atualizar_dados.html'
         success_url = reverse_lazy('especialidade_list')

@@ -1,4 +1,4 @@
-{% extends "base_dash.html" %}
+{% extends "base_header.html" %}
 
 {% load static %}
 
@@ -23,20 +23,49 @@
     <!-- input de seleção -->
     <section class="container-especialidade-data">
         <div class="seleciona-especialidade-container">
-            <label for="especialidade">Selecione a especialidade</label>
+            
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <div class="confirmation">
+                    <h2 class="titulo__padrao">Confirmação</h2>
+                    <div class="confirm-details">
+                        <span class="title-card">Verifique as informações</span>
+                        <span>Nome do paciente</span>
+                        <span>Especialidade</span>
+                        <span>Nome do médico</span>
+                        <span>Data e hora marcada</span>
+                        <span>Particular ou Convênio</span>
+                        <span class="price">Valor</span>
+                    </div>
+                    <button id="btn-confirm" class="btn">Confirmar</button>
+                </div>
+            
+                <!-- Aqui está o aviso de confirmação -->
+                <div class="finish">
+                    <img src="assets/img/icones/icon-verificado.svg" alt="">
+                    <p>Agendamento realizado com sucesso!</p>
+                    <a href="index.html">Retornar para a página inicial</a>
+                </div>
+            </form> 
+
+        </div>
+
+        {% comment %} <label for="especialidade">Selecione a especialidade</label>
             <select class="seleciona-especialidade texto" name="especialidade">
                 <option value="">Selecione uma opção</option>
                 <option value="neuro">Neuroftalmologia</option>
                 <option value="pediatra">Oftalmopediatria</option>
                 <option value="segmento">Segmento Anterior</option>
-            </select>
+            </select> {% endcomment %}
 
-            <div>
+            {% comment %} <div>
                 <button id="btn-progress" class="btn">Avançar</button>
-            </div>
-        </div>
+            </div> {% endcomment %}
 
         <!-- calendário -->
+        {% comment %} 
         <div class="calendario__container">
             <div class="calendario">
                 <header>
@@ -58,10 +87,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
+    {% endcomment %}
 
     <!-- Card com horários disponíveis -->
-    <div class="card">
+    {% comment %} <div class="card">
         <h2 class="titulo__padrao">Escolha o melhor horário</h2>
         <div class="container">
             <img src="assets/img/agendamento/desenho-medica.svg" alt="">
@@ -79,10 +109,10 @@
             </div>
         </div>
         <button id="btn-progress" class="btn">Avançar</button>
-    </div>
+    </div> {% endcomment %}
 
     <!-- Seção com os convênios -->
-    <div class="health-plan">
+    {% comment %} <div class="health-plan">
         <h2 class="titulo__padrao">Selecione o convênio</h2>
         <h3 class="texto">Convênios</h3>
         <figure>
@@ -97,31 +127,12 @@
             <button id="btn-private" class="btn">Particular</button>
             <button id="btn-progress" class="btn">Avançar</button>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     <!-- Seção para confirmação de dados para conclusão do agendamento -->
-    <div class="confirmation">
-        <h2 class="titulo__padrao">Confirmação</h2>
-        <div class="confirm-details">
-            <span class="title-card">Verifique as informações</span>
-            <span>Nome do paciente</span>
-            <span>Especialidade</span>
-            <span>Nome do médico</span>
-            <span>Data e hora marcada</span>
-            <span>Particular ou Convênio</span>
-            <span class="price">Valor</span>
-        </div>
-        <button id="btn-confirm" class="btn">Confirmar</button>
-    </div>
-
-    <!-- Aqui está o aviso de confirmação -->
-    <div class="finish">
-        <img src="assets/img/icones/icon-verificado.svg" alt="">
-        <p>Agendamento realizado com sucesso!</p>
-        <a href="index.html">Retornar para a página inicial</a>
-    </div>
+    
 </main>
 
-    <script src="{% static "js/calendario.js" %}"></script>
+    {% comment %} <script src="{% static "js/calendario.js" %}"></script> {% endcomment %}
 
 {% endblock content %}

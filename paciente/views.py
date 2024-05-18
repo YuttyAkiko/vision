@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, View, UpdateView, DeleteView, TemplateView
 from .models import (Convenio, Paciente, Consulta, Receita, Exame)
-from .forms import Update_Paciente_Form, Update_Consulta_Form, AddPatientForm
+from .forms import Update_Paciente_Form, Update_Consulta_Form, AddPatientForm, AddAgendaForm, LoginForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
+# from django.contrib.auth import authenticate, login
+# from django.contrib import messages
 
 # LoginRequiredMixin - função da classe view para solicitar o login do usuario
 
@@ -14,16 +16,43 @@ class Home(TemplateView):
     template_name = 'institutional/home.html'
 
 
-class Login(TemplateView):
+""" class Login(TemplateView):
     # Página de Login
     model = Paciente
     template_name = 'login.html'
 
+    def login(self, request):
+        if request.method == 'POST':
+            form = LoginForm(request.POST)
+            if form.is_valid():
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('geral-list')  # Redireciona para a página inicial ou outra página desejada
+                else:
+                    messages.error(request, 'E-mail ou senha inválidos!')
+        else:
+            print('erro')
+            form = LoginForm()
+        return render(request, 'login.html', {'form': form}) """
 
-class Agendamento(TemplateView):
-    # Página de Agendamento
-    template_name = 'agenda.html'
+class Agendamento(CreateView):
+    model = Consulta
+    form_class = AddAgendaForm
+    template_name = 'agenda/agenda.html'
 
+    def post(request):
+        if request.method == "POST":
+            form = AddAgendaForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse("agenda/sucess.html"))
+        else:
+            form = AddAgendaForm()
+
+        return render(request, 'agenda/agenda.html', {'form': form})
 
 class Add_Client(CreateView):
     # Quando o cadastro é realizado com sucesso, o cliente é redirecionado para a página de login.
@@ -36,7 +65,7 @@ class Add_Client(CreateView):
             # Cria uma instância do formulário com os dados submetidos
             form = AddPatientForm(request.POST)
             if form.is_valid():  # Verifica se os dados do formulário são válidos
-                
+
                 # Salva os dados do formulário no objeto Paciente, mas não no banco de dados
                 paciente = form.save(commit=False)
 
@@ -48,7 +77,7 @@ class Add_Client(CreateView):
                 paciente.user = user
 
                 # Verifica se o usuário já existe
-                user = User.objects.filter(username=paciente.paciente)
+                user = User.objects.filter(username=paciente.paciente, cpf=paciente.cpf_pac)
                 if user.exists():
                     return HttpResponse("Já existe um usuários com esse username!")
 
@@ -56,7 +85,7 @@ class Add_Client(CreateView):
                 paciente.save()
 
                 # Redireciona para a página de sucesso após o cadastro
-                return HttpResponseRedirect('login')
+                return redirect('accounts:login')
         else:
             # Se a requisição não for do tipo POST, exibe um formulário vazio
             form = AddPatientForm()

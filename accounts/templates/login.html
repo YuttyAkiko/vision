@@ -28,16 +28,16 @@
                 <h1>LOGIN</h1>
                 <nav>
                     <div class="login__facebook texto__padrao">
-                        <a href="https://www.facebook.com/"><img src="{% static "img/redes/facebook.png" %}"
+                        <a href="https://www.facebook.com/"><img src="{% static "img/icons/facebook.png" %}"
                                 alt="Logotipo do Facebook.">Continuar com Facebook</a>
                     </div>
                     <div class="login__apple texto__padrao">
-                        <a href="https://appleid.apple.com/sign-in"><img src="{% static "img/redes/apple.png" %}"
+                        <a href="https://appleid.apple.com/sign-in"><img src="{% static "img/icons/apple.png" %}"
                                 alt="Logotipo da Apple">Continuar com Apple</a>
                     </div>
                     <div class="login__google texto__padrao">
-                        <a
-                            href="https://accounts.google.com/v3/signin/identifier?dsh=S369551555%3A1680555202420996&continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dpt-BR%26sa%3DX%26ved%3D0ahUKEwi8s7r5y47-AhXqqpUCHUajDsYQPAgI&ec=GAZAmgQ&hl=pt-BR&ifkv=AQMjQ7TU-DOt3uE3wFoV8-ly8ILr-uFQHe48MVS_fzNT0HA7AWKWhz1PDDWhbT13eMorudbtEThjbw&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img src="{% static "img/redes/google.png" %}" alt="">Continuar com Google</a>
+                        <a href="https://accounts.google.com/v3/signin/identifier?dsh=S369551555%3A1680555202420996&continue=https%3A%2F%2Fwww.google.com%2Fwebhp%3Fhl%3Dpt-BR%26sa%3DX%26ved%3D0ahUKEwi8s7r5y47-AhXqqpUCHUajDsYQPAgI&ec=GAZAmgQ&hl=pt-BR&ifkv=AQMjQ7TU-DOt3uE3wFoV8-ly8ILr-uFQHe48MVS_fzNT0HA7AWKWhz1PDDWhbT13eMorudbtEThjbw&passive=true&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+                            <img src="{% static "img/icons/google.png" %}" alt="">Continuar com Google</a>
                     </div>
                 </nav>
             </div>
@@ -45,16 +45,41 @@
                 <span class="titulo__padrao">Ou</span>
                 <form action="">
                     {% csrf_token %}
-                    <label for="E-mail">E-mail</label>
+                    {{ form.as_p }}
+                    <a href="#">Esqueceu a senha?</a>
+                    <button class="btn-login" type="submit">LOGIN</button>
+                    {% comment %} <label for="E-mail">E-mail</label>
                     <input id="input-email" name="email" type="email" placeholder="seu_email@email.com">
                     <br>
                     <label for="senha">Senha</label>
-                    <input id="input-senha" name="password" type="password" placeholder="Senha">
+                    <input id="input-senha" name="password" type="password" placeholder="Senha"> {% endcomment %}
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </form>
-                <a href="#">Esqueceu a senha?</a>
-                <button class="btn-login" type="submit">LOGIN</button>
             </div>
         </section>
     </main>
 {% endblock content %}
 
+
+
+{% comment %} {% extends 'base_header.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <a href="{% url 'password_reset' %}">Esqueceu sua senha?</a>
+    <a href="{% url 'register' %}">Criar uma conta</a>
+{% endblock %} {% endcomment %}

@@ -27,13 +27,23 @@
         <div>
             <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
             {% block login-header %}
+            {% if user.is_authenticated %}
+            <p>Olá, {{ user.username }}!</p>
+            <form action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                <!-- #csrf_token is very important to have as this is POST request -->
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'accounsts:login' %}" class="button">LOGIN</a>
+        {% endif %}
                 <p> Olá! {{ username }} </p>
     
                 <div id="btn_header_dash">
                     <nav>
                         <ul>
                             <li><a href="#">VOLTAR</a></li>
-                            <li><a href="{% url "login" %}">LOGOUT</a></li>
+                            <li><a href="{% url "home" %}">LOGOUT</a></li>
                         </ul>
                     </nav>
                 </div>
