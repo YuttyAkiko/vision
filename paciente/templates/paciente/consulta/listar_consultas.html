@@ -1,0 +1,66 @@
+{% extends "base_dash.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/paciente/listar_historico.css' %}">
+{% endblock %}
+
+{% block page-title %} Clinica Vision - Consultas Agendadas {% endblock %}
+
+{% block login-header %}
+
+    <p> Olá! {{ paciente.nome_pac }} </p>
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="{% url 'paciente:geral-list' paciente.pk %}">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    {% block title %}
+    
+        <h1 class="subtitle">CONSULTAS AGENDADAS</h1>
+            
+    {% endblock %}
+
+    <div class="container_historico">
+
+        {% if agendamentos %}
+
+            {% for agendamento in agendamentos %}
+
+                <div>
+
+                    <p>Paciente: {{ agendamento.id_paciente }}</p>
+
+                    <p>Especialidade: {{ agendamento.id_especialidade }}<br>
+                        Médico(a): Dr(a) {{ agendamento.id_medico }}</p>
+
+                    <p>Data: {{ agendamento.data_cons }}<br>
+                        Hora: {{ agendamento.hora_cons }}</p>
+                    
+                    <a href="{% url 'paciente:alterar-consulta' agendamento.pk %}">
+                        <img class="icones_menores" src="{% static 'img/dashboard/editar_icon.svg' %}" alt="ícone-excluir">
+                    </a>
+
+                    <a href="#" class="custom-modal-link" data-toggle="modal" data-target="#myModal-Cancelar">
+                        <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
+                    </a>
+                    
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+{% endblock %}

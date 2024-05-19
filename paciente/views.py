@@ -76,6 +76,19 @@ class AlterarConsulta(UpdateView):
         paciente_pk = self.object.id_paciente.pk
         return reverse_lazy('paciente:geral-list', kwargs={'pk': paciente_pk})
 
+# view generica para listar consulta agendadas
+class ListarConsultas(ListView):
+    model = Consulta
+    template_name = 'paciente/consulta/listar_consultas.html'
+    context_object_name = 'agendamentos'  # Nome do objeto que será passado para o template
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paciente, agendamentos, _ = GeralView.get_queryset(self, pk=self.kwargs['pk'])
+        context['paciente'] = paciente
+        context['agendamentos'] = agendamentos
+        return context
+
 # view generica para cancelar consulta agendada
 class CancelarAgendamento(DeleteView):
     model = Consulta
@@ -94,6 +107,7 @@ class CancelarAgendamento(DeleteView):
         print(messages)
         return redirect('paciente:geral-list', agendamento.id_paciente.pk)
 
+# view generica para listar o historico de consultas concluidas
 class ListarHistorico(ListView):
     model = Consulta
     template_name = 'paciente/consulta/listar_historico.html'
@@ -105,7 +119,8 @@ class ListarHistorico(ListView):
         context['paciente'] = paciente
         context['historicos'] = historicos
         return context
-        
+
+# view para listar o historico de consultas concluidas por data
 def historico_por_data(request, pk):
     if request.method == 'POST':
         paciente = get_object_or_404(Paciente, pk=pk)
