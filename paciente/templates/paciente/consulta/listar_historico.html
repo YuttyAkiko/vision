@@ -29,7 +29,7 @@
 
     {% block title %}
 
-        <form method="POST" action="{% url 'paciente:consulta-por-data' paciente.pk %}">
+        <form method="POST" action="{% url 'paciente:historico-por-data' paciente.pk %}">
             {% csrf_token %}
             <div class="container_titulo">
                 <div>
@@ -69,21 +69,21 @@
 
             {% endfor %}
 
-        {% elif consulta_por_data %}
+        {% elif historico_por_data %}
 
             <h1>Data: {{ data_consulta }}</h1>
                 
-            {% for consulta in consulta_por_data %}
+            {% for historico in historico_por_data %}
                 
                 <div>
 
-                    <p>Paciente: {{ consulta.id_paciente }}</p>
+                    <p>Paciente: {{ historico.id_paciente }}</p>
 
-                    <p>Especialidade: {{ consulta.id_especialidade }}<br>
-                        Médico(a): Dr(a) {{ consulta.id_medico }}</p>
+                    <p>Especialidade: {{ historico.id_especialidade }}<br>
+                        Médico(a): Dr(a) {{ historico.id_medico }}</p>
 
-                    <p>Data: {{ consulta.data_cons }}<br>
-                        Hora: {{ consulta.hora_cons }}</p>
+                    <p>Data: {{ historico.data_cons }}<br>
+                        Hora: {{ historico.hora_cons }}</p>
                     
                     <a href="">
                         <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"

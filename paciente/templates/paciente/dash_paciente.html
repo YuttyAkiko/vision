@@ -138,7 +138,7 @@
 
                     {% elif agendamentos.count >= 2 %}
 
-                        <a href="" type="submit">
+                        <a href="{% url 'paciente:listar-consultas' agendamentos %}" type="submit">
                             <p class="texto">{{ agendamentos.count }} consultas futuras. Ver todos</p>
                         </a> 
 

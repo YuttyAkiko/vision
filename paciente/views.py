@@ -106,11 +106,11 @@ class ListarHistorico(ListView):
         context['historicos'] = historicos
         return context
         
-def consulta_por_data(request, pk):
+def historico_por_data(request, pk):
     if request.method == 'POST':
         paciente = get_object_or_404(Paciente, pk=pk)
         data_consulta = request.POST.get('data_consulta')
-        consulta_por_data = Consulta.objects.filter(data_cons=data_consulta)
-        return render(request, 'paciente/consulta/listar_historico.html', {'paciente': paciente,'consulta_por_data': consulta_por_data, 'data_consulta': data_consulta})
+        historico_por_data = Consulta.objects.filter(data_cons=data_consulta)
+        return render(request, 'paciente/consulta/listar_historico.html', {'paciente': paciente,'historico_por_data': historico_por_data, 'data_consulta': data_consulta})
     else:
         return render(request, 'paciente/consulta/listar_historico.html')
