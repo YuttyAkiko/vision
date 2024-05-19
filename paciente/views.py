@@ -1,9 +1,10 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
 from django.urls import reverse_lazy
-from django.views.generic import View, UpdateView, DeleteView
+from django.views.generic import View, UpdateView, DeleteView, ListView
 from .models import (
     Convenio, Paciente, Consulta, Receita, Exame
 )
@@ -38,8 +39,8 @@ class GeralView(View):
             return HttpResponseNotFound ("Paciente não encontrado.")
         
     # função que irá retornar separadamente os agendamentos e historicos pelo status da consulta
-    def get_queryset(self, paciente_id):
-        paciente = get_object_or_404(Paciente, pk=paciente_id)
+    def get_queryset(self, pk):
+        paciente = get_object_or_404(Paciente, pk=pk)
         agendamentos = Consulta.objects.filter(
             Q(id_paciente=paciente, status_cons='Agendada') | # 'Q' adiciona mais de uma condição ao filtro
             Q(id_paciente=paciente, status_cons='Remarcada')
@@ -62,7 +63,7 @@ class AtualizarDados(UpdateView):
 class AlterarConsulta(UpdateView):
     model = Consulta
     form_class = Update_Consulta_Form
-    template_name = 'paciente/consulta/teste.html'
+    template_name = 'paciente/consulta/alterar_consulta.html'
 
     # atualiza o status da consulta para remarcada
     def form_valid(self, form):
@@ -93,8 +94,23 @@ class CancelarAgendamento(DeleteView):
         print(messages)
         return redirect('paciente:geral-list', agendamento.id_paciente.pk)
 
-    
+class ListarHistorico(ListView):
+    model = Consulta
+    template_name = 'paciente/consulta/listar_historico.html'
+    context_object_name = 'historico'  # Nome do objeto que será passado para o template
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paciente, _, historicos = GeralView.get_queryset(self, pk=self.kwargs['pk'])
+        context['paciente'] = paciente
+        context['historicos'] = historicos
+        return context
         
-
-    
+def consulta_por_data(request, pk):
+    if request.method == 'POST':
+        paciente = get_object_or_404(Paciente, pk=pk)
+        data_consulta = request.POST.get('data_consulta')
+        consulta_por_data = Consulta.objects.filter(data_cons=data_consulta)
+        return render(request, 'paciente/consulta/listar_historico.html', {'paciente': paciente,'consulta_por_data': consulta_por_data, 'data_consulta': data_consulta})
+    else:
+        return render(request, 'paciente/consulta/listar_historico.html')

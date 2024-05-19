@@ -47,3 +47,4 @@ class Update_Consulta_Form(forms.ModelForm):
             else:
                 field.widget.attrs.update(
                     {'class': 'form-select', 'aria-label': 'Default select example'})
+
