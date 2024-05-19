@@ -8,7 +8,7 @@ class PacienteForm(forms.ModelForm):
         fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
                 'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'email_pac', 'id_convenio', 'num_carteirinha')
 
-
+# formulario de cadastro do paciente
 class Update_Paciente_Form(forms.ModelForm):
     
     class Meta:
@@ -30,7 +30,8 @@ class Update_Paciente_Form(forms.ModelForm):
                     {'class': 'input-estilizado', 'maxlength': '50', 'size': '60'})
             else:
                 field.widget.attrs.update({'class': 'form-select', 'aria-label': 'Disabled select example'})
-            
+
+# formulario de alteração de consulta           
 class Update_Consulta_Form(forms.ModelForm):
 
     class Meta:

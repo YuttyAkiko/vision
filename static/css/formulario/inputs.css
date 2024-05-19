@@ -1,4 +1,13 @@
-/* ------- form alterar dados de cadastro e alterar consulta ------- */
+#container-forms {
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+/* ------- form alterar dados de cadastro ------- */
 .perfil-cadastro {
     width: 40%;
     background-color: var(--azul-claro);
@@ -17,15 +26,6 @@
 
 .perfil-cadastro h1 {
     font-size: 30px;
-}
-
-#container-forms {
-    height: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px;
 }
 
 .form-grid {
@@ -62,6 +62,7 @@
     color: var(--branco);
     font-weight: 600;
     border-radius: 10px;
+    font-family: var(--texto);
 
     grid-area: button;
 }
@@ -75,15 +76,8 @@
 
 /* ------- form cancelar consulta ------- */
 
-#container-forms h1 {
-    margin: 30px 0;
-}
-
 .dados-consulta {
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    max-width: 100%;
 }
 
 .dados-consulta p {
@@ -105,6 +99,7 @@
     border-radius: 10px;
     border: none;
     margin-top: 10px;
+    background-color: var(--azul-claro);
 }
 
 textarea {
@@ -122,3 +117,4 @@ textarea {
     "button button";
     gap: 10px;
 }
+

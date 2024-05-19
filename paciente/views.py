@@ -57,12 +57,12 @@ class AtualizarDados(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('paciente:geral-list', kwargs={'pk': self.get_object().id})
-
+    
 # view generica para remarcar consulta
-class EditarConsulta(UpdateView):
+class AlterarConsulta(UpdateView):
     model = Consulta
     form_class = Update_Consulta_Form
-    template_name = 'paciente/consulta/editar-consulta.html'
+    template_name = 'paciente/consulta/teste.html'
 
     # atualiza o status da consulta para remarcada
     def form_valid(self, form):
@@ -75,23 +75,23 @@ class EditarConsulta(UpdateView):
         paciente_pk = self.object.id_paciente.pk
         return reverse_lazy('paciente:geral-list', kwargs={'pk': paciente_pk})
 
-# view generica para cancelar consulta
-class CancelarConsulta(DeleteView):
+# view generica para cancelar consulta agendada
+class CancelarAgendamento(DeleteView):
     model = Consulta
-    template_name = 'paciente/consulta/cancelar-consulta.html'
+    template_name = 'paciente/dash_paciente.html'
 
     # função que altera o status de agendada para cancelada
     def post(self, request, pk):
-        consulta = get_object_or_404(Consulta, pk=pk)
+        agendamento = get_object_or_404(Consulta, pk=pk)
         motivo = request.POST.get('motivo', '')
 
-        consulta.status_cons = 'Cancelada'
-        consulta.observacoes = motivo
-        consulta.save()
+        agendamento.status_cons = 'Cancelada'
+        agendamento.observacoes = motivo
+        agendamento.save()
 
         messages.add_message(request, messages.SUCCESS, "Consulta cancelada com sucesso.")
         print(messages)
-        return redirect('paciente:geral-list', consulta.id_paciente.pk)
+        return redirect('paciente:geral-list', agendamento.id_paciente.pk)
 
     
 

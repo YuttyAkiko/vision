@@ -34,6 +34,7 @@
     {% endblock %}
 
     <div id="container-forms">
+
         <form method="POST" class="form-grid-consulta">
             {% csrf_token %}
             {% for field in form %}
@@ -44,6 +45,7 @@
             {% endfor %} 
             <button type="submit" class="form-button">CONCLUIR</button>
         </form>
+        
     </div>
 
 {% endblock %}

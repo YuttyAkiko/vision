@@ -42,3 +42,4 @@ histórico de agendamentos
 -- Arrumar Views - colocar as validações; OK
 -- Criar o template de receitas;
 -- Colocar nome do medico na list views de consulta; OK
+-- Verificar mensagens de error nas views;
