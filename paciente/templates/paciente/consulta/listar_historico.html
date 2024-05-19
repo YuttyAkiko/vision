@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/paciente/listar_historico.css' %}">
+    <link rel="stylesheet" href="{% static 'css/paciente/listar_consulta.css' %}">
 {% endblock %}
 
 {% block page-title %} Clinica Vision - Histórico de Consulta {% endblock %}
@@ -49,8 +49,7 @@
 
             {% for historico in historicos %}
 
-                <div>
-
+                <div class="consulta-item">
                     <p>Paciente: {{ historico.id_paciente }}</p>
 
                     <p>Especialidade: {{ historico.id_especialidade }}<br>
@@ -63,8 +62,8 @@
                         <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
                             alt="ícone-laudo-médico">
                     </a>
-                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}"
-                            alt="ícone-laudo-médico">
+
+                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}" alt="ícone-laudo-médico">
                 </div>
 
             {% endfor %}
@@ -75,7 +74,7 @@
                 
             {% for historico in historico_por_data %}
                 
-                <div>
+                <div class="historico-item">
 
                     <p>Paciente: {{ historico.id_paciente }}</p>
 

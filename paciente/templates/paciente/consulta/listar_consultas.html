@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/paciente/listar_historico.css' %}">
+    <link rel="stylesheet" href="{% static 'css/paciente/listar_consulta.css' %}">
 {% endblock %}
 
 {% block page-title %} Clinica Vision - Consultas Agendadas {% endblock %}
@@ -39,7 +39,7 @@
 
             {% for agendamento in agendamentos %}
 
-                <div>
+                <div class="consulta-item" id="listar-consulta-bg">
 
                     <p>Paciente: {{ agendamento.id_paciente }}</p>
 
