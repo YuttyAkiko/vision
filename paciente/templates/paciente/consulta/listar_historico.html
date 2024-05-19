@@ -1,0 +1,107 @@
+{% extends "base_dash.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/paciente/listar_historico.css' %}">
+{% endblock %}
+
+{% block page-title %} Clinica Vision - Histórico de Consulta {% endblock %}
+
+{% block login-header %}
+
+    <p> Olá! {{ paciente.nome_pac }} </p>
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="{% url 'paciente:geral-list' paciente.pk %}">VOLTAR</a></li>
+                <li><a href="">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
+
+    {% block title %}
+
+        <form method="POST" action="{% url 'paciente:consulta-por-data' paciente.pk %}">
+            {% csrf_token %}
+            <div class="container_titulo">
+                <div>
+                    <label>Filtrar por data:</label>
+                    <input type="date" name="data_consulta"> 
+                    <button type="submit">BUSCAR</button>    
+                </div>
+                <h1 class="subtitle">HISTÓRICO DE CONSULTAS</h1>
+            </div>
+        </form>
+
+    {% endblock %}
+
+    <div class="container_historico">
+
+        {% if historicos %}
+
+            {% for historico in historicos %}
+
+                <div>
+
+                    <p>Paciente: {{ historico.id_paciente }}</p>
+
+                    <p>Especialidade: {{ historico.id_especialidade }}<br>
+                        Médico(a): Dr(a) {{ historico.id_medico }}</p>
+
+                    <p>Data: {{ historico.data_cons }}<br>
+                        Hora: {{ historico.hora_cons }}</p>
+                    
+                    <a href="">
+                        <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
+                            alt="ícone-laudo-médico">
+                    </a>
+                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}"
+                            alt="ícone-laudo-médico">
+                </div>
+
+            {% endfor %}
+
+        {% elif consulta_por_data %}
+
+            <h1>Data: {{ data_consulta }}</h1>
+                
+            {% for consulta in consulta_por_data %}
+                
+                <div>
+
+                    <p>Paciente: {{ consulta.id_paciente }}</p>
+
+                    <p>Especialidade: {{ consulta.id_especialidade }}<br>
+                        Médico(a): Dr(a) {{ consulta.id_medico }}</p>
+
+                    <p>Data: {{ consulta.data_cons }}<br>
+                        Hora: {{ consulta.hora_cons }}</p>
+                    
+                    <a href="">
+                        <img class="icones_menores" src="{% static 'img/dashboard/img_icone_laudo.svg' %}"
+                            alt="ícone-laudo-médico">
+                    </a>
+                    <img class="icones_menores" src="{% static 'img/dashboard/concluir_icon.svg' %}"
+                            alt="ícone-laudo-médico">
+                </div>
+                        
+            {% endfor %}
+
+        {% else %}
+
+            <h1>Data: {{ data_consulta }}</h1>
+            <p class="texto">Não há consultas nessa data</P>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}
