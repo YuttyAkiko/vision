@@ -25,6 +25,7 @@
     height: 40px;
     margin-left: 10px;
     border-radius: 10px;
+    border: none;
 
     background-color: var(--verde);
     color: var(--branco);

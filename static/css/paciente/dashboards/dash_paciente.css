@@ -59,6 +59,10 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
+}
+.btn_quadrado_pac h1 {
+    text-decoration: none;
 }
 /* estilo e alinhamento do botao de do "agendamentos" */
 .btn_agendamentos_futuros {
@@ -98,7 +102,7 @@ a.custom-modal-link {
     justify-content: space-around;
 }
 
-/* Custom styles for modal link */
+/* estilo para o link do modal */
 a.custom-modal-link:hover {
     text-decoration: none;
     color: var(--azul-escuro-light);
@@ -108,12 +112,8 @@ a.custom-modal-link:hover {
 .icones_menores{
     width: 30px;
 }
-/* removendo borda padrao do button */
-button {
-    border: none;
-    background-color: var(--branco);
-}
-/* subtitulo acima do botao */
+
+/* subtitulo - agendamentos */
 .section_principal h2{
     font-weight: 700;
     display: flex;
