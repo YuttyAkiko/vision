@@ -1,0 +1,41 @@
+{% extends 'base_header.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link href="{% static "css/funcionario/listar_funcionarios.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block page-title %} Clinica Vision - Funcionários {% endblock %}
+
+{% block login-header %}
+
+            <p> Olá! {{ funcionario.nome_func }} </p>
+
+            <div id="btn_header_dash">
+                <nav>
+                    <ul>
+                        <li><a href="">VOLTAR</a></li>
+                        <li><a href="">LOGOUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        {% endblock %}
+
+{% block content %}
+
+    <div class="container_filtro">
+        <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="perfil">
+        <h class="titulo">FUNCIONÁRIOS<h1>
+        <div class="inputs">
+            <input id="nome_funcionario" placeholder="Nome:">
+            <input id="cpf_funcionario" placeholder="CPF:">
+        <div>
+        <div class="btn_buscar">
+            <a href="">BUSCAR</a>
+            <a href="">+ NOVO</a>
+        </div>
+    </div>
+   
+{% endblock %}

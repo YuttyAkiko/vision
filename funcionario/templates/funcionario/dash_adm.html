@@ -10,7 +10,7 @@
         <div>
             <img src="{% static 'img/dashboard/perfil_icon/icone_02.png' %}" alt="ícone perfil">
 
-            <h1> {{ cargo }} </h1>
+            <h1> {{ cargo.nome_cargo }} </h1>
 
             <div>
                 <label>+ Criar novo usuário</label>
@@ -56,10 +56,10 @@
     </div>
 
     <div class="btn_main">
-        {% comment %} <a href="{% url '' %}"> {% endcomment %}
+        <a href="{% url 'funcionario:listar-funcionarios' funcionario.pk %}">
             <img src="{% static 'img/dashboard/icone_funcionario.png' %}" alt="ícone perfil funcionário">
             <h1>FUNCIONÁRIOS</h1>
-        {% comment %} </a> {% endcomment %}
+        </a> 
     </div>
 
     <div class="btn_main">
