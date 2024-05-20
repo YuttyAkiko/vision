@@ -84,7 +84,7 @@ section {
     border-radius: 20px;
     background-color: var(--branco);
     border: none;
-    /* margin-top: 30px; */
+    margin-top: 30px;
     font-weight: bold;
     box-sizing: border-box;
 }

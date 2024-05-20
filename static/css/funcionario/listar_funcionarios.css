@@ -1,30 +1,98 @@
+/* estilizando filtro de funcionarios */
+
 .container_filtro {
     width: 100%;
     height: 200px;
     align-items: center;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ajuste das colunas */
-    grid-template-areas: 
-    "img titulo titulo btn_buscar"
-    "img inputs inputs btn_buscar";
-    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .container_filtro img {
+    width: 100px;
+    height: 100px;
+}
+
+.container_filtro div:first-child {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_filtro div:nth-child(2) {
+    width: 60%;
+}
+
+.container_filtro div:nth-child(2) input {
+    height: 30px;
+    background-color: var(--azul-claro);
+    border-radius: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+.container_filtro div:nth-child(2) button {
+    width: 100px;
+    height: 40px;
+    background-color: var(--verde);
+    color: var(--branco);
+    font-weight: 600;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.container_filtro div:nth-child(3) {
+    width: 20%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container_filtro div:nth-child(3) button {
     width: 180px;
-    height: 180px;
-    grid-area: img;
+    height: 60px;
+
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    font-weight: 600;
+    border-radius: 10px;
 }
 
-.titulo {
-    grid-area: titulo;
+/* estilizando tabela */
+
+.container_table_funcionario {
+    width: 100%;
+    min-height: 400px;
+    max-height: auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.inputs {
-    grid-area: inputs;
+.container_table_funcionario table {
+    width: 80%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+
+    font-family: var(--texto);
+}
+/* rotulo da tabela */
+.container_table_funcionario th {
+    background-color: var(--cinza);
+    /* border: 1px solid var(--preto); */
+    text-align: left;
+    padding: 8px;
+    font-weight: 600;
 }
 
-.btn_buscar {
-    grid-area: btn_buscar;
+tbody td {
+    border: 1px solid var(--cinza);
+    text-align: left;
+    padding: 8px;
 }
+
