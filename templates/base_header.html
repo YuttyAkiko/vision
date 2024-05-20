@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="{% static 'css/paciente/dashboards/base_dash.css' %}">
     <link rel="stylesheet" href="{% static 'css/paciente/dashboards/dash_paciente.css' %}">
-    <link rel="stylesheet" href="{% static 'css/paciente/formulario/inputs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formulario/inputs.css' %}">
 
     <title>{% block page-title %} {{ username }} {% endblock %}</title>
 </head>
@@ -55,6 +55,8 @@
 </header>
 
 <body>
+
+    <img src="{% static 'img/dashboard/faixa_listrada.svg' %}" alt="listras">
 
     {% block content %}
     {% endblock %}
