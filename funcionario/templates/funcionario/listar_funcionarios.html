@@ -10,12 +10,10 @@
 
 {% block login-header %}
 
-            <p> Olá! {{ funcionario.nome_func }} </p>
-
             <div id="btn_header_dash">
                 <nav>
                     <ul>
-                        <li><a href="">VOLTAR</a></li>
+                        <li><a href="{% url 'funcionario:geral-list' funcionario_logado.pk %}">VOLTAR</a></li>
                         <li><a href="">LOGOUT</a></li>
                     </ul>
                 </nav>
@@ -25,17 +23,52 @@
 
 {% block content %}
 
+    {% block title %}
+
     <div class="container_filtro">
-        <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="perfil">
-        <h class="titulo">FUNCIONÁRIOS<h1>
-        <div class="inputs">
-            <input id="nome_funcionario" placeholder="Nome:">
-            <input id="cpf_funcionario" placeholder="CPF:">
         <div>
-        <div class="btn_buscar">
-            <a href="">BUSCAR</a>
-            <a href="">+ NOVO</a>
+            <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="perfil">
+            <h1 class="titulo">FUNCIONÁRIOS<h1>
+        </div>
+        <div>
+            <input id="nome_funcionario" placeholder="NOME">
+            <input id="cpf_funcionario" placeholder="CPF">
+            <button type="submit">BUSCAR</a>
+        </div>
+        <div>
+            <button type="button">+ NOVO</a>
         </div>
     </div>
-   
+    {% endblock %}
+
+    <section class="container_table_funcionario">
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Funcionário</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for funcionario in funcionarios %}
+                <tr>
+                    <td>{{ funcionario.id }}</td>
+                    <td>{{ funcionario.nome_func }}</td>
+                    <td>{{ funcionario.cpf_func }}</td>
+                    <td>{{ funcionario.tel_func_1 }}</td>
+                    <td>{{ funcionario.email_func }}</td>
+                    <td><a href="{% url 'funcionario:atualizar-cadastro' funcionario.pk %}">Detalhes</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </section>
+
 {% endblock %}

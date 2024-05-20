@@ -36,15 +36,17 @@ class AtualizarDados(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('funcionario:geral-list', kwargs={'pk': self.object.pk})
-    
+
+#  view generica que lista todos os funcionarios 
 class ListarFuncionarios(ListView):
     model = Funcionario
     template_name = 'funcionario/listar_funcionarios.html'
-    context_object_name = 'funcionario'
+    context_object_name = 'funcionarios'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        funcionario = GeralView.get(self, self.request, pk=self.kwargs['pk'])
-        context['funcionario'] = funcionario
+        pk = self.kwargs.get('pk')
+        funcionario_logado = Funcionario.objects.get(pk=pk)
+        context['funcionario_logado'] = funcionario_logado
         return context
     
