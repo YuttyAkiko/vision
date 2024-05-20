@@ -4,7 +4,7 @@ from django.views.generic import View, UpdateView, ListView
 from .forms import Update_Funcionario_Form
 from django.contrib import messages
 from .models import (
-    Funcionario, Cargo
+    Funcionario
 )
 
 class GeralView(View):

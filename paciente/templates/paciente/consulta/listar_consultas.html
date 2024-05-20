@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block head %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/paciente/listar_consulta.css' %}">
 {% endblock %}
 
@@ -52,6 +53,40 @@
                     <a href="#" class="custom-modal-link" data-toggle="modal" data-target="#myModal-Cancelar">
                         <img class="icones_menores" src="{% static 'img/dashboard/img_icone_excluir.svg' %}" alt="ícone-excluir">
                     </a>
+
+                                    <!-- Modal - Cancelar Consulta-->
+                    <div class="modal fade" id="myModal-Cancelar" role="dialog">
+                        <div class="modal-dialog">
+                        <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1 class="title">CANCELAR AGENDAMENTO</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="dados-consulta">
+
+                                        <form method="POST" action="{% url 'paciente:cancelar-consulta' agendamento.pk %}">
+
+                                            <p>Data: {{ agendamento.data_cons }}</p>
+                                            <p>Hora: {{ agendamento.hora_cons }}</p>
+                                            <p>Especialidade: {{ agendamento.id_especialidade }}</p>
+                                                                            
+                                            {% csrf_token %}
+                                            <div class="form-field">
+                                                <label for="motivo">Motivo do cancelamento:</label><br>
+                                                <textarea id="motivo" rows="10" name="motivo" cols="33"></textarea>
+                                            </div>
+                                            <div class="form-button">
+                                                <button type="submit">CONFIRMAR CANCELAMENTO</button>
+                                            </div>
+                                        </form>
+                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                 </div>
 

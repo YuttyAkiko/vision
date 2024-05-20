@@ -30,6 +30,7 @@
     height: 30px;
     background-color: var(--azul-claro);
     border-radius: 10px;
+    border: none;
     margin-right: 10px;
     padding-left: 10px;
 }
@@ -40,6 +41,7 @@
     color: var(--branco);
     font-weight: 600;
     border-radius: 10px;
+    border: none;
     margin-right: 10px;
 }
 .container_filtro div:nth-child(3) {
@@ -56,6 +58,7 @@
     background-color: var(--azul-escuro);
     color: var(--branco);
     font-weight: 600;
+    border: none;
     border-radius: 10px;
 }
 
