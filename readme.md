@@ -24,15 +24,17 @@ Faça o clone do projeto usando o comando:
 $ git clone https://github.com/YuttyAkiko/vision.git
 ```
 
-Crie um maquina virtual e instale a bibliotecas disponiveis no 
-arquivo requirementes.txt:
 
 Entre na pasta criada e inicie um ambiente virtual:
 ```
-$ cd projeto_clinica
-$ python3 -m venv venv
+$ cd vision
+$ python -m venv venv
 ```
-Depois voce deve ativa-lo com o seguinte comando:
+Depois você deve ativá-lo com o seguinte comando:
+```
+$ .venv/Scripts/activate
+```
+ou
 
 ```
 $ source ./venv/bin/activate
