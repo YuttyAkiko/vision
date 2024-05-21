@@ -50,8 +50,8 @@
 
 .form-label {
     font-family: var(--texto);
-    font-weight: bold;
-    padding-bottom: 10px;
+    /* font-weight: bold; */
+    padding: 0 0 0 1.2rem;
 }
 
 .form-button {
@@ -72,3 +72,7 @@
     background-color: var(--azul-claro);
 }
 
+/* estilo dos inputs na tela de cadastro */
+.form-group {
+    padding: .5rem;
+}

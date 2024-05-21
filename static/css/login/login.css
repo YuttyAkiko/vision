@@ -2,6 +2,7 @@ main {
     display: flex;
     height: auto;
     width: 100%;
+    justify-content: center;
 }
 
 /* Aqui começa onde fica os elementos a esquerda */
@@ -42,6 +43,7 @@ h1 {
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 #btn-criar-conta {
@@ -74,6 +76,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 2rem 0;
 }
 
@@ -190,11 +193,11 @@ a {
     text-decoration: none;
 }
 
-#input-email, #input-senha {
+.input {
     background-color: var(--azul-claro);
     border: none;
     border-radius: 20px;
-    height: 50px;
+    height: 40px;
     margin: 0.5rem 0 1rem 0;
     padding: 0 300px 0 50px;
     width: auto;
