@@ -12,17 +12,14 @@ from django.views.generic import CreateView, UpdateView, FormView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from .forms import UserAdminCreationForm
-from django.contrib.auth.views import (
-    LoginView, LogoutView,
-)
-from paciente.models import Paciente, Consulta
+from django.contrib.auth.views import LoginView, LogoutView
 from .models import User
 
 
 class IndexView(LoginRequiredMixin, DetailView):
     model = User
-    template_name = 'accounts/index.html'
-    login_url = reverse_lazy('paciente:geral-list')
+    template_name = 'dashboard/dash_paciente.html'
+    login_url = reverse_lazy('accounts:login')
     
     def get_object(self):
         return self.request.user
@@ -32,7 +29,6 @@ class Login(LoginView):
 
     model = User
     template_name = 'accounts/login.html'
-
 
 class Logout(LogoutView):
 
@@ -44,7 +40,7 @@ class RegisterView(CreateView):
     model = User
     template_name = 'accounts/register.html'
     form_class = UserAdminCreationForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('accounts:index')
     
     def form_valid(self, form):
         messages.info(
@@ -76,7 +72,7 @@ def password_reset_request(request):
                         send_mail(
                             subject,
                             email,
-                            "admin@exemple.com",
+                            "admin@example.com",
                             [user.email],
                             fail_silently=False
                         )
@@ -98,7 +94,7 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('accounts:login')
     template_name = 'accounts/update_user.html'
     fields = ['name', 'email']
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('accounts:index')
 
     def get_object(self):
         return self.request.user
@@ -108,7 +104,7 @@ class UpdatePasswordView(LoginRequiredMixin, FormView):
 
     template_name = 'accounts/update_password.html'
     login_url = reverse_lazy('accounts:login')
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('accounts:index')
     form_class = PasswordChangeForm
 
     def get_form_kwargs(self):

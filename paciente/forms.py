@@ -12,7 +12,7 @@ class LoginForm(forms.ModelForm):
 class AddPatientForm(forms.ModelForm):
     class Meta:
         model = Paciente
-        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
+        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac',
                 'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'id_convenio', 'num_carteirinha')
 
 class AddAgendaForm(forms.ModelForm):
@@ -24,7 +24,7 @@ class Update_Paciente_Form(forms.ModelForm):
 
     class Meta:
         model = Paciente
-        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
+        fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac',
                 'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'email_pac', 'id_convenio', 'num_carteirinha')
 
     # adicionando readonly aos campos nao editaveis

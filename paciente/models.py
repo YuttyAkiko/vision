@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from funcionario.models import Medico, Especialidade
 from django.urls import reverse
+from django.conf import settings
+from django.db.models.fields.related import ForeignKey, OneToOneField
+from django.core.validators import RegexValidator
+from django.db import models
+from funcionario.models import Agenda
+# from django_cpf_cnpj.fields import CPFField
 #  from cpf_field.models import CPFField
 
 class Convenio(models.Model):
@@ -21,8 +27,14 @@ class Paciente(models.Model):
   # cpf_pac = CPFField('cpf') # O método CPFField valida um cpf real
   cpf_pac = models.CharField(max_length=30, verbose_name="CPF")
   nasc_pac  = models.DateField(auto_now=False, auto_now_add=False, verbose_name="nascimento")
-  tel_pac_1 = models.CharField(max_length=30, verbose_name="Telefone 1")
-  tel_pac_2 = models.CharField(max_length=30, null=True, blank=True, verbose_name="Telefone 2 (Opcional)")
+  phone_regex = RegexValidator(
+    regex=r'^\+?1?\d{9,15}$',
+    message="O número precisa estar neste formato: \
+                    '+99 99 9999-0000'.")
+
+  tel_pac = models.CharField(verbose_name="Telefone",
+                                validators=[phone_regex],
+                                max_length=17, null=True, blank=True)
   cep_pac = models.CharField(max_length=30, verbose_name="CEP")
   end_pac = models.CharField(max_length=300, verbose_name="endereço")
   bairro_pac = models.CharField(max_length=100, verbose_name="bairro")
@@ -35,11 +47,17 @@ class Paciente(models.Model):
   def __str__(self):
     return f"{self.id} - {self.nome_pac} {self.sobrenome_pac}"
   
-  """ def get_absolute_url(self):
-    # Está função redireciona o paciente para a página de login após o cadastro ter sido realizado com sucesso.
-    return reverse("login") """
+  user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, 
+        verbose_name='Usuário', 
+        on_delete=models.CASCADE
+    )
+    
+  def __str__(self):
+    return f'{self.user.name}'
   
 class Consulta(models.Model):
+    agenda =  OneToOneField(Agenda, on_delete=models.CASCADE, related_name='consulta')
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
     hora_cons = models.TimeField()
     id_paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE) # Relacionamento (1,n)

@@ -19,14 +19,14 @@
                         <img src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone perfil">
 
                         <div class="btn_quadrado_pac"> <!--botao agendamento-->
-                            <a href="{% url "paciente:agenda" paciente.pk %}">
+                            <a href="{% comment %} {% url "paciente:agenda" paciente.pk %} {% endcomment %}">
                                 <img id="centralize" src="{% static 'img/dashboard/img-calendario.png' %}" alt="ícone-agendamento">
                                 <h1>NOVO<br>AGENDAMENTO</h1>
                             </a>
                         </div>
 
                         <div class="btn_quadrado_pac"> <!--botao meus dados-->
-                            <a href="{% url 'paciente:atualizar-cadastro' paciente.pk %}">
+                            <a href="{% comment %} {% url 'paciente:atualizar-cadastro' paciente.pk %} {% endcomment %}">
                                 <img id="centralize" src="{% static 'img/dashboard/perfil_icon/icone_01.png' %}" alt="ícone-agendamento">
                                 <h1>MEUS DADOS</h1>
                             </a>
@@ -136,4 +136,3 @@
 
     {% endblock %}
 
-       

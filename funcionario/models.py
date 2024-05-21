@@ -2,6 +2,11 @@
 from typing import Any
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
+from django.conf import settings
+from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
+from django.db.models.fields.related import ForeignKey
 #  from cpf_field.models import CPFField
 
 class Cargo(models.Model):
@@ -30,8 +35,14 @@ class Funcionario(models.Model):
     # cpf_func = CPFField('cpf') # O método CPFField valida um cpf real
     cpf_func = models.CharField(max_length=30, verbose_name="CPF")
     nasc_func = models.DateField(auto_now=False, auto_now_add=False)
-    tel_func_1 = models.CharField(max_length=30)
-    tel_func_2 = models.CharField(max_length=30, null=True, blank=True)
+    phone_regex = RegexValidator(
+    regex=r'^\+?1?\d{9,15}$',
+    message="O número precisa estar neste formato: \
+                    '+99 99 9999-0000'.")
+
+    tel_func = models.CharField(verbose_name="Telefone",
+                                validators=[phone_regex],
+                                max_length=17, null=True, blank=True)
     cep_func = models.CharField(max_length=30)
     end_func = models.CharField(max_length=300)
     bairro_func = models.CharField(max_length=100)
@@ -53,10 +64,33 @@ class Medico(models.Model):
         nome_medico = str(self.id_funcionario.nome_func)
         return nome_medico
 
+
 class Especialidade(models.Model):
     tipo_especialidade = models.CharField(max_length=30)
     valor_consulta = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
         return self.tipo_especialidade
+    
+def validar_dia(value):
+        today = date.today()
+        weekday = date.fromisoformat(f'{value}').weekday()
+
+        if value < today:
+            raise ValidationError('Não é possivel escolher um data atrasada.')
+        if (weekday == 5) or (weekday == 6):
+            raise ValidationError('Escolha um dia útil da semana.')
+    
+class Agenda(models.Model):
+    id_medico = ForeignKey(Medico, on_delete=models.CASCADE, related_name='agenda')
+    dia = models.DateField(help_text="Insira uma data para agenda", validators=[validar_dia])
+    
+    HORARIOS = (
+        ("1", "07:00 ás 08:00"),
+        ("2", "08:00 ás 09:00"),
+        ("3", "09:00 ás 10:00"),
+        ("4", "10:00 ás 11:00"),
+        ("5", "11:00 ás 12:00"),
+    )
+    horario = models.CharField(max_length=10, choices=HORARIOS)
 

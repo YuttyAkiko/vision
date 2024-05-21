@@ -40,7 +40,8 @@
                 {% for field in form %}
                 <div class="form-group{% if field.errors %} has-error{% endif %}">
                   <label for="{{ field.auto_id }}" class="form-label col-md-3 control-label">
-                  {{ field.label }}</label>
+                    {{ field.label }}
+                  </label>
                   <div class="col-md-9">
                     {% render_field field class="form-control input" %}
                     {% for error in field.errors %}

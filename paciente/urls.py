@@ -6,10 +6,10 @@ from . import views
 app_name = 'paciente'
 
 urlpatterns = [
-    path('cadastro/', views.Add_Client.as_view(), name="cadastro"),
-    path('geral/<int:pk>', views.GeralView.as_view(), name='geral-list'),
-    path('geral/<int:pk>/atualizar-cadastro/', views.AtualizarDados.as_view(), name='atualizar-cadastro'),
-    path('geral/<int:pk>/editar-consulta/', views.EditarConsulta.as_view(), name='editar-consulta'),
-    path('geral/<int:pk>/cancelar-consulta/', views.CancelarConsulta.as_view(), name='cancelar-consulta'),
-    path('geral/<int:pk>/agendamento/', views.Agendamento.as_view(), name='agenda'),
-]
+    path('cadastro/', views.client_register, name="cadastro"),
+    path('geral/<int:pk>', views.client_profile, name='geral-list'),
+    path('geral/<int:pk>/atualizar-cadastro/', views.client_update, name='atualizar-cadastro'),
+    path('geral/<int:pk>/editar-consulta/', views.agenda_update, name='editar-consulta'),
+    path('geral/<int:pk>/cancelar-consulta/', views.agenda_delete, name='cancelar-consulta'),
+    path('geral/<int:pk>/agendamento/', views.agenda_register, name='agenda'),
+]   

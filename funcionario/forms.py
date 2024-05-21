@@ -5,5 +5,5 @@ class Update_Funcionario_Form(forms.ModelForm):
     class Meta:
         model = Funcionario
         fields = ('nome_func','sobrenome_func','genero_func','cpf_func',
-                  'nasc_func','tel_func_1','tel_func_2','cep_func','end_func','bairro_func',
-                  'cidade_func','email_func','status_cad_func')
+                'nasc_func','tel_func','cep_func','end_func','bairro_func',
+                'cidade_func','email_func','status_cad_func')

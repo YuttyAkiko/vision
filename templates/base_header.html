@@ -18,7 +18,7 @@
     {% block head %}
     {% endblock %}
     
-    <title>{% block page-title %}Clínica Vision | {{ username }} {% endblock %}</title>
+    <title>{% block page-title %} Clínica Vision | {{ username }} {% endblock %}</title>
 </head>
 
 <body>
@@ -27,27 +27,15 @@
         <div>
             <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
             {% block login-header %}
-            {% comment %} {% if user.is_authenticated %}
-            <p>Olá, {{ user.username }}!</p>
-            <form action="{% url 'home' %}" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <!-- #csrf_token is very important to have as this is POST request -->
-                <button type="submit">Logout</button>
-            </form>
-            {% else %}
-            {% endif %} {% endcomment %}
                 <p> Olá! {{ username }} </p>
-    
                 <div id="btn_header_dash">
                     <nav>
                         <ul>
                             <li><a href="{% url "home" %}">VOLTAR</a></li>
-                            <li><a href="{% url "accounts:logout" %}">LOGOUT</a></li>
+                            <li><a href="{% url "accounts:logout" %}">SAIR</a></li>
                         </ul>
                     </nav>
                 </div>
-    
             {% endblock login-header %}
             
             {% comment %} 
