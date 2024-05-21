@@ -10,11 +10,10 @@ class LoginForm(forms.ModelForm):
         fields = ('username', 'email_pac', 'password')
 
 class AddPatientForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput, label='Senha')  # Adiciona campo para senha
     class Meta:
         model = Paciente
         fields = ('nome_pac', 'sobrenome_pac', 'genero_pac', 'cpf_pac', 'nasc_pac', 'tel_pac_1', 'tel_pac_2',
-                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'id_convenio', 'num_carteirinha', 'email_pac', 'password')
+                'cep_pac', 'end_pac', 'bairro_pac', 'cidade_pac', 'id_convenio', 'num_carteirinha')
 
 class AddAgendaForm(forms.ModelForm):
     class Meta:

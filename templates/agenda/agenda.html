@@ -23,21 +23,19 @@
     <!-- input de seleção -->
     <section class="container-especialidade-data">
         <div class="seleciona-especialidade-container">
-            
             <form action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-
                 <div class="confirmation">
                     <h2 class="titulo__padrao">Confirmação</h2>
                     <div class="confirm-details">
                         <span class="title-card">Verifique as informações</span>
-                        <span>Nome do paciente</span>
-                        <span>Especialidade</span>
-                        <span>Nome do médico</span>
-                        <span>Data e hora marcada</span>
-                        <span>Particular ou Convênio</span>
-                        <span class="price">Valor</span>
+                        <span>Nome do paciente: {{ request.user.paciente.nome_pac }}</span>
+                        <span>Especialidade: {{ form.id_especialidade.value }}</span>
+                        <span>Nome do médico: {{ form.id_medico.value }}</span>
+                        <span>Data e hora marcada: {{ form.data_cons.value }} {{ form.hora_cons.value }}</span>
+                        <span>Particular ou Convênio: {{ request.user.paciente.id_convenio.nome_convenio }}</span>
+                        <span class="price">Valor: R$ 200,00</span> <!-- Example value -->
                     </div>
                     <button id="btn-confirm" class="btn">Confirmar</button>
                 </div>
@@ -134,5 +132,6 @@
 </main>
 
     {% comment %} <script src="{% static "js/calendario.js" %}"></script> {% endcomment %}
+    {% comment %} <script src="{% static "js/agenda_sucess.js" %}"></script> {% endcomment %}
 
 {% endblock content %}

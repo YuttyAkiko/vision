@@ -27,28 +27,28 @@
         <div>
             <img class="header_logo" src="{% static 'img/logo/logo-vision-dark.svg' %}" alt="Logo Clínica Vision">
             {% block login-header %}
-            {% if user.is_authenticated %}
+            {% comment %} {% if user.is_authenticated %}
             <p>Olá, {{ user.username }}!</p>
             <form action="{% url 'home' %}" method="post">
                 {% csrf_token %}
+                {{ form.as_p }}
                 <!-- #csrf_token is very important to have as this is POST request -->
                 <button type="submit">Logout</button>
             </form>
-        {% else %}
-            <a href="{% url 'accounsts:login' %}" class="button">LOGIN</a>
-        {% endif %}
+            {% else %}
+            {% endif %} {% endcomment %}
                 <p> Olá! {{ username }} </p>
     
                 <div id="btn_header_dash">
                     <nav>
                         <ul>
-                            <li><a href="#">VOLTAR</a></li>
-                            <li><a href="{% url "home" %}">LOGOUT</a></li>
+                            <li><a href="{% url "home" %}">VOLTAR</a></li>
+                            <li><a href="{% url "accounts:logout" %}">LOGOUT</a></li>
                         </ul>
                     </nav>
                 </div>
     
-            {% endblock %}
+            {% endblock login-header %}
             
             {% comment %} 
                 <div onclick="mostrarMenu()" class="mobile-menu-amburguer">

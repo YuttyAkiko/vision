@@ -35,9 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_extensions',
+    'django_cpf_cnpj',
+    'widget_tweaks',
+
     'accounts.apps.AccountsConfig',
     'funcionario.apps.FuncionariosConfig',
     'paciente.apps.PacienteConfig',
+
     'cpf_field',
 ]
 
@@ -132,5 +138,13 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Definindo redirecionamento das urls quando o usuario fizer login e logout
-LOGOUT_REDIRECT_URL = 'home'
-LOGIN_REDIRECT_URL = 'login'
+""" LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'login' """
+LOGIN = 'conta/entrar'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.ModelBackend'
+)

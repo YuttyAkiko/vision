@@ -35,9 +35,9 @@ class Paciente(models.Model):
   def __str__(self):
     return f"{self.id} - {self.nome_pac} {self.sobrenome_pac}"
   
-  def get_absolute_url(self):
+  """ def get_absolute_url(self):
     # Está função redireciona o paciente para a página de login após o cadastro ter sido realizado com sucesso.
-    return reverse("login")
+    return reverse("login") """
   
 class Consulta(models.Model):
     data_cons = models.DateField(auto_now=False, auto_now_add=False)
