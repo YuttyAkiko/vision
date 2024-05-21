@@ -1,0 +1,22 @@
+{% extends "base_header.html" %}
+
+{% load static %}
+
+{% block page-title %} Clínica Vision - Logout {% endblock %}
+
+{% block login-header %}
+
+    <div id="btn_header_dash">
+        <nav>
+            <ul>
+                <li><a href="">VOLTAR</a></li>
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <P>Você saiu do sistema!</P>
+    <a href="{% url 'home' %}">Clique aqui para ir pra página principal</a>
+{% endblock %}

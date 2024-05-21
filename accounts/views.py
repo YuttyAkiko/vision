@@ -1,18 +1,17 @@
-# from django.shortcuts import render
-# from django.views.decorators.http import require_POST
-# from django.contrib.auth.decorators import login_required
-# from .models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordResetForm
+from django.shortcuts import render, redirect
 
-# definindo função de criação de usuario
-# @require_POST
-# def cadastrar_usuario(request):
-#     username = request.POST('input-username')
-#     email = request.POST('input-email')
-#     senha = request.POST('input-senha')
-
-#     novo_user = User.objects.create_user(username=username, email=email, password=senha)
-#     novo_user.save()
-
-def home(request):
-    return render(request, 'index.html')
-
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')  # Redirecionar para a página inicial após o login
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})

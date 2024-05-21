@@ -5,10 +5,10 @@ from paciente.views import Login, Home, Agendamento
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contas', include('django.contrib.auth.urls')),
+    path('contas/', include('django.contrib.auth.urls')), # urls padroes para autenticaçaõ django
     path('', Home, name='home'),
-    path('login/', Login, name='login'),
+    # path('login/', Login, name='login'),
     path('agendamento/', Agendamento, name='agendamento'),
     path('funcionario/', include('funcionario.urls', namespace="funcionario")),
-    path('paciente/', include('paciente.urls', namespace="paciente"))
+    path('paciente/', include('paciente.urls', namespace="paciente")),
 ]
