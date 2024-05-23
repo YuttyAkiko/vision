@@ -41,5 +41,7 @@ histórico de agendamentos
 -- Tabela Clinica;
 -- Arrumar Views - colocar as validações; OK
 -- Criar o template de receitas;
+-- Criar botao na view de atendente e admin para agendar exame; 
+-- Criar view para paciente tbm porem com arquivo para o paciente atrelar o encaminhamento.
 -- Colocar nome do medico na list views de consulta; OK
 -- Verificar mensagens de error nas views;
